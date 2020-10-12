@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Done</string>
+    <string name="about">About</string>
+    <string name="settings">settings</string>
+    <string name="search_services">ابحث عن خدمات</string>
+    <string name="home">الرئيسية</string>
+    <string name="messages">الرسائل</string>
+    <string name="account">الحساب</string>
+    <string name="notification">الاشعارات</string>
+</resources>

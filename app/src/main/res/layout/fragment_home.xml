@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+   android:background="@drawable/home_back"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/rectangles_shape"
+        android:background="@drawable/white_rectangle_background"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginHorizontal="20dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_search"
+            />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layoutDirection="rtl"
+            android:background="@null"
+            android:imeOptions="actionSearch"
+            android:paddingEnd="15dp"
+            android:textAlignment="textStart"
+            android:paddingStart="15dp"
+            android:hint="@string/search_services"
+            android:textColor="@color/colorPrimary"
+            android:gravity="start">
+
+
+        </EditText>
+
+    </LinearLayout>
+
+<LinearLayout
+
+    android:layout_marginTop="150dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<ImageView
+    android:paddingTop="10dp"
+    android:id="@+id/graphicId"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:src="@drawable/graphic"
+    />
+
+    <ImageView
+    android:paddingTop="10dp"
+    android:id="@+id/videoEditingId"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:src="@drawable/video"
+    />
+    <ImageView
+    android:paddingTop="10dp"
+    android:id="@+id/translateId"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:src="@drawable/translate"
+    />
+
+    <ImageView
+    android:paddingTop="10dp"
+    android:id="@+id/programmingId"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:src="@drawable/programing"
+    />
+
+</LinearLayout>
+
+</RelativeLayout>
