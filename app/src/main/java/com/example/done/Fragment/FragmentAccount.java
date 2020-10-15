@@ -1,4 +1,4 @@
-package com.example.done;
+package com.example.done.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.done.R;
 
 public class FragmentAccount extends androidx.fragment.app.Fragment {
 

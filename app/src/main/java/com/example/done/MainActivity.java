@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.done.Fragment.FragmentAccount;
+import com.example.done.Fragment.FragmentHome;
+import com.example.done.Fragment.FragmentMessages;
+import com.example.done.Fragment.FragmentNotification;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {

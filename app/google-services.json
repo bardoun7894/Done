@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "51138138003",
+    "firebase_url": "https://done-88ca5.firebaseio.com",
+    "project_id": "done-88ca5",
+    "storage_bucket": "done-88ca5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51138138003:android:755233db97b713fc87e266",
+        "android_client_info": {
+          "package_name": "com.example.done"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51138138003-fe9q4peu6e28akr2rmavqa7tqvdkd5s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKmZ2LUgdAsDCmd2B4OxmtOesFBVxsk08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51138138003-fe9q4peu6e28akr2rmavqa7tqvdkd5s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

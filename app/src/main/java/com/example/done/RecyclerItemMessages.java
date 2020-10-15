@@ -11,22 +11,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class RecyclerItem extends RecyclerView.Adapter<RecyclerItem.ViewHolder> {
+public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessages.ViewHolder> {
     List<ItemChat> itemChatList ;
-    public RecyclerItem(List<ItemChat> itemChatList) {
+    public RecyclerItemMessages(List<ItemChat> itemChatList) {
         this.itemChatList =itemChatList;
     }
 
     @NonNull
     @Override
-    public RecyclerItem.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerItemMessages.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_chat,parent,false );
         ViewHolder viewHolder =new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerItem.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerItemMessages.ViewHolder holder, int position) {
            holder.imageView.setImageResource(itemChatList.get(position).getmImageResource());
            holder.userTextView.setText(itemChatList.get(position).getmUser());
            holder.hashTextView.setText(itemChatList.get(position).getmHach());
