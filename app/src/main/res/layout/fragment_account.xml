@@ -26,13 +26,15 @@
             android:layout_height="wrap_content">
         </TextView>
     </LinearLayout>
-    <TextView
-        android:text="Account Fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+
         android:layout_centerInParent="true"
-
+        android:id="@+id/signِAccountBtnId"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="تسجيل الدخول"
+        android:textColor="#ffff"
+        android:textSize="20sp"
         />
-
 
 </RelativeLayout>

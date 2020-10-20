@@ -1,20 +1,14 @@
 package com.example.done;
-
-
         import android.content.Context;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.ImageView;
         import android.widget.TextView;
-
         import androidx.annotation.NonNull;
         import androidx.recyclerview.widget.RecyclerView;
-
         import com.bumptech.glide.Glide;
         import com.example.done.models.ItemServiceSearch;
-        import com.example.done.models.ItemServices;
-
         import java.util.List;
 
 public class RecyclerItemSearchServices extends RecyclerView.Adapter<RecyclerItemSearchServices.ViewHolder> {
@@ -27,7 +21,6 @@ public class RecyclerItemSearchServices extends RecyclerView.Adapter<RecyclerIte
     @NonNull
     @Override
     public RecyclerItemSearchServices.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_search_service,parent,false );
         ViewHolder viewHolder =new ViewHolder(view);
         return viewHolder;
@@ -35,7 +28,6 @@ public class RecyclerItemSearchServices extends RecyclerView.Adapter<RecyclerIte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        Picasso.get().load(itemServicesList.get(position).getImageUrl()).into(holder.imageView);
         Glide.with(mcontext).load(itemServicesSearchList.get(position).getImageService()).into(holder.imageView);
         String rating  =String.valueOf(itemServicesSearchList.get(position).getRating_number());
         holder.rating_numberTv.setText(rating);
@@ -47,7 +39,6 @@ public class RecyclerItemSearchServices extends RecyclerView.Adapter<RecyclerIte
     public int getItemCount() {
         return itemServicesSearchList.size();
     }
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView ;
         TextView rating_numberTv ,descTv,priceTv ;
