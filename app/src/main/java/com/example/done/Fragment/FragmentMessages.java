@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.done.ItemChat;
+import com.example.done.models.ItemChat;
 import com.example.done.R;
 import com.example.done.RecyclerItemMessages;
 

@@ -17,4 +17,5 @@ public class FragmentAccount extends androidx.fragment.app.Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_account,container,false);
     }
+
 }

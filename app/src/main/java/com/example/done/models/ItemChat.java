@@ -1,4 +1,4 @@
-package com.example.done;
+package com.example.done.models;
 
 public class ItemChat {
     private  int mImageResource ;

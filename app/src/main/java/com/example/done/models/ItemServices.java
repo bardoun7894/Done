@@ -1,11 +1,11 @@
-package com.example.done;
+package com.example.done.models;
 
 public class ItemServices {
 
     private String name ;
-  private  String ImageUrl;
+  private  int ImageUrl;
 
-    public ItemServices(String name, String imageUrl) {
+    public ItemServices(String name, int imageUrl) {
         this.name = name;
         ImageUrl = imageUrl;
     }
@@ -14,7 +14,7 @@ public class ItemServices {
         return name;
     }
 
-    public String getImageUrl() {
+    public int getImageUrl() {
         return ImageUrl;
     }
 }

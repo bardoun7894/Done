@@ -7,4 +7,7 @@
     <string name="messages">الرسائل</string>
     <string name="account">الحساب</string>
     <string name="notification">الاشعارات</string>
+    <string name="tasmim_and_grahic">تصميم و جرافيك</string>
+    <string name="video_animation">الفيديو و الرسوم المتحركة</string>
+    <string name="other">أخرى</string>
 </resources>

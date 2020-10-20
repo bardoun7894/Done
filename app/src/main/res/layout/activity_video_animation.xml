@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VideoAnimationActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/homeMessageBarID"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+      <ImageView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/woi"
+                android:background="@drawable/ic_back_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+            <TextView
+                android:textColor="@color/colorWhite"
+                android:paddingLeft="80dp"
+                android:text="@string/video_animation"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:id="@+id/searchGraphic"
+                android:background="@drawable/ic_white_search"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                />
+        </LinearLayout>
+
+        <GridLayout
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="3"
+            android:columnOrderPreserved="false"
+            android:rowCount="4">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_row="0"
+                android:layout_column="0"
+                />
+
+        </GridLayout>
+        <Button
+            android:id="@+id/otherVideoAnimationId"
+            android:layout_gravity="center"
+            android:shadowColor="@color/cardview_dark_background"
+            android:text="أخرى"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ></Button>
+    </LinearLayout>
+
+</RelativeLayout>

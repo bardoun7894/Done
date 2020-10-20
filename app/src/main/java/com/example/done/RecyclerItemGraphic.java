@@ -1,5 +1,6 @@
 package com.example.done;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
+import com.example.done.models.ItemServices;
 
 import java.util.List;
 
 public class RecyclerItemGraphic extends RecyclerView.Adapter<RecyclerItemGraphic.ViewHolder> {
+Context mcontext ;
     List<ItemServices> itemServicesList ;
-    public RecyclerItemGraphic(List<ItemServices> itemServicesList) {
+    public RecyclerItemGraphic(List<ItemServices> itemServicesList,Context mcontext) {
+this.mcontext =mcontext;
         this.itemServicesList = itemServicesList;
     }
     @NonNull
     @Override
     public RecyclerItemGraphic.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_services,parent,false );
         ViewHolder viewHolder =new ViewHolder(view);
         return viewHolder;
@@ -28,7 +33,8 @@ public class RecyclerItemGraphic extends RecyclerView.Adapter<RecyclerItemGraphi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Picasso.get().load(itemServicesList.get(position).getImageUrl()).into(holder.imageView);
+//        Picasso.get().load(itemServicesList.get(position).getImageUrl()).into(holder.imageView);
+        Glide.with(mcontext).load(itemServicesList.get(position).getImageUrl()).into(holder.imageView);
         holder.nameTextView.setText(itemServicesList.get(position).getName());
     }
 
