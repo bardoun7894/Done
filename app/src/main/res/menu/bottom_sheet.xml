@@ -2,23 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/homeIcon"
-        android:title="@string/home"
-        android:icon="@drawable/ic_baseline_home_24"
-        />
 
     <item
-    android:id="@+id/messageId"
-    android:title="@string/messages"
-    android:icon="@drawable/ic_message"
-/>
+        android:id="@+id/messageId"
+        android:title="@string/messages"
+        android:icon="@drawable/ic_message"
+        />
     <item
         android:id="@+id/space"
         android:enabled="false"
         android:checkable="false"
         android:checked="false"
-        android:title=""
+        android:title="ldldldldl"
         />
     <item
         android:id="@+id/account"
@@ -26,8 +21,13 @@
         android:icon="@drawable/ic_account"
         />
     <item
-        android:id="@+id/notification"
-        android:title="@string/notification"
-        android:icon="@drawable/ic_notification"
+        android:id="@+id/newUser"
+        android:title="الموضفين الجدد"
+        android:icon="@drawable/new_g"
+        />
+    <item
+        android:id="@+id/recommendedId"
+        android:title="موصى به"
+        android:icon="@drawable/ic_star_rate"
         />
 </menu>
