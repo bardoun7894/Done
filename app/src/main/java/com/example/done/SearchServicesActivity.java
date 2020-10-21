@@ -38,16 +38,20 @@ ImageView orderByIdIcon ,filterByIdIcon;
         orderByIdIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
           BottomSheetLayout bsl =new BottomSheetLayout();
           bsl.show(getSupportFragmentManager(),"bottomsheetLayout");
-            }
+
+                      }
         });
         filterByIdIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-     BottomSheetFilter bslF =new BottomSheetFilter();
-                bslF.show(getSupportFragmentManager(),"bottomsheetFilter");
-            }
+
+             BottomSheetFilter bslF =new BottomSheetFilter();
+             bslF.show(getSupportFragmentManager(),"bottomsheetFilter");
+
+              }
         });
 
         recyclerView.setHasFixedSize(true);

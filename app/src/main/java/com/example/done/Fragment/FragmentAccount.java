@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import com.example.done.LoginActivity;
 import com.example.done.R;
+import com.example.done.RegisterActivity;
 
 public class FragmentAccount extends androidx.fragment.app.Fragment {
     Button signِAccountBtn ;
@@ -23,8 +24,8 @@ public class FragmentAccount extends androidx.fragment.app.Fragment {
         signِAccountBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-        Intent intent =new Intent(getContext(), LoginActivity.class);
-        startActivity(intent);
+        Intent intent =new Intent(getContext(), RegisterActivity.class);
+            startActivity(intent);
             }
             });
         return  v;
