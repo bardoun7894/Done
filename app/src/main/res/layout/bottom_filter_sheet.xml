@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:paddingRight="10dp"
+        android:background="#DFE6EA"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:paddingRight="10dp"
+            android:gravity="end"
+            android:background="@drawable/linear_background"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textSize="20dp"
+                android:textColor="#728081"
+                android:text="الفئة"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:paddingRight="10dp"
+            android:gravity="end"
+            android:background="@drawable/linear_background"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textSize="20dp"
+                android:textColor="#728081"
+                android:text="موعد التسليم"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:paddingRight="10dp"
+            android:gravity="end"
+
+            android:background="@drawable/linear_background"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textSize="20dp"
+                android:textColor="#728081"
+                android:text="السعر"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+        <LinearLayout
+            android:paddingRight="10dp"
+            android:gravity="end"
+            android:background="@drawable/linear_background"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:textSize="20dp"
+                android:textColor="#728081"
+                android:text="مستوى البائع"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

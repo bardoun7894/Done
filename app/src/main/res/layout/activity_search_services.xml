@@ -67,7 +67,7 @@
                     android:layout_height="match_parent"/>
 
                 <ImageView
-
+                    android:id="@+id/filterById"
                     android:src="@drawable/ic_filter"
                     android:layout_width="40dp"
                     android:layout_height="30dp"/>
