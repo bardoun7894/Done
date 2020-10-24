@@ -5,14 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.done.JoinAsActivity;
-import com.example.done.LoginActivity;
+import com.example.done.joinDoc.JoinAsActivity;
 import com.example.done.R;
 import com.example.done.RegisterActivity;
 

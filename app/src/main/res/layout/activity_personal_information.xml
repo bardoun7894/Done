@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PersonalInformationActivity">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_black_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+    <LinearLayout
+        android:gravity="center_vertical|end"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        >
+        <TextView
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="معلومات شخصية"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:text="1"
+            android:textSize="16dp"
+            android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:background="@drawable/circle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginRight="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:text="أخبرنا قليلا عن نفسك"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:ems="10"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:text="ستظهر هذه المعلومات في ملفك الشخصي العام حتى يتمكن المشترين التعرف عليك بشكل أفضل"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginRight="50dp"
+            android:layout_gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_share_24"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="*"
+            android:textColor="@color/colorGrey"
+            android:textSize="25dp" />
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الصورة الشخصية"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_marginRight="10dp"
+            android:textColor="#7A7878"
+            android:background="@drawable/shape_input"
+            android:text="الكنية"
+            android:gravity="center"
+            android:layout_width="130dp"
+            android:layout_height="40dp"/>
+        <EditText
+            android:layout_marginRight="10dp"
+            android:textColor="#7A7878"
+            android:background="@drawable/shape_input"
+            android:text="الاسم الأول"
+            android:gravity="center"
+            android:layout_width="130dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="*"
+            android:textColor="@color/colorGrey"
+            android:textSize="25dp" />
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الاسم الكامل"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="وصف"
+        />
+    <EditText
+        android:gravity="center"
+        android:ems="5"
+        android:text="شارك قليلا عن خبرتك في العمل و المشاريع الرائعة التي أكملتها و مجال خبرتك"
+        android:layout_margin="20dp"
+        android:background="@drawable/shape_description"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        />
+    <TextView
+        android:layout_marginHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="لا يقل عن 100 حرف "
+        />
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_marginRight="10dp"
+            android:textColor="#7A7878"
+            android:background="@drawable/shape_input"
+            android:text="الكفاءة"
+            android:gravity="center"
+            android:layout_width="130dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_marginRight="10dp"
+            android:textColor="#7A7878"
+            android:textSize="20dp"
+            android:background="@drawable/shape_input"
+            android:text="اللغة"
+            android:gravity="center"
+            android:layout_width="130dp"
+            android:layout_height="40dp"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="اللغات"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:textColor="@color/colorGrey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+ اضافة جديد"
+        />
+    <Button
+
+        android:id="@+id/continuePersonalInfoBtnId"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:text="استمرار"
+        android:background="@drawable/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
+
+
+</LinearLayout>

@@ -6,10 +6,10 @@
     android:orientation="vertical"
     android:background="#F2F2F2"
     android:layout_height="match_parent"
-    tools:context=".joinDoc.JoinAsActivity">
+    tools:context=".joinDoc.AwayFromActivity">
 
     <LinearLayout
-    android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_width="match_parent"
         android:layout_height="150dp">
         <ImageView
@@ -23,8 +23,8 @@
             android:layout_gravity="center|end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=" هل أنت جاهز للعمل ؟"
-            android:textSize="30dp"
+            android:text="  دعنا نتحدث عن الاشياء التي نريد الابتعاد عنها ؟"
+            android:textSize="20dp"
             />
     </LinearLayout>
     <View
@@ -33,35 +33,28 @@
         android:layout_height="2dp"
         android:background="@android:color/darker_gray"/>
 
-   <LinearLayout
-    android:gravity="center"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="100dp">
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <TextView
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:text="تعرف على ما يجعل الملف الشخصي ناجحا"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:textSize="12dp"
-            android:text="اكتشف ما يجب فعله للتأكد من أنك على المسار الصحيح"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:text=" تقديم أي معلومات خاطئة أو غير دقيقة عن هويتك"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_favourite"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
     </LinearLayout>
-    <ImageView
-        android:layout_marginLeft="20dp"
-        android:src="@drawable/ic_favourite"
-        android:layout_width="60dp"
-        android:layout_height="60dp"/>
-</LinearLayout>
     <View
         android:layout_marginHorizontal="20dp"
         android:layout_width="match_parent"
@@ -79,19 +72,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <TextView
+                android:ems="15"
                 android:textStyle="bold"
-                android:textSize="20dp"
-                android:text="قم بانشاء ملف تعريف البائع الخاص بك"
+                android:textSize="18dp"
+                android:text="فتح حسابات مكررة, تذكر انه يمكنك انشاء المزيد من الخدمات "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:textSize="12dp"
-                android:text="أضف صورة الملف الشخصي و الوصف و المعلومات المهنية"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
+      </LinearLayout>
         <ImageView
             android:layout_marginLeft="10dp"
             android:src="@drawable/ic_info"
@@ -116,19 +103,11 @@
             android:layout_height="wrap_content">
             <TextView
                 android:textStyle="bold"
-                  android:textSize="20dp"
-                android:text="انشر خدمتك"
+                android:textSize="18dp"
+                android:text="طلب التواصل و الدفع خارج التطبيق"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <TextView
-
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:textSize="12dp"
-                android:text="قم بنشر الخدمة التي تقدمها و ابدأ في البيع"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
+       </LinearLayout>
         <ImageView
             android:layout_marginLeft="10dp"
             android:src="@drawable/ic_info"
@@ -142,7 +121,7 @@
         android:background="@android:color/darker_gray"/>
 
     <Button
-        android:id="@+id/continueBtnId"
+        android:id="@+id/continueAwayBtnId"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"
         android:text="استمرار"

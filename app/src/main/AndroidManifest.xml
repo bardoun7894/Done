@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".JoinAsActivity"></activity>
+        <activity android:name=".joinDoc.BestProfileActivity"></activity>
+        <activity android:name=".PersonalInformationActivity" />
+        <activity android:name=".joinDoc.AwayFromActivity" />
+        <activity android:name=".joinDoc.JoinAsActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ServiceDetailsActivity" />
         <activity android:name=".LoginActivity" />
