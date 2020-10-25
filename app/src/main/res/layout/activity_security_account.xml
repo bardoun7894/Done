@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SecurityAccount">
+    tools:context=".joinDoc.SecurityAccount">
 
     <LinearLayout
+        android:padding="40dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

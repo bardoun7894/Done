@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+          <LinearLayout
+                android:id="@+id/lnMessagesId"
                 android:background="@color/colorPrimary"
                 android:layout_width="0dp"
                 android:orientation="vertical"

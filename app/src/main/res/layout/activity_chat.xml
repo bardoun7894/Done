@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatActivity">
+  <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+      <LinearLayout
+          android:gravity="center_vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          >
+          <ImageView
+              android:gravity="end"
+              android:layout_margin="10dp"
+              android:src="@drawable/ic_black_back"
+              android:layout_width="50dp"
+              android:layout_height="40dp"/>
+          <TextView
+              android:gravity="center"
+              android:textColor="@color/colorWhite"
+              android:textSize="25dp"
+              android:layout_weight="1"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="اسم الموظف"
+              />
+
+          <ImageView
+              android:layout_width="60dp"
+              android:layout_height="wrap_content"
+              android:layout_margin="5dp"
+              android:src="@drawable/user"/>
+      </LinearLayout>
+
+  </com.google.android.material.appbar.AppBarLayout>
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+         android:background="#F9F9F9"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_baseline_attach_file_24"
+            />
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_baseline_photo_camera_24"
+            />
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@drawable/microphone"
+            />
+        <EditText
+            android:id="@+id/messageET"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+           android:layout_marginRight="10dp"
+            android:layout_weight="5"
+            android:background="@drawable/shape_input"
+            android:maxLines="2">
+
+        </EditText>
+        <ImageView
+            android:id="@+id/menu_chatId"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@drawable/menu"
+            />
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

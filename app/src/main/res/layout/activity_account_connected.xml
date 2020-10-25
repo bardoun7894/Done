@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
   android:orientation="vertical"
-    tools:context=".AccountConnected">
+    android:padding="20dp"
+
+    tools:context=".joinDoc.AccountConnected">
     <ImageView
         android:layout_margin="10dp"
         android:src="@drawable/ic_black_back"

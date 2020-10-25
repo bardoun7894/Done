@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <LinearLayout
     android:paddingRight="10dp"

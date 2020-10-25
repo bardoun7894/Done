@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.done.PersonalInformationActivity;
 import com.example.done.R;
 
 public class AwayFromActivity extends AppCompatActivity {

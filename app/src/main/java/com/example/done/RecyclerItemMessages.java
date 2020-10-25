@@ -1,9 +1,11 @@
 package com.example.done;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -42,10 +44,19 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView ;
-        TextView userTextView,hashTextView ;
+        TextView userTextView , hashTextView ;
+        LinearLayout ln ;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            ln =itemView.findViewById(R.id.lnMessagesId);
             imageView = itemView.findViewById(R.id.imageItem);
+            ln.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(),ChatActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
             userTextView = itemView.findViewById(R.id.userItemID);
             hashTextView = itemView.findViewById(R.id.hashID);
 
