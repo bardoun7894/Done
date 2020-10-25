@@ -201,7 +201,6 @@
         android:text="+ اضافة جديد"
         />
     <Button
-
         android:id="@+id/continuePersonalInfoBtnId"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="30dp"

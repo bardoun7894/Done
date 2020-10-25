@@ -7,19 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class PersonalInformationActivity extends AppCompatActivity {
-Button continuePersonalInfoBtn;
+public class ProAccountActivity extends AppCompatActivity {
+Button continueProbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_personal_information);
-        continuePersonalInfoBtn =findViewById(R.id.continuePersonalInfoBtnId);
-
-        continuePersonalInfoBtn.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_pro_account);
+        continueProbtn =findViewById(R.id.continueProbtnID);
+        continueProbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getBaseContext(),PersonalInformationActivity.class);
+                Intent intent =new Intent(getBaseContext(),AccountConnected.class);
                 startActivity(intent);
             }
         });
