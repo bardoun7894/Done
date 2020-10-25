@@ -376,7 +376,7 @@
 
         <Button
             android:id="@+id/continueProbtnID"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="30dp"
             android:text="استمرار"
             android:background="@drawable/register"

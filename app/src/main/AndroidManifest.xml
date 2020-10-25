@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AccountConnected"></activity>
+        <activity android:name=".SecurityAccount"></activity>
+        <activity android:name=".AccountConnected" />
         <activity android:name=".ProAccountActivity" />
         <activity android:name=".joinDoc.BestProfileActivity" />
         <activity android:name=".PersonalInformationActivity" />
