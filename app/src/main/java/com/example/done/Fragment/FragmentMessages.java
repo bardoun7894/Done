@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.done.models.ItemChat;
 import com.example.done.R;
-import com.example.done.RecyclerItemMessages;
+import com.example.recyclers.RecyclerItemMessages;
 
 import java.util.ArrayList;
 

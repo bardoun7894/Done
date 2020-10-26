@@ -1,4 +1,4 @@
-package com.example.done;
+package com.example.recyclers;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.done.ChatActivity;
+import com.example.done.R;
 import com.example.done.models.ItemChat;
 
 import java.util.List;
@@ -53,7 +55,7 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
             ln.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(),ChatActivity.class);
+                    Intent intent = new Intent(v.getContext(), ChatActivity.class);
                     v.getContext().startActivity(intent);
                 }
             });

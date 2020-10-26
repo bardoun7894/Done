@@ -1,4 +1,4 @@
-package com.example.done;
+package com.example.done.home4Buttons;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.done.R;
+import com.example.recyclers.RecyclerItem;
+import com.example.done.bottomsheets.SearchServicesActivity;
 import com.example.done.models.ItemServices;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,7 +47,7 @@ Button btnOtherGraphic;
         btnOtherGraphic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(getBaseContext(),SearchServicesActivity.class);
+                Intent intent =new Intent(getBaseContext(), SearchServicesActivity.class);
                 startActivity(intent);
             }
         });
@@ -52,7 +55,7 @@ Button btnOtherGraphic;
         recyclerView =findViewById(R.id.recycler_graphic);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
-        recyclerView.setAdapter(new RecyclerItemGraphic(ar,this));
+        recyclerView.setAdapter(new RecyclerItem(ar,this));
     }
     @Override
     protected void onStart() {

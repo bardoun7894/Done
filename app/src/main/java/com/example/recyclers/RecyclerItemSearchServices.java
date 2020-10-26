@@ -1,4 +1,4 @@
-package com.example.done;
+package com.example.recyclers;
         import android.content.Context;
         import android.content.Intent;
         import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ package com.example.done;
         import androidx.annotation.NonNull;
         import androidx.recyclerview.widget.RecyclerView;
         import com.bumptech.glide.Glide;
+        import com.example.done.R;
+        import com.example.done.ServiceDetailsActivity;
         import com.example.done.models.ItemServiceSearch;
         import java.util.List;
 
@@ -55,7 +57,7 @@ public class RecyclerItemSearchServices extends RecyclerView.Adapter<RecyclerIte
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
         public void onClick(View v) {
-                  Intent intent =new Intent(v.getContext(),ServiceDetailsActivity.class);
+                  Intent intent =new Intent(v.getContext(), ServiceDetailsActivity.class);
                    v.getContext().startActivity(intent);
                 }
             });

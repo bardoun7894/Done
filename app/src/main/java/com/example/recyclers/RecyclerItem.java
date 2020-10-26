@@ -1,4 +1,4 @@
-package com.example.done;
+package com.example.recyclers;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,20 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.done.R;
 import com.example.done.models.ItemServices;
 
 import java.util.List;
 
-public class RecyclerItemGraphic extends RecyclerView.Adapter<RecyclerItemGraphic.ViewHolder> {
+public class RecyclerItem extends RecyclerView.Adapter<RecyclerItem.ViewHolder> {
 Context mcontext ;
     List<ItemServices> itemServicesList ;
-    public RecyclerItemGraphic(List<ItemServices> itemServicesList,Context mcontext) {
+    public RecyclerItem(List<ItemServices> itemServicesList, Context mcontext) {
 this.mcontext =mcontext;
         this.itemServicesList = itemServicesList;
     }
     @NonNull
     @Override
-    public RecyclerItemGraphic.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerItem.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_services,parent,false );
         ViewHolder viewHolder =new ViewHolder(view);

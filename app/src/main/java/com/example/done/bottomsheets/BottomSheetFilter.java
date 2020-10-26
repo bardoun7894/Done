@@ -1,5 +1,5 @@
 
-package com.example.done;
+package com.example.done.bottomsheets;
 
         import android.os.Bundle;
         import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ package com.example.done;
         import androidx.annotation.NonNull;
         import androidx.annotation.Nullable;
 
+        import com.example.done.R;
         import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
         import java.util.zip.Inflater;
 

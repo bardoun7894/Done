@@ -1,7 +1,6 @@
-package com.example.done;
+package com.example.done.bottomsheets;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,8 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.done.R;
 import com.example.done.models.ItemServiceSearch;
-import com.example.done.models.ItemServices;
+import com.example.recyclers.RecyclerItemSearchServices;
 
 import java.util.ArrayList;
 
