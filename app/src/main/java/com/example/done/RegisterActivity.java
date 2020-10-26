@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -73,20 +74,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
 
         }
-        if(TextUtils.isEmpty(username)){
+        if(TextUtils.isEmpty(username)) {
             usernameEt.setError("username is required");
             usernameEt.requestFocus();
             return;
-
-
         }
+  if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+      emailEt.setError("email not match");
+      emailEt.requestFocus();
+      return;
+
+  }
         if(password.length()<6){
             passwordEt.setError("password must be at least 6 characters");
             passwordEt.requestFocus();
             return;
-
         }
-       System.out.println(" befr f");
         auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -103,13 +106,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                 startActivity(intent);
                             }  else{
                                 Toast.makeText(RegisterActivity.this, "not registed", Toast.LENGTH_SHORT).show();
-
                             }
                         }
                     });
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
+                 }
+               }
+              }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(RegisterActivity.this, "failed", Toast.LENGTH_SHORT).show();

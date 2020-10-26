@@ -13,9 +13,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:textStyle="bold"
-
             android:layout_marginRight="10dp"
             android:textColor="@color/colorPrimary"
             android:text="البريد الالكتروني"
@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             />
         <EditText
+            android:id="@+id/emailLoginId"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
             android:background="@drawable/login_edittext_background"
@@ -45,6 +46,7 @@
             android:layout_height="wrap_content"
             />
         <EditText
+            android:id="@+id/passwordLoginId"
             android:layout_marginTop="10dp"
             android:paddingLeft="15dp"
             android:background="@drawable/login_edittext_background"
@@ -57,7 +59,7 @@
             android:layout_width="0dp"
             android:layout_height="10dp"/>
         <Button
-            android:id="@+id/loginId"
+            android:id="@+id/loginBtnId"
             android:layout_marginTop="20dp"
             android:text="تسجيل الدخول"
             android:textSize="20dp"
@@ -66,7 +68,6 @@
             android:background="@drawable/raduis_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
         </Button>
 
     </LinearLayout>
