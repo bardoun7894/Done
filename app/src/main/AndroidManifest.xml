@@ -11,8 +11,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".home4Buttons.ProgramingActivity"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".MakeAService"></activity>
+        <activity android:name=".home4Buttons.ProgramingActivity" />
         <activity android:name=".home4Buttons.TranslateActivity" />
         <activity android:name=".ChatActivity" />
         <activity android:name=".joinDoc.SecurityAccount" />

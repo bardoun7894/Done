@@ -34,19 +34,15 @@ public class TranslateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
         btnOtherTranslate =findViewById(R.id.otherTranslateId);
-        ar.add(new ItemServices(" اعلانات فيديو قصيرة",R.drawable.tasmim_prochor));
-        ar.add(new ItemServices("مونتاج الفيديو",R.drawable.tasmim_cv));
-        ar.add(new ItemServices("السيرة البيضاء المتحركة",R.drawable.tasmim_kitab));
-        ar.add(new ItemServices(" رسوم متحركة ",R.drawable.tasmim_ghilaf));
-        ar.add(new ItemServices("عرض التطبيقات ",R.drawable.tasmim_flater));
-        ar.add(new ItemServices(" شعار متحرك",R.drawable.kartasiyat));
-
-//        ar.add(new ItemServices(" تصميم شعار",R.drawable.icon_design));
-//        ar.add(new ItemServices(" تصميم دعوة",R.drawable.invite_card));
-//        ar.add(new ItemServices(" تصميم واجهات الويب و الجوال",R.drawable.tasmim_jawal));
-//        ar.add(new ItemServices(" تصميم شعار",R.drawable.icon_design));
-//        ar.add(new ItemServices(" تصميم دعوة",R.drawable.invite_card));
-//        ar.add(new ItemServices(" تصميم واجهات الويب و الجوال",R.drawable.tasmim_jawal));
+        ar.add(new ItemServices("دراسة الحالة",R.drawable.tasmim_prochor));
+        ar.add(new ItemServices("كتابة السيرة الذاتية",R.drawable.tasmim_cv));
+        ar.add(new ItemServices("مقالات و منشورات",R.drawable.kartasiyat));
+        ar.add(new ItemServices("كتابة تجربة المستخدم",R.drawable.tasmim_kitab));
+        ar.add(new ItemServices("كتابة السيناريو",R.drawable.tasmim_ghilaf));
+        ar.add(new ItemServices("ترجمة",R.drawable.tasmim_flater));
+        ar.add(new ItemServices("وصف منتج",R.drawable.kartasiyat));
+        ar.add(new ItemServices("كتابة محتوى ابداعي",R.drawable.kartasiyat));
+        ar.add(new ItemServices("كتابة محتوى لوسائل التواصل الاجتماعي",R.drawable.kartasiyat));
 
         recyclerView =findViewById(R.id.recycler_translate);
         recyclerView.setHasFixedSize(true);
@@ -60,7 +56,6 @@ public class TranslateActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
     @Override
     protected void onStart() {

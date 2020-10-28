@@ -35,19 +35,12 @@ public class ProgramingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_programing);
         btnOtherTranslate =findViewById(R.id.otherProgrammingId);
-        ar.add(new ItemServices(" اعلانات فيديو قصيرة",R.drawable.tasmim_prochor));
-        ar.add(new ItemServices("مونتاج الفيديو",R.drawable.tasmim_cv));
-        ar.add(new ItemServices("السيرة البيضاء المتحركة",R.drawable.tasmim_kitab));
-        ar.add(new ItemServices(" رسوم متحركة ",R.drawable.tasmim_ghilaf));
-        ar.add(new ItemServices("عرض التطبيقات ",R.drawable.tasmim_flater));
-        ar.add(new ItemServices(" شعار متحرك",R.drawable.kartasiyat));
-
-//        ar.add(new ItemServices(" تصميم شعار",R.drawable.icon_design));
-//        ar.add(new ItemServices(" تصميم دعوة",R.drawable.invite_card));
-//        ar.add(new ItemServices(" تصميم واجهات الويب و الجوال",R.drawable.tasmim_jawal));
-//        ar.add(new ItemServices(" تصميم شعار",R.drawable.icon_design));
-//        ar.add(new ItemServices(" تصميم دعوة",R.drawable.invite_card));
-//        ar.add(new ItemServices(" تصميم واجهات الويب و الجوال",R.drawable.tasmim_jawal));
+        ar.add(new ItemServices(" قواعد البيانات",R.drawable.tasmim_prochor));
+        ar.add(new ItemServices("برمجة الويب",R.drawable.tasmim_cv));
+        ar.add(new ItemServices("تطبيقات الويب",R.drawable.tasmim_kitab));
+        ar.add(new ItemServices("اختبار تجربة المستخدم",R.drawable.tasmim_ghilaf));
+        ar.add(new ItemServices("الامن السيبراني و حماية البيانات",R.drawable.tasmim_flater));
+        ar.add(new ItemServices("تحليل البيانات و التقارير",R.drawable.kartasiyat));
 
         recyclerView =findViewById(R.id.recycler_programming);
         recyclerView.setHasFixedSize(true);

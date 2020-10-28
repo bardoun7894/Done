@@ -13,10 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.done.Fragment.FragmentAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import io.paperdb.Paper;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     Button loginBtn ;
     Intent intent;
     FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         passwordEt=findViewById(R.id.passwordLoginId);
         loginBtn=findViewById(R.id.loginBtnId);
         loginBtn.setOnClickListener(this);
-
+        Paper.init(this);
     }
 
 
@@ -44,13 +48,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.loginBtnId :
               login();
                 break;
-        }
-
+         }
     }
 
     void login(){
         final String email =emailEt.getText().toString().trim();
         final String password =passwordEt.getText().toString().trim();
+
         if(TextUtils.isEmpty(email)){
             emailEt.setError("email is required");
             emailEt.requestFocus();
@@ -62,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
 
         }
+
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             emailEt.setError("email not match");
             emailEt.requestFocus();
@@ -73,19 +78,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             passwordEt.requestFocus();
             return;
         }
-        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Toast.makeText(LoginActivity.this, "User has been login succesfully", Toast.LENGTH_SHORT).show();
-                    intent =new Intent(getBaseContext(), ChatActivity.class);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(LoginActivity.this, "User has been login succesfully", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+         AllowAccessToAccount(email, password);
+       }
 
+    private void AllowAccessToAccount(final String email, final String password) {
+
+        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+             @Override
+              public void onComplete(@NonNull Task<AuthResult> task){
+                     if(task.isSuccessful()){
+                         Paper.book().write(Prevalent.UserEmailKey,email);
+                         Paper.book().write(Prevalent.UserPasswordKey,password);
+                         Toast.makeText(LoginActivity.this,"تم تسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
+                         intent =new Intent(getBaseContext(), MainActivity.class);
+                         startActivity(intent);
+                        }else{
+                         Toast.makeText(LoginActivity.this, "وقع مشكل اثناء تسجيل الدخول", Toast.LENGTH_SHORT).show();
+                      }
+                 }
+             });
     }
 
 }

@@ -6,6 +6,7 @@ public class ItemServiceSearch {
     double rating_number ;
     String description_text ;
     String price ;
+
     public ItemServiceSearch(int imageService, double rating_number, String description_text, String price) {
         this.imageService = imageService;
         this.rating_number = rating_number;
@@ -35,7 +36,6 @@ public class ItemServiceSearch {
     public void setDescription_text(String description_text) {
         this.description_text = description_text;
     }
-
     public String getPrice() {
         return price;
     }
@@ -43,4 +43,5 @@ public class ItemServiceSearch {
     public void setPrice(String price) {
         this.price = price;
     }
+
 }
