@@ -118,9 +118,8 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         System.out.println(getmTextView.getSelectedItem().toString());
                         System.out.println(mTextView.getSelectedItem().toString());
-                        serviceRef =FirebaseDatabase.getInstance().getReference().child(mTextView.getSelectedItem().toString()).child(getmTextView.getSelectedItem().toString());
+                        serviceRef =FirebaseDatabase.getInstance().getReference().child("services");
                     }
-
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
 
@@ -294,9 +293,9 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
 //                   hashMap.put("service_price",price_service);
 //                   hashMap.put("service_time",time_service);
                    if(usernamePaper!=""){
-                      s =new services(idOne.toString(),saveCurrentDate,saveCurrentTime,type_service,desc_service,price_service,time_service,downloadImageUrl,usernamePaper);
-                   }
-                   serviceRef.child(idOne.toString()).setValue(s).addOnCompleteListener(new OnCompleteListener<Void>() {
+             s =new services(idOne.toString(),saveCurrentDate,saveCurrentTime,type_service,desc_service,price_service,time_service,downloadImageUrl,usernamePaper);
+                           }
+                   serviceRef.child("1").setValue(s).addOnCompleteListener(new OnCompleteListener<Void>() {
                        @Override
                        public void onComplete(@NonNull Task<Void> task) {
                    Toast.makeText(getApplicationContext(),"تم اضافة الخدمة بنجاح ",Toast.LENGTH_SHORT).show();

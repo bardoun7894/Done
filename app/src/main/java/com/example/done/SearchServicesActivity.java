@@ -59,14 +59,10 @@ ImageView orderByIdIcon ,filterByIdIcon;
         System.out.println(title_bar);
         System.out.println(title_service);
 
-        serviceRef = FirebaseDatabase.getInstance().getReference().child(title_bar).child(title_service);
-         System.out.println(serviceRef.child("e02ead25-9520-448e-9d5e-43c1d1072ddb"));
-//        User user =new User("dreamer" ,"homedreamer1234@gmail.com","moha789" ,0);
-//        int number = 50;
-//        String s = "يبدأ من " + String.valueOf(number)   +  " ريال"    ;
-//        ar.add(new ItemServiceSearch(R.drawable.tasmim_flater,user.getRating()," هنا وصف بسيط للخدمة المقدمة",""));
+        serviceRef = FirebaseDatabase.getInstance().getReference().child("services");
 
         recyclerView = findViewById(R.id.recycler_search_services) ;
+
         FirebaseRecyclerOptions<services> options
                 = new FirebaseRecyclerOptions.Builder<services>()
                 .setQuery(serviceRef, services.class)
@@ -87,9 +83,8 @@ ImageView orderByIdIcon ,filterByIdIcon;
              bslF.show(getSupportFragmentManager(),"bottomsheetFilter");
               }
         });
-        adapter = new FirebaseRecyclerAdapt(options,getApplicationContext()) ;
+        adapter = new FirebaseRecyclerAdapt(options) ;
 
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 

@@ -14,7 +14,7 @@ public class services {
     private String service_image;
     private String service_username;
 
-
+public services(){}
     public services(String sid, String date, String time, String service_type, String service_desc, String service_price, String service_time, String service_image, String service_username) {
         this.sid = sid;
         this.date = date;

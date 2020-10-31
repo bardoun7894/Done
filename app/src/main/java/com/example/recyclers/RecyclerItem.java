@@ -57,7 +57,6 @@ this.mcontext =mcontext;
                 public void onClick(View v) {
                     Intent intent =new Intent(v.getContext(), SearchServicesActivity.class);
                     intent.putExtra("TITLE_SERVICE", nameTextView.getText());
-
                     intent.putExtra("tasmim",itemView.getContext().getString(R.string.tasmim_and_grahic));
                       v.getContext().startActivity(intent);
 

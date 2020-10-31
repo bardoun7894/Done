@@ -19,17 +19,15 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class FirebaseRecyclerAdapt extends FirebaseRecyclerAdapter<services,FirebaseRecyclerAdapt.servicesViewHolder> {
 
-    Context ctx;
 
-    public FirebaseRecyclerAdapt(@NonNull FirebaseRecyclerOptions<services> options,Context context) {
+    public FirebaseRecyclerAdapt(@NonNull FirebaseRecyclerOptions<services> options) {
         super(options);
-        this.ctx =context;
     }
 
     @Override
     protected void onBindViewHolder(@NonNull servicesViewHolder holder, int i, @NonNull services services) {
-        System.out.println("onbindView");
-        Glide.with(ctx).load(services.getService_image()).into(holder.imageView);
+
+        Glide.with(holder.imageView.getContext()).load(services.getService_image()).into(holder.imageView);
         holder.rating_numberTv.setText("0");
         holder.descTv.setText(services.getService_desc());
         holder.priceTv.setText(services.getService_price());
@@ -40,12 +38,13 @@ public class FirebaseRecyclerAdapt extends FirebaseRecyclerAdapter<services,Fire
     public servicesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_search_service,parent, false);
-        return new servicesViewHolder(view);
+        return new FirebaseRecyclerAdapt.servicesViewHolder(view);
     }
 
-    public static class servicesViewHolder extends RecyclerView.ViewHolder {
+    public  class servicesViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView ;
         public TextView rating_numberTv ,descTv,priceTv ;
+
         public servicesViewHolder(@NonNull View itemView) {
             super(itemView);
         imageView =itemView.findViewById(R.id.image_service_searchId);
