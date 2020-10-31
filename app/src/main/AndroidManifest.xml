@@ -26,7 +26,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ServiceDetailsActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".bottomsheets.SearchServicesActivity" />
+        <activity android:name=".SearchServicesActivity" />
         <activity android:name=".home4Buttons.VideoAnimationActivity" />
         <activity android:name=".home4Buttons.GraphicActivity" />
         <activity android:name=".MainActivity">

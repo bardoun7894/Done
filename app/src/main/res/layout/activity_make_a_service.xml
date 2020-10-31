@@ -9,25 +9,226 @@
     tools:context=".MakeAService"
      >
  <LinearLayout
-
+     android:orientation="vertical"
+     android:gravity="center"
      android:layout_width="match_parent"
-     android:layout_height="wrap_content">
+     android:layout_height="150dp">
      <ImageView
-         android:layout_width="match_parent"
+         android:id="@+id/imageOfServiceId"
+         android:src="@drawable/image_gallery"
+         android:layout_width="100dp"
          android:layout_height="100dp"/>
+
  </LinearLayout>
-    <EditText
-        android:layout_marginHorizontal="50dp"
-        android:background="@drawable/shape_input"
-        android:text="اختيار المهنة"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"/>
-    <EditText
+
+    <Button
+android:id="@+id/uploadImagesId"
+        android:layout_gravity="center"
+        android:textColor="@color/colorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تحميل صور"
+        />
+    <LinearLayout
+        android:gravity="end"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="50dp"
-        android:background="@drawable/shape_input"
-        android:text="اختيار الخدمة"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40dp"/>
+        android:layout_height="50dp">
+        <Spinner
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:layoutDirection="rtl"
+            android:id="@+id/categorySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="نوع المهنة"
+             />
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="  المهنة"
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="end"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <Spinner
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:layoutDirection="rtl"
+            android:id="@+id/subcategorySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="نوع المهنة"
+             />
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:textColor="@color/colorPrimary"
+
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="نوع الخدمة"
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="end"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_input"
+            android:layoutDirection="rtl"
+            android:id="@+id/typeOfServiceEt"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+             />
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="عنوان الخدمة"
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="end"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layoutDirection="rtl"
+            android:background="@drawable/shape_description"
+            android:id="@+id/descOfServiceEt"
+            android:layout_weight="1"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+             />
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="match_parent"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="وصف الخدمة"
+            android:textColor="@color/colorPrimary"
+
+            android:textSize="20dp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="end"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_input"
+            android:layoutDirection="rtl"
+            android:id="@+id/priceOfServiceEt"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            />
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="سعر الخدمة"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="end"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_input"
+            android:layoutDirection="rtl"
+            android:id="@+id/timeOfServiceEt"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            />
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="match_parent"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="مدة التسليم "
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+
+            />
+
+    </LinearLayout>
+
+    <Button
+android:id="@+id/saveServiceId"
+        android:layout_gravity="center"
+        android:textColor="@color/colorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="حفظ"
+
+        />
+
+
+
 
 </LinearLayout>

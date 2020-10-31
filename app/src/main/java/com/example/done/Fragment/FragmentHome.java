@@ -30,8 +30,8 @@ public class FragmentHome extends androidx.fragment.app.Fragment implements  Vie
         videoEditing=v.findViewById(R.id.videoEditingId);
         translate=v.findViewById(R.id.translateId);
         computerScience=v.findViewById(R.id.programmingId);
-         graphicImage.setOnClickListener(this);
-         videoEditing.setOnClickListener(this);
+        graphicImage.setOnClickListener(this);
+        videoEditing.setOnClickListener(this);
          translate.setOnClickListener(this);
          computerScience.setOnClickListener(this);
 

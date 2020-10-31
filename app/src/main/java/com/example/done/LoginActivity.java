@@ -14,10 +14,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.done.Fragment.FragmentAccount;
+import com.example.done.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 import io.paperdb.Paper;
 
@@ -64,7 +73,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             passwordEt.setError("password is required");
             passwordEt.requestFocus();
             return;
-
         }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
@@ -83,20 +91,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void AllowAccessToAccount(final String email, final String password) {
 
+
+
+
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-             @Override
-              public void onComplete(@NonNull Task<AuthResult> task){
-                     if(task.isSuccessful()){
-                         Paper.book().write(Prevalent.UserEmailKey,email);
-                         Paper.book().write(Prevalent.UserPasswordKey,password);
-                         Toast.makeText(LoginActivity.this,"تم تسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
-                         intent =new Intent(getBaseContext(), MainActivity.class);
-                         startActivity(intent);
-                        }else{
-                         Toast.makeText(LoginActivity.this, "وقع مشكل اثناء تسجيل الدخول", Toast.LENGTH_SHORT).show();
-                      }
-                 }
-             });
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                String username=  auth.getCurrentUser().getDisplayName();
+                Paper.book().write(Prevalent.UserEmailKey,email);
+                Paper.book().write(Prevalent.UserPasswordKey,password);
+                Paper.book().write(Prevalent.UserNameKey,username);
+                Intent intent =new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 }

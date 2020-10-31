@@ -17,4 +17,5 @@ public class ItemServices {
     public int getImageUrl() {
         return ImageUrl;
     }
+
 }

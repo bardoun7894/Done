@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import com.example.done.R;
 import com.example.recyclers.RecyclerItem;
-import com.example.done.bottomsheets.SearchServicesActivity;
+import com.example.done.SearchServicesActivity;
 import com.example.done.models.ItemServices;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,12 +35,12 @@ public class ProgramingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_programing);
         btnOtherTranslate =findViewById(R.id.otherProgrammingId);
-        ar.add(new ItemServices(" قواعد البيانات",R.drawable.tasmim_prochor));
-        ar.add(new ItemServices("برمجة الويب",R.drawable.tasmim_cv));
-        ar.add(new ItemServices("تطبيقات الويب",R.drawable.tasmim_kitab));
-        ar.add(new ItemServices("اختبار تجربة المستخدم",R.drawable.tasmim_ghilaf));
-        ar.add(new ItemServices("الامن السيبراني و حماية البيانات",R.drawable.tasmim_flater));
-        ar.add(new ItemServices("تحليل البيانات و التقارير",R.drawable.kartasiyat));
+        ar.add(new ItemServices(getString(R.string.database),R.drawable.tasmim_prochor));
+        ar.add(new ItemServices(getString(R.string.programing_web),R.drawable.tasmim_cv));
+        ar.add(new ItemServices(getString(R.string.application_web),R.drawable.tasmim_kitab));
+        ar.add(new ItemServices(getString(R.string.ui_ux_test),R.drawable.tasmim_ghilaf));
+        ar.add(new ItemServices(getString(R.string.security_database),R.drawable.tasmim_flater));
+        ar.add(new ItemServices(getString(R.string.data_analyses),R.drawable.kartasiyat));
 
         recyclerView =findViewById(R.id.recycler_programming);
         recyclerView.setHasFixedSize(true);

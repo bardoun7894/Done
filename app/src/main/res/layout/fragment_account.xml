@@ -48,8 +48,6 @@
            android:background="@drawable/ic_account" />
    </LinearLayout>
 
-
-
     </LinearLayout>
 
              <LinearLayout
@@ -91,7 +89,8 @@
                          android:layout_height="50dp"/>
                  </LinearLayout>
                  <LinearLayout
-
+                     android:id="@+id/makeAServiceLayoutId"
+                     android:visibility="invisible"
                      android:gravity="end|center"
                      android:background="@drawable/linear_background"
                      android:layout_width="match_parent"

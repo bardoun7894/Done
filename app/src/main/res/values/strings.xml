@@ -22,4 +22,44 @@
     <string name="programmingandtech">البرمجة و التكنولوجيا</string>
     <string name="translateEditing">الكتابة و الترجمة</string>
     <string name="sign_out">تسجيل الخروج</string>
+
+
+              <!--   الترجمة  -->
+    <string name="dirasat_lhala">دراسة الحالة</string>
+    <string name="kitabat_sira">كتابة السيرة الذاتية</string>
+    <string name="ma9alat_post">مقالات و منشورات</string>
+    <string name="tajribat_mostakhdim">كتابة تجربة المستخدم</string>
+    <string name="sinario">كتابة السيناريو</string>
+    <string name="tarjama">ترجمة</string>
+    <string name="wasf_montaj">وصف منتج</string>
+    <string name="mohtawa_ibda3i">كتابة محتوى ابداعي  </string>
+    <string name="mohtawa_tawasol">كتابة محتوى لوسائل التواصل الاجتماعي </string>
+
+
+<!--    مونتاج video -->
+    <string name="i3lanat_video_kasir">اعلانات فيديو قصيرة</string>
+    <string name="montaj_video">مونتاج الفيديو </string>
+    <string name="sira_bayda_motaharika">السيرة البيضاء المتحركة</string>
+    <string name="rosom_motaharika"> رسوم متحركة </string>
+    <string name="ard_tatbi9at">عرض التطبيقات </string>
+    <string name="logo_motaharika"> شعار متحرك</string>
+
+
+    <!--البرمجة-->
+
+    <string name="database"> قواعد البيانات </string>
+    <string name="programing_web">برمجة الويب</string>
+    <string name="application_web">تطبيقات الويب</string>
+    <string name="ui_ux_test">اختبار تجربة المستخدم</string>
+    <string name="security_database">الامن السيبراني و حماية البيانات</string>
+    <string name="data_analyses">تحليل البيانات و التقارير</string>
+    <string name="tasmim_prochor">تصميم بروشور</string>
+
+    <string-array name="categoriesSpinner">
+        <item>تصميم و جرافيك</item>
+        <item>الفيديو و الرسوم المتحركة</item>
+        <item>الكتابة و الترجمة</item>
+        <item>البرمجة و التكنولوجيا </item>
+
+    </string-array>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.recyclers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.done.R;
+import com.example.done.SearchServicesActivity;
 import com.example.done.models.ItemServices;
 
 import java.util.List;
@@ -47,9 +49,20 @@ this.mcontext =mcontext;
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView ;
         TextView nameTextView ;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image_graphic_service);
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent =new Intent(v.getContext(), SearchServicesActivity.class);
+                    intent.putExtra("TITLE_SERVICE", nameTextView.getText());
+
+                    intent.putExtra("tasmim",itemView.getContext().getString(R.string.tasmim_and_grahic));
+                      v.getContext().startActivity(intent);
+
+                }
+            });
            nameTextView = itemView.findViewById(R.id.text_graphic_service);
         }
     }

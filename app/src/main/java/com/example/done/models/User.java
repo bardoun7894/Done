@@ -1,9 +1,9 @@
 package com.example.done.models;
 
 public class User {
-
     String username ;
     String imageUrl ;
+    double rating ;
     String email ;
     String password ;
 
@@ -13,12 +13,14 @@ public class User {
         this.email = email;
         this.password = password;
     }
-    public User(String username , String email, String password) {
+    public User(String username , String email, String password ,double rating) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.rating =rating;
     }
-    public User() {
+    public User(double rating) {
+      this.rating =rating;
     }
 
     public String getUsername() {
@@ -51,5 +53,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 }

@@ -12,7 +12,7 @@ import android.widget.Button;
 
 import com.example.done.R;
 import com.example.recyclers.RecyclerItem;
-import com.example.done.bottomsheets.SearchServicesActivity;
+import com.example.done.SearchServicesActivity;
 import com.example.done.models.ItemServices;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
