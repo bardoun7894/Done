@@ -295,7 +295,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
                    if(usernamePaper!=""){
              s =new services(idOne.toString(),saveCurrentDate,saveCurrentTime,type_service,desc_service,price_service,time_service,downloadImageUrl,usernamePaper);
                            }
-                   serviceRef.child("1").setValue(s).addOnCompleteListener(new OnCompleteListener<Void>() {
+                   serviceRef.child(idOne.toString()).setValue(s).addOnCompleteListener(new OnCompleteListener<Void>() {
                        @Override
                        public void onComplete(@NonNull Task<Void> task) {
                    Toast.makeText(getApplicationContext(),"تم اضافة الخدمة بنجاح ",Toast.LENGTH_SHORT).show();
