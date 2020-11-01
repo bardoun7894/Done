@@ -1,37 +1,20 @@
 package com.example.done;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.example.done.R;
 import com.example.done.bottomsheets.BottomSheetFilter;
 import com.example.done.bottomsheets.BottomSheetLayout;
-import com.example.done.models.ItemServiceSearch;
-import com.example.done.models.User;
 import com.example.done.models.services;
 import com.example.recyclers.FirebaseRecyclerAdapt;
-import com.example.recyclers.RecyclerItemSearchServices;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class SearchServicesActivity extends AppCompatActivity {
 
@@ -59,7 +42,10 @@ ImageView orderByIdIcon ,filterByIdIcon;
         System.out.println(title_bar);
         System.out.println(title_service);
 
-        serviceRef = FirebaseDatabase.getInstance().getReference().child("services");
+
+
+       serviceRef = FirebaseDatabase.getInstance().getReference().child(title_bar).child(title_service);
+
 
         recyclerView = findViewById(R.id.recycler_search_services) ;
 

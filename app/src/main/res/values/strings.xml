@@ -54,6 +54,15 @@
     <string name="security_database">الامن السيبراني و حماية البيانات</string>
     <string name="data_analyses">تحليل البيانات و التقارير</string>
     <string name="tasmim_prochor">تصميم بروشور</string>
+    <string name="tasmim_sira_datiya">تصميم سيرة ذاتية</string>
+    <string name="tasmim_kitab">تصميم كتاب</string>
+    <string name="tasmim_ghilaf">تصميم غلاف</string>
+    <string name="tasmim_flater">تصميم فلاتر</string>
+    <string name="kartasiyat">قرطاسيات</string>
+    <string name="tasmim_chi3ar">تصميم شعار</string>
+    <string name="tasmim_da3wa">تصميم دعوة</string>
+    <string name="tasmim_web_mobile">تصميم واجهات الويب و الجوال</string>
+
 
     <string-array name="categoriesSpinner">
         <item>تصميم و جرافيك</item>

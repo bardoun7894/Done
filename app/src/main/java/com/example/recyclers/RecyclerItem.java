@@ -21,8 +21,10 @@ import java.util.List;
 public class RecyclerItem extends RecyclerView.Adapter<RecyclerItem.ViewHolder> {
 Context mcontext ;
     List<ItemServices> itemServicesList ;
-    public RecyclerItem(List<ItemServices> itemServicesList, Context mcontext) {
-this.mcontext =mcontext;
+   public String title ;
+    public RecyclerItem(List<ItemServices> itemServicesList, Context mcontext,String title) {
+        this.mcontext =mcontext;
+        this.title = title;
         this.itemServicesList = itemServicesList;
     }
     @NonNull
@@ -39,6 +41,7 @@ this.mcontext =mcontext;
 //        Picasso.get().load(itemServicesList.get(position).getImageUrl()).into(holder.imageView);
         Glide.with(mcontext).load(itemServicesList.get(position).getImageUrl()).into(holder.imageView);
         holder.nameTextView.setText(itemServicesList.get(position).getName());
+        holder.title =title;
     }
 
     @Override
@@ -49,6 +52,7 @@ this.mcontext =mcontext;
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView ;
         TextView nameTextView ;
+        String title ;
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.image_graphic_service);
@@ -57,7 +61,7 @@ this.mcontext =mcontext;
                 public void onClick(View v) {
                     Intent intent =new Intent(v.getContext(), SearchServicesActivity.class);
                     intent.putExtra("TITLE_SERVICE", nameTextView.getText());
-                    intent.putExtra("tasmim",itemView.getContext().getString(R.string.tasmim_and_grahic));
+                    intent.putExtra("tasmim",title);
                       v.getContext().startActivity(intent);
 
                 }

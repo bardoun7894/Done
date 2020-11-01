@@ -34,27 +34,24 @@ public class VideoAnimationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_animation);
 btnOtherVideoAnimation =findViewById(R.id.otherVideoAnimationId);
-        ar.add(new ItemServices(" اعلانات فيديو قصيرة",R.drawable.tasmim_prochor));
-        ar.add(new ItemServices("مونتاج الفيديو",R.drawable.tasmim_cv));
-        ar.add(new ItemServices("السيرة البيضاء المتحركة",R.drawable.tasmim_kitab));
-        ar.add(new ItemServices(" رسوم متحركة ",R.drawable.tasmim_ghilaf));
-        ar.add(new ItemServices("عرض التطبيقات ",R.drawable.tasmim_flater));
-        ar.add(new ItemServices(" شعار متحرك",R.drawable.kartasiyat));
-//        ar.add(new ItemServices(" تصميم شعار",R.drawable.icon_design));
-//        ar.add(new ItemServices(" تصميم دعوة",R.drawable.invite_card));
-//        ar.add(new ItemServices(" تصميم واجهات الويب و الجوال",R.drawable.tasmim_jawal));
-//        ar.add(new ItemServices(" تصميم شعار",R.drawable.icon_design));
-//        ar.add(new ItemServices(" تصميم دعوة",R.drawable.invite_card));
-//        ar.add(new ItemServices(" تصميم واجهات الويب و الجوال",R.drawable.tasmim_jawal));
+        ar.add(new ItemServices(getString(R.string.i3lanat_video_kasir),R.drawable.tasmim_prochor));
+        ar.add(new ItemServices(getString(R.string.montaj_video),R.drawable.tasmim_cv));
+        ar.add(new ItemServices(getString(R.string.sira_bayda_motaharika),R.drawable.tasmim_kitab));
+        ar.add(new ItemServices(getString(R.string.rosom_motaharika),R.drawable.tasmim_ghilaf));
+        ar.add(new ItemServices( getString(R.string.ard_tatbi9at),R.drawable.tasmim_flater));
+        ar.add(new ItemServices(getString(R.string.logo_motaharika),R.drawable.kartasiyat));
+
         recyclerView =findViewById(R.id.recycler_video);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
-        recyclerView.setAdapter(new RecyclerItem(ar,this));
+        recyclerView.setAdapter(new RecyclerItem(ar,this,getString(R.string.video_animation)));
 
         btnOtherVideoAnimation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(getBaseContext(), SearchServicesActivity.class);
+                intent.putExtra( "tasmim",getString(R.string.video_animation));
+                intent.putExtra( "TITLE_SERVICE","أخرى");
                 startActivity(intent);
             }
         });

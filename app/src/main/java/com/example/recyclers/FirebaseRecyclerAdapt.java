@@ -1,6 +1,5 @@
 package com.example.recyclers;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.done.ItemClickListener;
 import com.example.done.R;
 import com.example.done.models.services;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -38,10 +36,10 @@ public class FirebaseRecyclerAdapt extends FirebaseRecyclerAdapter<services,Fire
     public servicesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_search_service,parent, false);
-        return new FirebaseRecyclerAdapt.servicesViewHolder(view);
+        return new servicesViewHolder(view);
     }
 
-    public  class servicesViewHolder extends RecyclerView.ViewHolder {
+    public static class servicesViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView ;
         public TextView rating_numberTv ,descTv,priceTv ;
 

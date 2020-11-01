@@ -118,7 +118,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         System.out.println(getmTextView.getSelectedItem().toString());
                         System.out.println(mTextView.getSelectedItem().toString());
-                        serviceRef =FirebaseDatabase.getInstance().getReference().child("services");
+                        serviceRef =FirebaseDatabase.getInstance().getReference().child(mTextView.getSelectedItem().toString()).child(getmTextView.getSelectedItem().toString());
                     }
                     @Override
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -150,6 +150,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
         list.add( "تصميم شعار");
         list.add(" تصميم دعوة");
         list.add(" تصميم واجهات الويب و الجوال");
+        list.add("أخرى");
     }
     void videoAnimationList(List<String> list){
         list .add(getString(R.string.i3lanat_video_kasir));
@@ -158,6 +159,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
         list.add( getString(R.string.rosom_motaharika));
         list.add( getString(R.string.ard_tatbi9at));
         list.add( getString(R.string.logo_motaharika));
+        list.add("أخرى");
     }
 
  void translateList(List<String> list){
@@ -170,7 +172,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
    list.add(getString(R.string.wasf_montaj));
    list.add(getString(R.string.mohtawa_ibda3i));
    list.add(getString(R.string.mohtawa_tawasol));
-
+   list.add("أخرى");
     }
 
  void programingList(List<String> list){
@@ -181,8 +183,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
    list.add(getString(R.string.ui_ux_test));
    list.add(getString(R.string.security_database));
    list.add(getString(R.string.data_analyses));
-
-
+   list.add("أخرى");
     }
 
     @Override

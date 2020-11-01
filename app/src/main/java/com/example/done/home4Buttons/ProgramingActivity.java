@@ -45,12 +45,14 @@ public class ProgramingActivity extends AppCompatActivity {
         recyclerView =findViewById(R.id.recycler_programming);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
-        recyclerView.setAdapter(new RecyclerItem(ar,this));
+        recyclerView.setAdapter(new RecyclerItem(ar,this,getString(R.string.programmingandtech)));
 
         btnOtherTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =new Intent(getBaseContext(), SearchServicesActivity.class);
+                intent.putExtra( "tasmim",getString(R.string.programmingandtech));
+                intent.putExtra( "TITLE_SERVICE","أخرى");
                 startActivity(intent);
             }
         });
