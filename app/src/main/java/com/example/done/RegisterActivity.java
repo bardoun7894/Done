@@ -105,11 +105,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
            @Override
            public void onComplete(@NonNull Task<AuthResult> task) {
                if (task.isSuccessful()) {
-
-
                    // Sign in is successful
                    FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
                    UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                            .setDisplayName(username).build();
 
@@ -129,7 +126,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                    hashMap.put("username",username);
                    hashMap.put("email",email);
                    hashMap.put("password",password);
-                   hashMap.put("rating",0);
+                   hashMap.put("rating","0");
 
                    databaseReference.child("Users").child(username).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                        @Override

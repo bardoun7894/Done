@@ -14,12 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.done.ChatActivity;
 import com.example.done.R;
 import com.example.done.models.ItemChat;
+import com.example.done.models.User;
 
 import java.util.List;
 
 public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessages.ViewHolder> {
-    List<ItemChat> itemChatList ;
-    public RecyclerItemMessages(List<ItemChat> itemChatList) {
+    List<User> itemChatList ;
+    public RecyclerItemMessages(List<User> itemChatList) {
         this.itemChatList =itemChatList;
     }
 
@@ -33,9 +34,9 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerItemMessages.ViewHolder holder, int position) {
-           holder.imageView.setImageResource(itemChatList.get(position).getmImageResource());
-           holder.userTextView.setText(itemChatList.get(position).getmUser());
-           holder.hashTextView.setText(itemChatList.get(position).getmHach());
+//           holder.imageView.setImageResource(itemChatList.get(position).getImageUrl());
+           holder.userTextView.setText(itemChatList.get(position).getUsername());
+           holder.hashTextView.setText(itemChatList.get(position).getEmail());
     }
 
     @Override
