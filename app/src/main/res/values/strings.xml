@@ -38,11 +38,11 @@
 
 <!--    مونتاج video -->
     <string name="i3lanat_video_kasir">اعلانات فيديو قصيرة</string>
-    <string name="montaj_video">مونتاج الفيديو </string>
+    <string name="montaj_video">مونتاج الفيديو</string>
     <string name="sira_bayda_motaharika">السيرة البيضاء المتحركة</string>
-    <string name="rosom_motaharika"> رسوم متحركة </string>
-    <string name="ard_tatbi9at">عرض التطبيقات </string>
-    <string name="logo_motaharika"> شعار متحرك</string>
+    <string name="rosom_motaharika">رسوم متحركة</string>
+    <string name="ard_tatbi9at">عرض التطبيقات</string>
+    <string name="logo_motaharika">شعار متحرك</string>
 
 
     <!--البرمجة-->
@@ -53,6 +53,9 @@
     <string name="ui_ux_test">اختبار تجربة المستخدم</string>
     <string name="security_database">الامن السيبراني و حماية البيانات</string>
     <string name="data_analyses">تحليل البيانات و التقارير</string>
+
+
+<!--    tasmim-->
     <string name="tasmim_prochor">تصميم بروشور</string>
     <string name="tasmim_sira_datiya">تصميم سيرة ذاتية</string>
     <string name="tasmim_kitab">تصميم كتاب</string>

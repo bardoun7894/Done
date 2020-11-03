@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.done.R;
 import com.example.recyclers.RecyclerItem;
@@ -22,9 +23,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ProgramingActivity extends AppCompatActivity {
+public class ProgramingActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnOtherTranslate ;
+    Button btnOtherProgramming ;
+    ImageView backProgrammingIv;
     private FirebaseDatabase firebasedatabase  =  FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference =  firebasedatabase.getReference();
     private DatabaseReference first = databaseReference.child("Graphic").child("picture");
@@ -34,7 +36,8 @@ public class ProgramingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_programing);
-        btnOtherTranslate =findViewById(R.id.otherProgrammingId);
+        btnOtherProgramming =findViewById(R.id.otherProgrammingId);
+        backProgrammingIv =findViewById(R.id.backProgrammingId);
         ar.add(new ItemServices(getString(R.string.database),R.drawable.tasmim_prochor));
         ar.add(new ItemServices(getString(R.string.programing_web),R.drawable.tasmim_cv));
         ar.add(new ItemServices(getString(R.string.application_web),R.drawable.tasmim_kitab));
@@ -47,38 +50,29 @@ public class ProgramingActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         recyclerView.setAdapter(new RecyclerItem(ar,this,getString(R.string.programmingandtech)));
 
-        btnOtherTranslate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =new Intent(getBaseContext(), SearchServicesActivity.class);
-                intent.putExtra( "tasmim",getString(R.string.programmingandtech));
-                intent.putExtra( "TITLE_SERVICE","أخرى");
-                startActivity(intent);
-            }
-        });
+        btnOtherProgramming.setOnClickListener(this);
+        backProgrammingIv.setOnClickListener(this);
 
     }
     @Override
     protected void onStart() {
         super.onStart();
-        first.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-//            while( snapshot.getChildren().iterator().hasNext()){
-////                   String name  =snapshot.getKey();
-////                   String imageUrl = (String) snapshot.getValue();
-////                   ar.add(new ItemServices(name,imageUrl));
-//                         }
-
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
 
-
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.backProgrammingId :
+                finish();
+                break;
+            case R.id.otherProgrammingId :
+                Intent intent =new Intent(getBaseContext(), SearchServicesActivity.class);
+                intent.putExtra( "tasmim",getString(R.string.programmingandtech));
+                intent.putExtra( "TITLE_SERVICE","أخرى");
+                startActivity(intent);
+                break;
+        }
+    }
 }

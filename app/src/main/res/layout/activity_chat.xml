@@ -14,12 +14,14 @@
           android:layout_height="wrap_content"
           >
           <ImageView
+              android:id="@+id/backChatId"
               android:gravity="end"
               android:layout_margin="10dp"
               android:src="@drawable/ic_black_back"
               android:layout_width="50dp"
               android:layout_height="40dp"/>
           <TextView
+              android:id="@+id/usernameChat"
               android:gravity="center"
               android:textColor="@color/colorWhite"
               android:textSize="25dp"

@@ -57,6 +57,7 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), ChatActivity.class);
+                    intent.putExtra("username",userTextView.getText());
                     v.getContext().startActivity(intent);
                 }
             });

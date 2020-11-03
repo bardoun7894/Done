@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.done.R;
 import com.example.recyclers.RecyclerItem;
@@ -22,11 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class TranslateActivity extends AppCompatActivity {
+public class TranslateActivity extends AppCompatActivity implements View.OnClickListener  {
     Button btnOtherTranslate ;
-    private FirebaseDatabase  firebasedatabase  =  FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference =  firebasedatabase.getReference();
-    private DatabaseReference first = databaseReference.child("Graphic").child("picture");
+    ImageView backTranslateIv;
     RecyclerView recyclerView;
     ArrayList<ItemServices> ar =new ArrayList<>();
     @Override
@@ -34,6 +33,7 @@ public class TranslateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
         btnOtherTranslate =findViewById(R.id.otherTranslateId);
+        backTranslateIv =findViewById(R.id.backTranslateId);
         ar.add(new ItemServices(getString(R.string.dirasat_lhala),R.drawable.tasmim_prochor));
         ar.add(new ItemServices(getString(R.string.kitabat_sira),R.drawable.tasmim_cv));
         ar.add(new ItemServices(getString(R.string.ma9alat_post),R.drawable.kartasiyat));
@@ -49,31 +49,29 @@ public class TranslateActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
         recyclerView.setAdapter(new RecyclerItem(ar,this,getString(R.string.translateEditing)));
 
-        btnOtherTranslate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =new Intent(getBaseContext(), SearchServicesActivity.class);
-                intent.putExtra( "tasmim",getString(R.string.translateEditing));
-                intent.putExtra( "TITLE_SERVICE","أخرى");
-                startActivity(intent);
-            }
-        });
+        btnOtherTranslate.setOnClickListener(this);
+        backTranslateIv.setOnClickListener(this);
+
     }
     @Override
     protected void onStart() {
         super.onStart();
-        first.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
 
-
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.backTranslateId :
+                finish();
+                break;
+            case R.id.otherProgrammingId :
+                Intent intent =new Intent(getBaseContext(), SearchServicesActivity.class);
+                intent.putExtra( "tasmim",getString(R.string.translateEditing));
+                intent.putExtra( "TITLE_SERVICE","أخرى");
+                startActivity(intent);
+                break;
+        }
+    }
 }

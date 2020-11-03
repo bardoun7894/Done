@@ -57,7 +57,7 @@ RecyclerView recyclerView;
 
                  if (!user.getEmail().equals(firebaseUser.getEmail())) {
                       userList.add(user);
-                  }
+                   }
                   recyclerView.setAdapter(new RecyclerItemMessages(userList));
               }
           }
