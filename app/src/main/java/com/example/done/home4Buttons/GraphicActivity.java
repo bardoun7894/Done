@@ -29,15 +29,8 @@ RecyclerView recyclerView;
 Button btnOtherGraphic;
 ImageView backImg,searchGraphicIv,searchIconGraphicIv;
    ArrayList<ItemServices> ar =new ArrayList<>();
-   ItemServices tasmim_prochor = new ItemServices(getString(R.string.tasmim_prochor),R.drawable.tasmim_prochor);
-    ItemServices tasmim_sira_datiya = new ItemServices(getString(R.string.tasmim_sira_datiya),R.drawable.tasmim_cv);
-    ItemServices tasmim_kitab = new ItemServices(getString(R.string.tasmim_kitab),R.drawable.tasmim_kitab);
-    ItemServices tasmim_ghilaf = new ItemServices(getString(R.string.tasmim_ghilaf),R.drawable.tasmim_ghilaf);
-    ItemServices tasmim_flater = new ItemServices(getString(R.string.tasmim_flater),R.drawable.tasmim_flater);
-    ItemServices kartasiyat = new ItemServices(getString(R.string.kartasiyat),R.drawable.kartasiyat);
-    ItemServices tasmim_chi3ar =new ItemServices(getString(R.string.tasmim_chi3ar),R.drawable.icon_design);
-    ItemServices tasmim_da3wa =new ItemServices(getString(R.string.tasmim_da3wa),R.drawable.invite_card);
-    ItemServices tasmim_web_mobile =new ItemServices(getString(R.string.tasmim_web_mobile),R.drawable.tasmim_jawal);
+   ItemServices tasmim_prochor,tasmim_sira_datiya,tasmim_kitab, tasmim_ghilaf ,tasmim_flater,kartasiyat,tasmim_chi3ar,tasmim_da3wa,tasmim_web_mobile;
+
     private LinearLayout homeGraphicBarLn,searchAppBarGraphicLn;
     private EditText searchBoxGraphicEt;
     private ArrayList<String> l =new ArrayList();
@@ -46,6 +39,15 @@ ImageView backImg,searchGraphicIv,searchIconGraphicIv;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphic) ;
+        tasmim_sira_datiya = new ItemServices(getString(R.string.tasmim_sira_datiya),R.drawable.tasmim_cv);
+        tasmim_prochor = new ItemServices(getString(R.string.tasmim_prochor),R.drawable.tasmim_prochor);
+        tasmim_kitab = new ItemServices(getString(R.string.tasmim_kitab),R.drawable.tasmim_kitab);
+        tasmim_ghilaf = new ItemServices(getString(R.string.tasmim_ghilaf),R.drawable.tasmim_ghilaf);
+        tasmim_flater = new ItemServices(getString(R.string.tasmim_flater),R.drawable.tasmim_flater);
+        kartasiyat = new ItemServices(getString(R.string.kartasiyat),R.drawable.kartasiyat);
+        tasmim_chi3ar =new ItemServices(getString(R.string.tasmim_chi3ar),R.drawable.icon_design);
+        tasmim_web_mobile =new ItemServices(getString(R.string.tasmim_web_mobile),R.drawable.tasmim_jawal);
+        tasmim_da3wa =new ItemServices(getString(R.string.tasmim_da3wa),R.drawable.invite_card);
 
     l.add(getString(R.string.tasmim_prochor));
     l.add(getString(R.string.tasmim_sira_datiya));
@@ -71,6 +73,8 @@ ImageView backImg,searchGraphicIv,searchIconGraphicIv;
         searchGraphicIv.setOnClickListener(this);
         searchIconGraphicIv.setOnClickListener(this);
         backImg.setOnClickListener(this);
+
+
         recyclerView =findViewById(R.id.recycler_graphic);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
@@ -115,11 +119,7 @@ ImageView backImg,searchGraphicIv,searchIconGraphicIv;
 
     private void makeSearch() {
         String data =  searchBoxGraphicEt.getText().toString();
-        for(int i=0;i<l.size();i++){
-            if(data.contains(l.get(i).subSequence(0,4))){
-                data =l.get(i);
-            }
-        }
+
         switch (data){
             case"تصميم بروشور":
                 ar.clear();
@@ -171,10 +171,9 @@ ImageView backImg,searchGraphicIv,searchIconGraphicIv;
     }
 
     private void showSearchBar(int visible) {
-        homeGraphicBarLn.setVisibility(visible);
+        searchAppBarGraphicLn.setVisibility(visible);
     }
     private void hideAppBar(int gone) {
-
-        searchAppBarGraphicLn.setVisibility(gone);
+        homeGraphicBarLn.setVisibility(gone);
     }
 }

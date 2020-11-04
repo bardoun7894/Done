@@ -68,7 +68,7 @@
             </TextView>
             <ImageView
                 android:layout_weight="1"
-                android:id="@+id/searchGraphicId"
+                android:id="@+id/searchVideoId"
                 android:background="@drawable/ic_white_search"
                 android:layout_width="0dp"
                 android:layout_height="30dp"

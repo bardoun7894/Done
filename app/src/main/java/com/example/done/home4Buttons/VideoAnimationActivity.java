@@ -57,7 +57,7 @@ public class VideoAnimationActivity extends AppCompatActivity implements View.On
         searchAppBarLn =findViewById(R.id.searchAppBarId);
         searchBoxVideoEt =findViewById(R.id.searchBoxVideoId);
         searchIconVideoIv =findViewById(R.id.searchIconVideoId);
-        searchVideoIv =findViewById(R.id.searchGraphicId);
+        searchVideoIv =findViewById(R.id.searchVideoId);
         addAllServices();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));

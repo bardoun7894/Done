@@ -32,7 +32,7 @@
     <string name="sinario">كتابة السيناريو</string>
     <string name="tarjama">ترجمة</string>
     <string name="wasf_montaj">وصف منتج</string>
-    <string name="mohtawa_ibda3i">كتابة محتوى ابداعي  </string>
+    <string name="mohtawa_ibda3i">كتابة محتوى ابداعي</string>
     <string name="mohtawa_tawasol">كتابة محتوى لوسائل التواصل الاجتماعي </string>
 
 
@@ -47,7 +47,7 @@
 
     <!--البرمجة-->
 
-    <string name="database"> قواعد البيانات </string>
+    <string name="database">قواعد البيانات</string>
     <string name="programing_web">برمجة الويب</string>
     <string name="application_web">تطبيقات الويب</string>
     <string name="ui_ux_test">اختبار تجربة المستخدم</string>
