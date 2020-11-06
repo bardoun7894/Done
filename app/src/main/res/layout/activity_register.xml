@@ -13,7 +13,10 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-<TextView
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="80dp"/>
+   <TextView
     android:textStyle="bold"
      android:layout_marginRight="10dp"
     android:textColor="@color/colorPrimary"
@@ -77,9 +80,35 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             />
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="10dp"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <RadioGroup
+            android:id="@+id/radio_group_id"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/sell_radio_id"
+                android:gravity="center"
+                android:text="بائع"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:gravity="center"
+                android:id="@+id/buy_radio_id"
+                android:text="مشتري"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+    </LinearLayout>
         <Button
             android:id="@+id/registerButtonId"
             android:layout_marginTop="10dp"

@@ -32,7 +32,6 @@ public class FirebaseRecyclerAdapt extends FirebaseRecyclerAdapter<services,Fire
 
         Glide.with(holder.imageView.getContext()).load(services.getService_image()).into(holder.imageView);
         userN =services.getService_price();
-
         holder.rating_numberTv.setText(services.getService_username());
 
         holder.descTv.setText(services.getService_desc());

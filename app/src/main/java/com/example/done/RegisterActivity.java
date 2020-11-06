@@ -11,6 +11,8 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +39,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     Button registerBtn ;
     Intent intent;
     FirebaseAuth auth;
+    RadioGroup radioGroup;
+    RadioButton radioButton,rs,rb ;
+    String type_of_user ="";
+    int selectedId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +52,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         emailEt =findViewById(R.id.emailRegisterId);
         passwordEt =findViewById(R.id.passwordRegisterId);
         registerBtn =findViewById(R.id.registerButtonId);
-        auth =FirebaseAuth.getInstance();
-        textView.setOnClickListener(this);
-        registerBtn.setOnClickListener(this);
+
+        radioGroup=findViewById(R.id.radio_group_id);
+         rs=findViewById(R.id.sell_radio_id);
+         rb=findViewById(R.id.buy_radio_id);
+          auth = FirebaseAuth.getInstance();
+          textView.setOnClickListener(this);
+          registerBtn.setOnClickListener(this);
+
+       radioButton  = (RadioButton) findViewById(selectedId);
+
 
     }
 
@@ -68,6 +81,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
    void  register() {
+       if(rs.isChecked()){
+           type_of_user =rs.getText().toString();
+           Toast.makeText(RegisterActivity.this,rs.getText(), Toast.LENGTH_SHORT).show();
+       }
+       if(rb.isChecked()){
+           type_of_user =rb.getText().toString();
+           Toast.makeText(RegisterActivity.this,rb.getText(), Toast.LENGTH_SHORT).show();
+       }
+       if(type_of_user.equals("")){
+          Toast.makeText(RegisterActivity.this,"هل أنت بائع ام مشتري ؟", Toast.LENGTH_SHORT).show();
+           return;
+       }
        final String email = emailEt.getText().toString().trim();
        final String password = passwordEt.getText().toString().trim();
        final String username = usernameEt.getText().toString().trim();
@@ -100,7 +125,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
            return;
        }
 
-
        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
            @Override
            public void onComplete(@NonNull Task<AuthResult> task) {
@@ -115,9 +139,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                                @Override
                                public void onComplete(@NonNull Task<Void> task) {
-                                   if (task.isSuccessful()) {
-                                       Log.d("TAG", "User profile updated.");
-                                   }
+                          if (task.isSuccessful()) {
+                           Log.d("TAG", "User profile updated.");
+                          }
                                }
                            });
                    final DatabaseReference databaseReference;
@@ -127,13 +151,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                    hashMap.put("email",email);
                    hashMap.put("password",password);
                    hashMap.put("rating","0");
-
+                   hashMap.put("type_of_user",type_of_user);
                    databaseReference.child("Users").child(username).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                       @Override
+                    @Override
                        public void onComplete(@NonNull Task<Void> task) {
-                           Intent intent =new Intent(getApplicationContext(),LoginActivity.class);
-                           startActivity(intent);
-                            }
+                      Intent intent =new Intent(getApplicationContext(),LoginActivity.class);
+                      startActivity(intent);
+                     }
                             });
                      }
                    }

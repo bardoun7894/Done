@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView   xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:fillViewport="false"
     tools:context=".joinDoc.ProAccountActivity">
 
     <LinearLayout
@@ -56,7 +56,6 @@
                 />
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
@@ -65,50 +64,34 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:background="@drawable/shape_input"
-                android:orientation="horizontal"
-                android:layout_marginRight="10dp"
+                android:id="@+id/addALanguageId"
+                android:visibility="visible"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="10dp"
                 android:gravity="center"
-                android:layout_width="130dp"
-                android:layout_height="40dp">
-                <ImageView
-                    android:src="@drawable/ic_arrow_down_grey"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    />
-                <TextView
-                    android:layout_marginRight="10dp"
-                    android:textColor="#7A7878"
-                    android:text=" حدد نوع الخدمة"
-                    android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Spinner
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layoutDirection="rtl"
+                    android:id="@+id/khidmaId"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    />
 
-            </LinearLayout>
-            <LinearLayout
-                android:background="@drawable/shape_input"
-                 android:orientation="horizontal"
-                android:layout_marginRight="10dp"
-                android:gravity="center"
-                android:layout_width="130dp"
-                android:layout_height="40dp">
-                <ImageView
-                    android:src="@drawable/ic_arrow_down_grey"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    />
-                <TextView
-                    android:layout_marginRight="10dp"
-                    android:textColor="#7A7878"
-                    android:text=" حدد مهنتك"
-                    android:gravity="center"
+                <Spinner
+                    android:id="@+id/mihnaId"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layoutDirection="rtl" />
 
             </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
-
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="*"
@@ -122,66 +105,69 @@
                 android:layout_height="wrap_content"
                 android:text="مهنتك"
                 />
-
         </LinearLayout>
 
-        <TextView
-            android:layout_marginRight="70dp"
-            android:textColor="@color/colorGrey"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text=" + اضافة جديد"
-            />
+            android:layout_height="wrap_content">
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupPro"
+                android:layout_width="300dp"
+                app:chipSpacingHorizontal="2dp"
+                android:layout_height="wrap_content">
 
+            </com.google.android.material.chip.ChipGroup>
+            <TextView
+                android:id="@+id/addNewId"
+                android:textSize="16dp"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/colorGrey"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ اضافة جديد "
+                />
+
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
-            android:gravity="end"
+            android:gravity="center_vertical|end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+       <Spinner
+           android:layout_marginTop="10dp"
+           android:layout_weight="1"
+           android:layoutDirection="rtl"
+           android:id="@+id/khibraId"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+            />
+            <TextView
 
-            <LinearLayout
-                android:background="@drawable/shape_input"
-                android:orientation="horizontal"
-                android:layout_marginRight="10dp"
-                android:gravity="center"
-                android:layout_width="130dp"
-                android:layout_height="40dp">
-                <ImageView
-                    android:src="@drawable/ic_arrow_down_grey"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    />
-                <TextView
-                    android:layout_marginRight="10dp"
-                    android:textColor="#7A7878"
-                    android:text=" مستوى الخبرة"
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <LinearLayout
-                android:background="@drawable/shape_input"
-                android:orientation="horizontal"
-                android:layout_marginRight="10dp"
-                android:gravity="center"
-                android:layout_width="130dp"
-                android:layout_height="40dp">
-                <ImageView
-                    android:src="@drawable/ic_arrow_down_grey"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    />
-                <TextView
-                    android:layout_marginRight="10dp"
-                    android:textColor="#7A7878"
-                    android:text=" اضافة مهارة "
-                    android:gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                android:text=" مستوى الخبرة"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-            </LinearLayout>
+            <EditText
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="5dp"
+              android:id="@+id/skillsId"
+              android:layout_marginRight="10dp"
+              android:textColor="#7A7878"
+                android:hint="مهارتك"
+                android:gravity="center"
+              android:background="@drawable/shape_input"
+                android:textSize="15dp"
+              android:layout_width="wrap_content"
+             android:layout_height="wrap_content"/>
+
+
             <TextView
                 android:layout_width="wrap_content"
 
@@ -208,37 +194,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
          <EditText
+             android:paddingHorizontal="40dp"
+             android:paddingVertical="8dp"
+             android:id="@+id/koliya_nameId"
              android:textSize="14dp"
              android:layout_marginRight="10dp"
              android:textColor="#7A7878"
              android:background="@drawable/shape_input"
-             android:text="اسم الكلية"
+             android:hint="اسم الكلية"
              android:gravity="center"
-             android:layout_width="130dp"
-             android:layout_height="40dp"/>
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"/>
+         <EditText
+             android:id="@+id/balad_koliyaId"
+             android:paddingHorizontal="40dp"
+             android:paddingVertical="8dp"
+             android:textSize="14dp"
+             android:layout_marginRight="10dp"
+             android:textColor="#7A7878"
+             android:background="@drawable/shape_input"
+             android:hint="بلد الكلية او الجامعة"
+             android:gravity="center"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"/>
 
-         <LinearLayout
-                android:background="@drawable/shape_input"
-                android:orientation="horizontal"
-                android:layout_marginRight="10dp"
-                android:gravity="center"
-                android:layout_width="130dp"
-                android:layout_height="40dp">
-                <ImageView
-                    android:src="@drawable/ic_arrow_down_grey"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    />
-                <TextView
-                    android:textSize="12dp"
 
-                    android:textColor="#7A7878"
-                    android:text="بلد الكليةاو الجامعة"
-                   android:paddingHorizontal="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
 
 
             <TextView
@@ -257,50 +237,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-         <LinearLayout
-                android:background="@drawable/shape_input"
-                android:orientation="horizontal"
-                android:layout_marginRight="10dp"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp">
-                <ImageView
-                    android:src="@drawable/ic_arrow_down_grey"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    />
-                <TextView
-                    android:textSize="12dp"
-                    android:textColor="#7A7878"
-                    android:text= "  عام "
-                   android:paddingHorizontal="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
-
-         <LinearLayout
-             android:background="@drawable/shape_input"
-             android:orientation="horizontal"
+         <EditText
+            android:id="@+id/degree_yearId"
+             android:paddingVertical="5dp"
+             android:paddingHorizontal="15dp"
+             android:textSize="14dp"
              android:layout_marginRight="10dp"
+             android:textColor="#7A7878"
+             android:background="@drawable/shape_input"
+             android:hint="عام"
              android:gravity="center"
-             android:layout_width="130dp"
-             android:layout_height="40dp">
-             <ImageView
-                 android:src="@drawable/ic_arrow_down_grey"
-                 android:layout_width="30dp"
-                 android:layout_height="30dp"
-                 />
-             <TextView
-                 android:textSize="12dp"
-                 android:textColor="#7A7878"
-                 android:text="الدرجة العلمية"
-                 android:paddingHorizontal="5dp"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"/>
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"/>
 
-         </LinearLayout>
-        </LinearLayout>
+
+
+
+         <EditText
+             android:id="@+id/degree_scienceId"
+             android:paddingHorizontal="40dp"
+             android:paddingVertical="5dp"
+             android:textSize="14dp"
+             android:layout_marginRight="10dp"
+             android:textColor="#7A7878"
+             android:background="@drawable/shape_input"
+             android:hint="الدرجة العلمية"
+             android:gravity="center"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"/>
+     </LinearLayout>
 
 
 
@@ -311,27 +276,21 @@
             android:gravity="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <LinearLayout
-                android:background="@drawable/shape_input"
-                android:orientation="horizontal"
+            <EditText
+                android:id="@+id/Certified_yearId"
+                android:paddingVertical="5dp"
+                android:paddingHorizontal="15dp"
+                android:textSize="14dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#7A7878"
+                android:background="@drawable/shape_input"
+                android:hint="عام"
                 android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp">
-                <ImageView
-                    android:src="@drawable/ic_arrow_down_grey"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    />
-                <TextView
-                    android:textSize="12dp"
-                    android:textColor="#7A7878"
-                    android:text= "  عام "
-                    android:paddingHorizontal="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
+                android:layout_height="wrap_content"/>
+
             <EditText
+                android:id="@+id/CertifiedId"
                 android:textSize="14dp"
                 android:layout_marginRight="10dp"
                 android:textColor="#7A7878"
@@ -340,28 +299,20 @@
                 android:gravity="center"
                 android:layout_width="130dp"
                 android:layout_height="40dp"/>
-            <LinearLayout
-                android:background="@drawable/shape_input"
-                android:orientation="horizontal"
+            <EditText
+                android:id="@+id/certificateId"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="8dp"
+                android:textSize="14dp"
                 android:layout_marginRight="10dp"
+                android:textColor="#7A7878"
+                android:background="@drawable/shape_input"
+                android:hint="شهادة او جائزة"
                 android:gravity="center"
-                android:layout_width="130dp"
-                android:layout_height="40dp">
-                <ImageView
-                    android:src="@drawable/ic_arrow_down_grey"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    />
-                <TextView
-                    android:textSize="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-                    android:textColor="#7A7878"
-                    android:text=" شهادة أو جائزة"
-                    android:paddingHorizontal="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
 
-            </LinearLayout>
 
 
             <TextView
@@ -385,4 +336,4 @@
     </LinearLayout>
 
 
-</LinearLayout>
+</ScrollView>

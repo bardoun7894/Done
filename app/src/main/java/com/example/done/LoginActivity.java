@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.done.Fragment.FragmentAccount;
+import com.example.done.joinDoc.JoinAsActivity;
 import com.example.done.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,14 +36,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     EditText emailEt,passwordEt ;
     Button loginBtn ;
-    Intent intent;
     FirebaseAuth auth;
-
+    String type_of_user;
+    DatabaseReference reference ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login2);
+        reference = FirebaseDatabase.getInstance().getReference("Users");
         auth =FirebaseAuth.getInstance();
         emailEt=findViewById(R.id.emailLoginId);
         passwordEt=findViewById(R.id.passwordLoginId);
@@ -49,7 +52,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginBtn.setOnClickListener(this);
         Paper.init(this);
     }
-
 
     @Override
     public void onClick(View v) {
@@ -61,9 +63,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     void login(){
+
         final String email =emailEt.getText().toString().trim();
         final String password =passwordEt.getText().toString().trim();
-
         if(TextUtils.isEmpty(email)){
             emailEt.setError("email is required");
             emailEt.requestFocus();
@@ -91,18 +93,37 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void AllowAccessToAccount(final String email, final String password) {
 
-
-
-
         auth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                String username=  auth.getCurrentUser().getDisplayName();
+
+                final String username = auth.getCurrentUser().getDisplayName();
                 Paper.book().write(Prevalent.UserEmailKey,email);
                 Paper.book().write(Prevalent.UserPasswordKey,password);
                 Paper.book().write(Prevalent.UserNameKey,username);
-                Intent intent =new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
+                reference.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                     if(dataSnapshot.exists()){
+                            type_of_user = (String) dataSnapshot.child("type_of_user").getValue() ;
+                            Paper.book().write(Prevalent.type_of_user,type_of_user);
+                    if(type_of_user.equals("بائع")){
+                        Intent intent =new Intent(getApplicationContext(),JoinAsActivity.class);
+                        startActivity(intent);
+                    }else{
+                        Intent intent =new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(intent);
+                    }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
+                });
+
+
+
+
             }
         });
 

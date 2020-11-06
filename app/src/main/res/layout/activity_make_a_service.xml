@@ -30,6 +30,7 @@ android:id="@+id/uploadImagesId"
         android:text="تحميل صور"
         />
     <LinearLayout
+
         android:gravity="end"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
@@ -69,15 +70,14 @@ android:id="@+id/uploadImagesId"
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <Spinner
-            android:gravity="center"
-            android:layout_marginTop="5dp"
-            android:layout_gravity="center"
-            android:layoutDirection="rtl"
             android:id="@+id/subcategorySpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
             android:hint="نوع المهنة"
-             />
+            android:layoutDirection="rtl" />
         <Space
             android:layout_width="50dp"
             android:layout_height="match_parent"/>

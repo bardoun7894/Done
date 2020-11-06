@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.done.Prevalent;
 import com.example.done.models.ItemChat;
 import com.example.done.R;
 import com.example.done.models.User;
@@ -24,10 +25,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import io.paperdb.Paper;
+
 public class FragmentMessages extends androidx.fragment.app.Fragment {
 ArrayList<User> userList ;
 RecyclerView recyclerView;
-
+String paper ="";
     @Nullable
     @Override
 
@@ -38,7 +41,13 @@ RecyclerView recyclerView;
       recyclerView.setHasFixedSize(true);
       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        initData(userList);
+        Paper.init(view.getContext());
+        paper =Paper.book().read(Prevalent.UserNameKey);
+        if(paper!="" && paper!=null){
+         initData(userList);
+        }
+
+
         return view;
     }
 

@@ -124,16 +124,12 @@ public class ProgramingActivity extends AppCompatActivity implements View.OnClic
         }
     }
     private void showSearchBar(int visible) {
-
-
-
         searchAppBarProgrammingLn.setVisibility(visible);
     }
 
     private void hideAppBar(int gone) {
         homeProgrammingBarLn.setVisibility(gone);
     }
-
     private void makeSearch() {
         String data =  searchBoxprogrammingEt.getText().toString();
         for(int i=0;i<l.size();i++){

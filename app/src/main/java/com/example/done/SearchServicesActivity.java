@@ -25,8 +25,7 @@ public class SearchServicesActivity extends AppCompatActivity {
 
 RecyclerView recyclerView;
 ImageView orderByIdIcon ,filterByIdIcon;
-
-      String rating ;
+    String rating ;
 
     DatabaseReference serviceRef ,userRef ;
     FirebaseRecyclerAdapt adapter;

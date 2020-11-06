@@ -72,6 +72,35 @@
         <item>الفيديو و الرسوم المتحركة</item>
         <item>الكتابة و الترجمة</item>
         <item>البرمجة و التكنولوجيا </item>
-
     </string-array>
+
+   <string-array name="experience">
+        <item>مبتدأ</item>
+        <item>متوسط</item>
+        <item>خبير</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>غير محدد</item>
+        <item>العربية</item>
+        <item>الانجليزية</item>
+        <item>الفرنسية</item>
+        <item>الاسبانية</item>
+        <item>التركية</item>
+        <item>الألمانية</item>
+        <item>الصينية</item>
+    </string-array>
+
+    <string-array name="languages_level">
+        <item>غير محدد</item>
+        <item>الاساسية</item>
+        <item>تحادثي</item>
+        <item>بطلاقه</item>
+        <item>الام / ثنائي اللغة</item>
+    </string-array>
+
+
+
+
+
 </resources>

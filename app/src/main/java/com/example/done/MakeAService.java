@@ -69,8 +69,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
          Paper.init(this);
         usernamePaper = Paper.book().read(Prevalent.UserNameKey);
         serviceImageStorage = FirebaseStorage.getInstance().getReference().child("ServiceImages");
-        mTextView = findViewById(R.id.categorySpinner);
-        getmTextView = findViewById(R.id.subcategorySpinner);
+
         imageOfService = findViewById(R.id.imageOfServiceId);
         uploadImages = findViewById(R.id.uploadImagesId);
         saveButton = findViewById(R.id.saveServiceId);
@@ -78,21 +77,23 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
         descOfServiceE = findViewById(R.id.descOfServiceEt);
         priceOfServiceE = findViewById(R.id.priceOfServiceEt);
         timeOfServiceE = findViewById(R.id.timeOfServiceEt);
-
+       Paper.init(this);
         uploadImages.setOnClickListener(this);
         saveButton.setOnClickListener(this);
 
+        mTextView = findViewById(R.id.categorySpinner);
+        getmTextView = findViewById(R.id.subcategorySpinner);
         String[] categories = getResources().getStringArray(R.array.categoriesSpinner);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, categories);
         arrayAdapter.notifyDataSetChanged();
         mTextView.setAdapter(arrayAdapter);
 
-         mTextView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+  mTextView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String option = String.valueOf(mTextView.getSelectedItem());  //Don't forget to move this here otherwise it won't be updated.
-
-                if (option.contentEquals(getString(R.string.tasmim_and_grahic))) {
+                if (option.contentEquals(getString(R.string.tasmim_and_grahic))){
                     list = new ArrayList<>();
                     tasmimAndgrahicList(list);
                 }
@@ -135,9 +136,6 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
 
         });
 
-
-
-
     }
 
     void tasmimAndgrahicList(List<String> list){
@@ -174,9 +172,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
    list.add(getString(R.string.mohtawa_tawasol));
    list.add("أخرى");
     }
-
  void programingList(List<String> list){
-
    list.add(getString(R.string.database));
    list.add(getString(R.string.programing_web));
    list.add(getString(R.string.application_web));
@@ -185,7 +181,6 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
    list.add(getString(R.string.data_analyses));
    list.add("أخرى");
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -193,7 +188,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
                 openGallery();
                 break;
                 case R.id.saveServiceId:
-                    validateDataEntry();
+               validateDataEntry();
                 break;
 
         }
@@ -284,22 +279,15 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
                private void saveServiceInfoToDatabase() {
                    UUID idOne = UUID.randomUUID();
 
-//                   HashMap<String ,Object> hashMap =new HashMap<>();
-//                   hashMap.put("sid",idOne.toString());
-//                   hashMap.put("date",saveCurrentDate);
-//                   hashMap.put("service_image",downloadImageUrl);
-//                   hashMap.put("time",saveCurrentTime);
-//                   hashMap.put("service_type",type_service);
-//                   hashMap.put("service_desc",desc_service);
-//                   hashMap.put("service_price",price_service);
-//                   hashMap.put("service_time",time_service);
                    if(usernamePaper!=""){
-             s =new services(idOne.toString(),saveCurrentDate,saveCurrentTime,type_service,desc_service,price_service,time_service,downloadImageUrl,usernamePaper);
-                           }
+             s = new services(idOne.toString(),saveCurrentDate,saveCurrentTime,type_service,desc_service,price_service,time_service,downloadImageUrl,usernamePaper);
+
+                   }
                    serviceRef.child(idOne.toString()).setValue(s).addOnCompleteListener(new OnCompleteListener<Void>() {
                        @Override
                        public void onComplete(@NonNull Task<Void> task) {
                    Toast.makeText(getApplicationContext(),"تم اضافة الخدمة بنجاح ",Toast.LENGTH_SHORT).show();
+
                          }
                    });
                }
@@ -310,7 +298,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"),SELECT_IMAGE);
-    }
+          }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
