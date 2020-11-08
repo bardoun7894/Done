@@ -21,6 +21,7 @@ import com.example.done.Prevalent;
 import com.example.done.joinDoc.JoinAsActivity;
 import com.example.done.R;
 import com.example.done.RegisterActivity;
+import com.example.done.joinDoc.ProAccountActivity;
 import com.example.done.models.User;
 import com.example.recyclers.RecyclerItemMessages;
 import com.google.firebase.auth.FirebaseAuth;
@@ -59,21 +60,24 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
         signِAccountTv.setOnClickListener(this);
         makeAServiceTv.setOnClickListener(this);
         joinAsTv.setOnClickListener(this);
+        imageAccount.setOnClickListener(this);
         Paper.init(v.getContext());
+
         emailPaper    = Paper.book().read( Prevalent.UserEmailKey);
         passwordPaper = Paper.book().read( Prevalent.UserPasswordKey);
         usernamePaper = Paper.book().read( Prevalent.UserNameKey);
+        String photoUrl = Paper.book().read( Prevalent.photoProfile);
       String   ls = Paper.book().read(Prevalent.photoProfile);
         String s =Paper.book().read( Prevalent.type_of_user);
        System.out.println(s);
 
-        if(usernamePaper!=null) {
+        if(usernamePaper!=null ) {
             type_of_user = Paper.book().read( Prevalent.type_of_user);
             System.out.println(ls+"DSKDMLDM");
             Glide.with(v.getContext()).load(ls).into(imageAccount);
-            if(type_of_user.equals("بائع")){
-                joinAsLn.setVisibility(View.GONE);
-              }
+            if(type_of_user.equals("بائع") && photoUrl!=null && !photoUrl.equals("")){
+               joinAsLn.setVisibility(View.GONE);
+             }
         }
 
         if( (emailPaper!="" && passwordPaper != "" )&& (emailPaper!= null && passwordPaper!= null))
@@ -100,10 +104,13 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
                     intent = new Intent(getContext(),RegisterActivity.class);
                     startActivity(intent);
                 }
-
                 break;
             case R.id.joinAsId:
                 intent = new Intent(getContext(), JoinAsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ImageAccountId:
+                intent = new Intent(getContext(), ProAccountActivity.class);
                 startActivity(intent);
                 break;
                 case R.id.addAservice:

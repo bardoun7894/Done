@@ -24,7 +24,7 @@
     <string name="sign_out">تسجيل الخروج</string>
 
 
-              <!--   الترجمة  -->
+    <!--   الترجمة  -->
     <string name="dirasat_lhala">دراسة الحالة</string>
     <string name="kitabat_sira">كتابة السيرة الذاتية</string>
     <string name="ma9alat_post">مقالات و منشورات</string>
@@ -36,7 +36,7 @@
     <string name="mohtawa_tawasol">كتابة محتوى لوسائل التواصل الاجتماعي </string>
 
 
-<!--    مونتاج video -->
+    <!--    مونتاج video -->
     <string name="i3lanat_video_kasir">اعلانات فيديو قصيرة</string>
     <string name="montaj_video">مونتاج الفيديو</string>
     <string name="sira_bayda_motaharika">السيرة البيضاء المتحركة</string>
@@ -55,7 +55,7 @@
     <string name="data_analyses">تحليل البيانات و التقارير</string>
 
 
-<!--    tasmim-->
+    <!--    tasmim-->
     <string name="tasmim_prochor">تصميم بروشور</string>
     <string name="tasmim_sira_datiya">تصميم سيرة ذاتية</string>
     <string name="tasmim_kitab">تصميم كتاب</string>
@@ -74,7 +74,7 @@
         <item>البرمجة و التكنولوجيا </item>
     </string-array>
 
-   <string-array name="experience">
+    <string-array name="experience">
         <item>مبتدأ</item>
         <item>متوسط</item>
         <item>خبير</item>
@@ -98,9 +98,6 @@
         <item>بطلاقه</item>
         <item>الام / ثنائي اللغة</item>
     </string-array>
-
-
-
 
 
 </resources>

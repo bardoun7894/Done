@@ -10,6 +10,6 @@ public class Prevalent {
       public static String  UserPasswordKey ="UserPassword";
       public static String  type_of_user ="UserType";
       public static String photoProfile ="photoProfile";
-
+      public  static String classification ="classification";
 
 }

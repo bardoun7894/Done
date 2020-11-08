@@ -37,6 +37,7 @@ String paper ="";
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
    View view =inflater.inflate(R.layout.fragment_messages,container,false);
       recyclerView = view.findViewById(R.id.recycler);
+
         userList =new ArrayList<>();
       recyclerView.setHasFixedSize(true);
       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -54,6 +55,7 @@ String paper ="";
   void initData(final ArrayList<User> userList) {
       final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
       DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+
       reference.addListenerForSingleValueEvent(new ValueEventListener() {
           @Override
           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -63,7 +65,6 @@ String paper ="";
                   assert user != null;
                   assert firebaseUser != null;
                   System.out.println(user.getEmail());
-
                  if (!user.getEmail().equals(firebaseUser.getEmail())) {
                       userList.add(user);
                    }
@@ -76,14 +77,7 @@ String paper ="";
 
           }
       });
-//
-//
-//      ArrayList<ItemChat> ar =new ArrayList<>();
-//
-//       ar.add(new ItemChat(R.drawable.ic_account,"Mohamed ","#4567890156"));
-//        ar.add(new ItemChat(R.drawable.ic_account,"bilal ","#4567890156"));
-//        ar.add(new ItemChat(R.drawable.ic_account,"mohsin ","#4567890156"));
-//        return ar;
+
 
   }
 }

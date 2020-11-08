@@ -42,7 +42,6 @@
              android:textColor="@color/colorPrimary"
              android:gravity="start">
          </EditText>
-
      </LinearLayout>
      <LinearLayout
          android:visibility="visible"

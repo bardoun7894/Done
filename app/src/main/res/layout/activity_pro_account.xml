@@ -72,16 +72,18 @@
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <Spinner
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:layoutDirection="rtl"
-                    android:id="@+id/khidmaId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
 
                 <Spinner
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/khidmaId"
+                    android:layout_width="155dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layoutDirection="rtl" />
+
+                <Spinner
+                    android:layout_marginTop="8dp"
                     android:id="@+id/mihnaId"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -129,10 +131,7 @@
                 android:text="+ اضافة جديد "
                 />
 
-
-
         </LinearLayout>
-
         <LinearLayout
             android:layout_marginTop="40dp"
             android:layout_marginRight="20dp"
@@ -140,7 +139,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
        <Spinner
-           android:layout_marginTop="10dp"
+           android:layout_marginHorizontal="15dp"
+           android:layout_marginTop="15dp"
            android:layout_weight="1"
            android:layoutDirection="rtl"
            android:id="@+id/khibraId"
@@ -148,24 +148,24 @@
            android:layout_height="wrap_content"
             />
             <TextView
-
-                android:text=" مستوى الخبرة"
+                android:textStyle="bold"
+                android:text="    مستوى الخبرة : "
                 android:textSize="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
-            <EditText
-                android:paddingHorizontal="30dp"
-                android:paddingVertical="5dp"
-              android:id="@+id/skillsId"
-              android:layout_marginRight="10dp"
-              android:textColor="#7A7878"
-                android:hint="مهارتك"
-                android:gravity="center"
-              android:background="@drawable/shape_input"
-                android:textSize="15dp"
-              android:layout_width="wrap_content"
-             android:layout_height="wrap_content"/>
+       <EditText
+         android:paddingHorizontal="30dp"
+            android:paddingVertical="5dp"
+            android:id="@+id/skillsId"
+            android:layout_marginRight="10dp"
+            android:textColor="#7A7878"
+            android:hint="مهارتك"
+            android:gravity="center"
+            android:background="@drawable/shape_input"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           />
 
 
             <TextView
@@ -207,7 +207,7 @@
              android:layout_height="wrap_content"/>
          <EditText
              android:id="@+id/balad_koliyaId"
-             android:paddingHorizontal="40dp"
+             android:paddingHorizontal="20dp"
              android:paddingVertical="8dp"
              android:textSize="14dp"
              android:layout_marginRight="10dp"
@@ -218,18 +218,14 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"/>
 
-
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="التعليم"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
-
-        </LinearLayout>
+    </LinearLayout>
      <LinearLayout
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
@@ -295,7 +291,7 @@
                 android:layout_marginRight="10dp"
                 android:textColor="#7A7878"
                 android:background="@drawable/shape_input"
-                android:text="معتمدة من"
+                android:hint="معتمدة من"
                 android:gravity="center"
                 android:layout_width="130dp"
                 android:layout_height="40dp"/>
@@ -320,7 +316,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="شهادة"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textStyle="bold" />
 
         </LinearLayout>

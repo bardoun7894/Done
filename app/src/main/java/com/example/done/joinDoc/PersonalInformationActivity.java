@@ -132,7 +132,6 @@ public class PersonalInformationActivity extends AppCompatActivity {
            addALanguageLn.setVisibility(View.GONE);
            addChip(mLanguage.getSelectedItem().toString()+" "+mLevelLanguage.getSelectedItem().toString() ,languageExperience);
        }
-          tr=true ;
 
             }
 

@@ -83,6 +83,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
 
         mTextView = findViewById(R.id.categorySpinner);
         getmTextView = findViewById(R.id.subcategorySpinner);
+
         String[] categories = getResources().getStringArray(R.array.categoriesSpinner);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, categories);
         arrayAdapter.notifyDataSetChanged();

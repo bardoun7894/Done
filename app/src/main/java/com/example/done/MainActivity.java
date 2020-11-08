@@ -17,6 +17,8 @@ import com.example.done.joinDoc.ProAccountActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import io.paperdb.Paper;
+
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView btm;
     FloatingActionButton f ;
@@ -24,12 +26,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Paper.init(this);
+        final String s =Paper.book().read(Prevalent.UserNameKey);
         f=findViewById(R.id.fab);
         f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(getBaseContext(), ProAccountActivity.class);
-                startActivity(intent);
+              if(!s.isEmpty() && !s.equals(null)){
+                  Intent intent =new Intent(getBaseContext(), OtlobActivity.class);
+                  startActivity(intent);
+              }
             }
         });
         btm = findViewById(R.id.navigationViewId);

@@ -23,7 +23,6 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
     public RecyclerItemMessages(List<User> itemChatList) {
         this.itemChatList =itemChatList;
     }
-
     @NonNull
     @Override
     public RecyclerItemMessages.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

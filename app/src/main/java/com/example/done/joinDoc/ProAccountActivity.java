@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import io.paperdb.Paper;
@@ -35,20 +36,22 @@ public class ProAccountActivity extends AppCompatActivity {
 Button continueProbtn;
     public Spinner mihna, khidma,khibra;
     private ArrayList<String> list;
-      List<String> tagList ;
+    List<String> tagList ;
+    List<String> tagList2 ;
     private ChipGroup pChipGroup;
     EditText skillsEt,balad_koliyaEt,koliya_nameEt ,degree_scienceEt,degree_yearEt,certificateEt,CertifiedEt,Certified_yearEt;
-      String skills;
-      String balad_koliya;
-      String koliya_name;
-      String degree_science;
-      String degree_year;
-      String certificate;
-      String Certified;
-      String Certified_year;
-      DatabaseReference experienceRef;
+    private String skills;
+    private String balad_koliya;
+    private String koliya_name;
+    private String degree_science;
+    private String degree_year;
+    private String certificate;
+    private String Certified;
+    private String Certified_year;
+    private DatabaseReference experienceRef;
     private String usernamePaper;
-
+      String classification;
+      ArrayList<String> listWithoutDuplicates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,7 @@ Button continueProbtn;
          khibra=findViewById(R.id.khibraId);
         mihna =findViewById(R.id.mihnaId);
         khidma =findViewById(R.id.khidmaId);
+
       pChipGroup =findViewById(R.id.chipGroupPro);
        Paper.init(this);
       experienceRef=FirebaseDatabase.getInstance().getReference().child("Users");
@@ -73,10 +77,11 @@ Button continueProbtn;
 
       list=new ArrayList<>();
       tagList=new ArrayList<>();
+      tagList2=new ArrayList<>();
         String[] categories = getResources().getStringArray(R.array.categoriesSpinner);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, categories);
-        arrayAdapter.notifyDataSetChanged();
-        mihna.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged() ;
+        mihna.setAdapter(arrayAdapter) ;
 
         mihna.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -113,9 +118,13 @@ Button continueProbtn;
         khidma.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println(khidma.getSelectedItem().toString());
-                System.out.println(mihna.getSelectedItem().toString());
-                addChip(khidma.getSelectedItem().toString()+" "+mihna.getSelectedItem().toString(),tagList);
+                if(!khidma.getSelectedItem().toString().equals("غير محدد") &&!mihna.getSelectedItem().toString().equals("غير محدد") ) {
+
+
+            classification =mihna.getSelectedItem().toString() + " : " + khidma.getSelectedItem().toString();
+
+                    addChip(classification, tagList);
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -133,8 +142,7 @@ Button continueProbtn;
             @Override
             public void onClick(View v) {
                 validateDataEntry();
-                Intent intent =new Intent(getBaseContext(),AccountConnected.class);
-                startActivity(intent);
+
             }
         });
     }
@@ -188,13 +196,18 @@ Button continueProbtn;
             return;
         }
 
-        storeServiceInfo();
+        if(!tagList.isEmpty() && tagList!=null){
+            storeServiceInfo();
+        }
+
 
     }
 
     private void storeServiceInfo() {
 
+
         HashMap<String ,Object> hashMap =new HashMap<>();
+        hashMap.put(Prevalent.classification,listWithoutDuplicates);
         hashMap.put("skills",skills);
         hashMap.put("balad_koliya",balad_koliya);
         hashMap.put("koliya_name",koliya_name);
@@ -204,20 +217,24 @@ Button continueProbtn;
         hashMap.put("Certified",Certified);
         hashMap.put("Certified_year",Certified_year);
         if(usernamePaper!=""){
-            experienceRef.child(usernamePaper).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+           experienceRef.child(usernamePaper).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(getApplicationContext(),"تم اضافة المعلومات بنجاح ",Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(getBaseContext(),ProAccountActivity.class);
+             Toast.makeText(getApplicationContext(),"تم اضافة المعلومات بنجاح ",Toast.LENGTH_SHORT).show();
+             Paper.book().write(Prevalent.classification, listWithoutDuplicates);
+                Intent intent =new Intent(getBaseContext(),AccountConnected.class);
                 startActivity(intent);
-            }
+                 }
         });
         }
     }
-
     private void addChip(String s, final List<String> tagList) {
         tagList.clear();
         tagList.add(s);
+        tagList2.add(s);
+        listWithoutDuplicates = new ArrayList<>(
+                new HashSet<>(tagList2));
+
         for (int index = 0; index < tagList.size(); index++) {
             final String tagName = tagList.get(index);
             final Chip chip = new Chip(this);
@@ -244,6 +261,7 @@ Button continueProbtn;
 
 
     void tasmimAndgrahicList(List<String> list){
+        list .add("غير محدد");
         list .add("تصميم بروشور");
         list.add("تصميم سيرة ذاتية");
         list.add("تصميم كتاب");
@@ -256,6 +274,7 @@ Button continueProbtn;
         list.add("أخرى");
     }
     void videoAnimationList(List<String> list){
+        list .add("غير محدد");
         list .add(getString(R.string.i3lanat_video_kasir));
         list.add(getString(R.string.montaj_video));
         list.add(getString(R.string.sira_bayda_motaharika));
@@ -266,6 +285,7 @@ Button continueProbtn;
     }
 
     void translateList(List<String> list){
+        list.add("غير محدد");
         list.add(getString(R.string.dirasat_lhala));
         list.add(getString(R.string.kitabat_sira));
         list.add(getString(R.string.ma9alat_post));
@@ -278,6 +298,7 @@ Button continueProbtn;
         list.add("أخرى");
     }
     void programingList(List<String> list){
+        list.add("غير محدد");
         list.add(getString(R.string.database));
         list.add(getString(R.string.programing_web));
         list.add(getString(R.string.application_web));
