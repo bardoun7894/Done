@@ -31,11 +31,15 @@
               android:text="اسم الموظف"
               />
 
-          <ImageView
+          <de.hdodenhof.circleimageview.CircleImageView
+              android:id="@+id/photoPerson"
               android:layout_width="60dp"
-              android:layout_height="wrap_content"
-              android:layout_margin="5dp"
-              android:src="@drawable/user"/>
+              android:layout_height="60dp"
+              android:layout_margin="10dp"
+              android:layout_gravity="center"
+              android:background="@drawable/ic_account"
+              app:civ_border_width="2dp"
+              app:civ_border_color="#FF000000"/>
       </LinearLayout>
 
   </com.google.android.material.appbar.AppBarLayout>

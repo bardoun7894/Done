@@ -22,6 +22,8 @@ import java.util.List;
 
 public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessages.ViewHolder> {
     List<User> itemChatList ;
+      public String imageS;
+
     public RecyclerItemMessages(List<User> itemChatList) {
         this.itemChatList =itemChatList;
     }
@@ -37,9 +39,9 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
     public void onBindViewHolder(@NonNull RecyclerItemMessages.ViewHolder holder, int position) {
 //           holder.imageView.setImageResource();
         Glide.with(holder.imageView.getContext()).load(itemChatList.get(position).getPhotoProfile()).into(holder.imageView);
-
-        holder.userTextView.setText(itemChatList.get(position).getUsername());
-           holder.hashTextView.setText(itemChatList.get(position).getEmail());
+       holder.s = itemChatList.get(position).getPhotoProfile() ;
+      holder.userTextView.setText(itemChatList.get(position).getUsername());
+       holder.hashTextView.setText(itemChatList.get(position).getEmail());
     }
 
     @Override
@@ -52,6 +54,7 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
         ImageView imageView ;
         TextView userTextView , hashTextView ;
         LinearLayout ln ;
+        String s ;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ln =itemView.findViewById(R.id.lnMessagesId);
@@ -61,6 +64,7 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), ChatActivity.class);
                     intent.putExtra("username",userTextView.getText());
+                    intent.putExtra("photoS",s);
                     v.getContext().startActivity(intent);
                 }
             });
