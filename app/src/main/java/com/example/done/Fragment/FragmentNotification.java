@@ -71,7 +71,6 @@ ArrayList<ItemNotification> notificationsList;
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
                         ItemNotification itemNotification = snapshot.getValue(ItemNotification.class);
                         assert itemNotification != null;
                         assert firebaseUser != null;

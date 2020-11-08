@@ -47,7 +47,7 @@
         android:textColor="@color/colorWhite"
                     />
             </LinearLayout>
-            <de.hdodenhof.circleimageview.CircleImageView
+         <de.hdodenhof.circleimageview.CircleImageView
                 android:background="@color/colorPrimary"
                 android:src="@drawable/ic_account"
                 android:id="@+id/imageItem"

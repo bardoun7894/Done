@@ -64,7 +64,6 @@ String paper ="";
                   User user = snapshot.getValue(User.class);
                   assert user != null;
                   assert firebaseUser != null;
-                  System.out.println(user.getEmail());
                  if (!user.getEmail().equals(firebaseUser.getEmail())) {
                       userList.add(user);
                    }

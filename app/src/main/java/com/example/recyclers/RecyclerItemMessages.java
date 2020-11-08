@@ -11,10 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.done.ChatActivity;
 import com.example.done.R;
 import com.example.done.models.ItemChat;
 import com.example.done.models.User;
+import com.example.done.models.services;
 
 import java.util.List;
 
@@ -33,8 +35,10 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerItemMessages.ViewHolder holder, int position) {
-//           holder.imageView.setImageResource(itemChatList.get(position).getImageUrl());
-           holder.userTextView.setText(itemChatList.get(position).getUsername());
+//           holder.imageView.setImageResource();
+        Glide.with(holder.imageView.getContext()).load(itemChatList.get(position).getPhotoProfile()).into(holder.imageView);
+
+        holder.userTextView.setText(itemChatList.get(position).getUsername());
            holder.hashTextView.setText(itemChatList.get(position).getEmail());
     }
 
