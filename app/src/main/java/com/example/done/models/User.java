@@ -2,6 +2,8 @@ package com.example.done.models;
 
 import java.util.List;
 
+
+
 public class User {
     String username;
     String Certified;
@@ -22,6 +24,8 @@ public class User {
     String last_name;
     String type_of_user;
     List<String> languageExperience ;
+
+
 
     public String getCertified() {
         return Certified;

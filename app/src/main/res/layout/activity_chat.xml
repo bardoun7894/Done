@@ -6,9 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ChatActivity">
   <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
+      android:id="@+id/lnChat"
+      android:layout_width="match_parent"
         android:layout_height="60dp">
       <LinearLayout
+
           android:gravity="center_vertical"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -44,8 +46,15 @@
 
   </com.google.android.material.appbar.AppBarLayout>
 
-
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycler_chat_one"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  android:layout_below="@+id/lnChat"
+    android:layout_above="@+id/bar_chat_icon"
+    />
     <LinearLayout
+        android:id="@+id/bar_chat_icon"
         android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="70dp"
@@ -89,6 +98,15 @@
 
         </EditText>
         <ImageView
+            android:id="@+id/send_chatId"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_send"
+            />
+ <ImageView
             android:id="@+id/menu_chatId"
             android:layout_weight="1"
             android:layout_width="0dp"
