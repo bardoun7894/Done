@@ -41,17 +41,18 @@ ArrayList<ItemNotification> notificationsList;
     View v =inflater.inflate(R.layout.fragment_notification,container,false);
     recyclerView=v.findViewById(R.id.recycler_notification);
        classification=new ArrayList<>();
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        notificationsList =new ArrayList<>();
 
         Paper.init(v.getContext());
         String username = Paper.book().read(Prevalent.UserNameKey);
         classification =Paper.book().read(Prevalent.classification);
-        if(!username.equals(null) && !username.isEmpty() && classification!=null ){
-            System.out.println(classification+"ميؤميمؤميمميميمي");
+        System.out.println(username+"dddl"+classification);
+        if(  username!=null   && classification!=null ){
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            notificationsList =new ArrayList<>();
+            System.out.println( classification + "ميؤميمؤميمميميمي" );
             initData(notificationsList);
-        }
+                 }
     return v;
     }
 
@@ -77,7 +78,7 @@ ArrayList<ItemNotification> notificationsList;
                         notificationsList.add(itemNotification);
                       }
         if ( itemNotification.getDemandeTo().equals(firebaseUser.getDisplayName()) ) {
-                        notificationsList.add(itemNotification);
+            notificationsList.add(itemNotification);
               }
                         recyclerView.setAdapter(new recyclerNotification(notificationsList));
 

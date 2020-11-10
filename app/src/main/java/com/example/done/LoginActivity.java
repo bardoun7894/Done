@@ -28,7 +28,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import io.paperdb.Paper;
 
@@ -107,8 +109,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                      if(dataSnapshot.exists()){
                             type_of_user = (String) dataSnapshot.child("type_of_user").getValue() ;
-                           String photoProfile = (String) dataSnapshot.child("PhotoProfile").getValue() ;
+                            List<String> classification   = (List<String>) dataSnapshot.child("classification").getValue();
+                            String photoProfile = (String) dataSnapshot.child("PhotoProfile").getValue() ;
                             Paper.book().write(Prevalent.type_of_user,type_of_user);
+                            Paper.book().write(Prevalent.classification,classification);
                     if(type_of_user.equals("بائع" ) && photoProfile == null){
                         Intent intent =new Intent(getApplicationContext(),JoinAsActivity.class);
                         startActivity(intent);
