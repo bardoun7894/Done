@@ -35,11 +35,11 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerItemMessages.ViewHolder holder, int position) {
-//           holder.imageView.setImageResource();
-        Glide.with(holder.imageView.getContext()).load(itemChatList.get(position).getPhotoProfile()).into(holder.imageView);
-       holder.s = itemChatList.get(position).getPhotoProfile() ;
+
+      Glide.with(holder.imageView.getContext()).load(itemChatList.get(position).getPhotoProfile()).into(holder.imageView);
+      holder.s = itemChatList.get(position).getPhotoProfile() ;
       holder.userTextView.setText(itemChatList.get(position).getUsername());
-       holder.hashTextView.setText(itemChatList.get(position).getEmail());
+      holder.hashTextView.setText(itemChatList.get(position).getEmail());
     }
 
     @Override
@@ -53,6 +53,7 @@ public class RecyclerItemMessages extends RecyclerView.Adapter<RecyclerItemMessa
         TextView userTextView , hashTextView ;
         LinearLayout ln ;
         String s ;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ln =itemView.findViewById(R.id.lnMessagesId);

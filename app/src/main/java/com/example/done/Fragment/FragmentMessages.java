@@ -48,9 +48,7 @@ String paper ="";
         if(paper!="" && paper!=null){
          initData(userList);
         }
-
-
-        return view;
+         return view;
     }
 
   void initData(final ArrayList<User> userList) {

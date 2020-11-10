@@ -40,22 +40,19 @@ ArrayList<ItemNotification> notificationsList;
 
     View v =inflater.inflate(R.layout.fragment_notification,container,false);
     recyclerView=v.findViewById(R.id.recycler_notification);
-    classification=new ArrayList<>();
+       classification=new ArrayList<>();
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-    notificationsList =new ArrayList<>();
+        notificationsList =new ArrayList<>();
 
         Paper.init(v.getContext());
         String username = Paper.book().read(Prevalent.UserNameKey);
         classification =Paper.book().read(Prevalent.classification);
-
-        if(!username.equals(null) && !username.isEmpty() && classification!=null){
-            System.out.println(classification);
+        if(!username.equals(null) && !username.isEmpty() && classification!=null ){
+            System.out.println(classification+"ميؤميمؤميمميميمي");
             initData(notificationsList);
         }
     return v;
-
-
     }
 
     void initData(final ArrayList<ItemNotification> notificationsList)
@@ -66,19 +63,24 @@ ArrayList<ItemNotification> notificationsList;
             final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
             DatabaseReference serviceRef = FirebaseDatabase.getInstance().getReference().child("otlob").child(classification.get(i).split(" : ")[0]).child(classification.get(i).split(" : ")[1]);
-           System.out.println(classification.get(i).split(" : ")[0]);
+           System.out.println(classification.get(i).split(" : ")[0] +" ");
             serviceRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+
                         ItemNotification itemNotification = snapshot.getValue(ItemNotification.class);
                         assert itemNotification != null;
                         assert firebaseUser != null;
-//                    System.out.println(user.getEmail());
-                    if (!itemNotification.getUsername().equals(firebaseUser.getDisplayName())) {
+           System.out.println(itemNotification.getDescription());
+        if (!itemNotification.getUsername().equals(firebaseUser.getDisplayName()) ) {
                         notificationsList.add(itemNotification);
-                    }
+                      }
+        if ( itemNotification.getDemandeTo().equals(firebaseUser.getDisplayName()) ) {
+                        notificationsList.add(itemNotification);
+              }
                         recyclerView.setAdapter(new recyclerNotification(notificationsList));
+
                     }
                 }
 

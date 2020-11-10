@@ -39,6 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp">
         <LinearLayout
+
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -82,9 +83,9 @@
         </LinearLayout>
         <ImageView
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_info"
-            android:layout_width="60dp"
-            android:layout_height="60dp"/>
+            android:src="@drawable/edit"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
     </LinearLayout>
     <View
         android:layout_marginHorizontal="20dp"
@@ -111,9 +112,9 @@
         </LinearLayout>
         <ImageView
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_info"
-            android:layout_width="60dp"
-            android:layout_height="60dp"/>
+            android:src="@drawable/chaine"
+            android:layout_width="40dp"
+            android:layout_height="50dp"/>
     </LinearLayout>
     <View
         android:layout_marginHorizontal="20dp"
@@ -140,8 +141,8 @@
         </LinearLayout>
         <ImageView
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_info"
-            android:layout_width="60dp"
+            android:src="@drawable/shield"
+            android:layout_width="40dp"
             android:layout_height="60dp"/>
     </LinearLayout>
     <View

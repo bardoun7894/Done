@@ -38,26 +38,30 @@ LinearLayout image_of_service ;
     protected void onCreate(Bundle savedInstanceState) {
    super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_service_details);
-      account_image_detail=findViewById(R.id.account_image_detailId);
+        account_image_detail=findViewById(R.id.account_image_detailId);
         username_detail=findViewById(R.id.username_detailId);
         image_of_service=findViewById(R.id.image_of_service);
         desc_detail=findViewById(R.id.desc_detail);
         rating_details=findViewById(R.id.rating_details);
         btnOtlob=findViewById(R.id.btnOtlobId);
+
         Bundle extras = getIntent().getExtras();
 
-        btnOtlob.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =new Intent(getBaseContext(),OtlobActivity.class);
-                startActivity(intent);
-            }
-        });
+
         if (extras != null)
         {
             services  = (Services) extras.getSerializable("service");
             getData();
         }
+
+        btnOtlob.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(getBaseContext(),OtlobActivity.class);
+                intent.putExtra("demandeTo",services.getService_user().getUsername());
+                startActivity(intent);
+            }
+        });
     }
 
    void getData(){
@@ -82,9 +86,6 @@ LinearLayout image_of_service ;
        username_detail.setText(userName);
        desc_detail.setText(description_detail);
        rating_details.setText(rating_detail);
-
-
-
 
     }
 

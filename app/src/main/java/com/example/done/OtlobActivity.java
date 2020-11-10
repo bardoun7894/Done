@@ -40,6 +40,8 @@ public class OtlobActivity extends AppCompatActivity {
     String otlobTime;
     String username ;
     private String sss;
+    String demandeTo ;
+    private ItemNotification itemNotification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class OtlobActivity extends AppCompatActivity {
         setContentView(R.layout.activity_otlob);
         Paper.init(this);
         username =  Paper.book().read(Prevalent.UserNameKey);
+        demandeTo =getIntent().getStringExtra("demandeTo");
         list=new ArrayList<>();
         listServices=new ArrayList<>();
         mTextView = findViewById(R.id.categorySpinnerOtlob);
@@ -117,8 +120,8 @@ public class OtlobActivity extends AppCompatActivity {
         if (!getmTextView.getSelectedItem().toString().equals("غير محدد") && !mTextView.getSelectedItem().toString().equals("غير محدد")) {
                sss=mTextView.getSelectedItem().toString() + " : " + getmTextView.getSelectedItem().toString();
 
-                            System.out.println(listServices);
-                            serviceRef = FirebaseDatabase.getInstance().getReference().child("otlob").child(mTextView.getSelectedItem().toString()).child(getmTextView.getSelectedItem().toString()).child(username);
+                    System.out.println(listServices);
+                   serviceRef = FirebaseDatabase.getInstance().getReference().child("otlob").child(mTextView.getSelectedItem().toString()).child(getmTextView.getSelectedItem().toString()).child(username);
                         }
                     }
 
@@ -161,14 +164,23 @@ public class OtlobActivity extends AppCompatActivity {
 //        hashMap.put("اسم المستخدم",username);
 //        hashMap.put("وقت التسليم",otlobTime);
 //        hashMap.put("وسيلة الدفع",payText);
-//        hashMap.put("التصنيف",sss);
-        ItemNotification itemNotification =new  ItemNotification(desc_otlob,otlobTime,payText,username,sss);
+//        hashMap.put("التصنيف",sss) ;
+
+        System.out.println("demande"+demandeTo);
+
+             if(demandeTo ==null || demandeTo.equals("")){
+
+                itemNotification =new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,"");
+              }else{
+               itemNotification =new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,demandeTo);
+              }
+
         serviceRef.setValue(itemNotification).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(OtlobActivity.this, "تم رفع الطلب بنجاح", Toast.LENGTH_SHORT).show();
-                Intent intent =new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
+                Intent intent =new Intent (getApplicationContext(),MainActivity.class);
+                startActivity(intent) ;
              }
         });
 

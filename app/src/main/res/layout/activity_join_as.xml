@@ -39,6 +39,8 @@
     android:layout_width="match_parent"
     android:layout_height="100dp">
     <LinearLayout
+        android:paddingHorizontal="10dp"
+
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -94,7 +96,7 @@
         </LinearLayout>
         <ImageView
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_info"
+            android:src="@drawable/profile"
             android:layout_width="60dp"
             android:layout_height="60dp"/>
     </LinearLayout>
@@ -131,7 +133,7 @@
         </LinearLayout>
         <ImageView
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_info"
+            android:src="@drawable/promote"
             android:layout_width="60dp"
             android:layout_height="60dp"/>
     </LinearLayout>

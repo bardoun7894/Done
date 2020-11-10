@@ -131,9 +131,8 @@
         />
     <EditText
         android:textDirection="rtl"
-
         android:paddingHorizontal="10dp"
-      android:id="@+id/otlobTimeId"
+        android:id="@+id/otlobTimeId"
         android:layout_marginTop="20dp"
         android:inputType="number"
         android:background="@drawable/shape_input"

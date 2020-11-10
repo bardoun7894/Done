@@ -50,12 +50,13 @@ FirebaseUser fuser;
         s =getIntent().getStringExtra("username");
 
         photos =getIntent().getStringExtra("photoS");
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_chat);
-       recyclerView=findViewById(R.id.recycler_chat_one);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+          recyclerView=findViewById(R.id.recycler_chat_one);
+          recyclerView.setHasFixedSize(true);
+          recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
 
         reference = FirebaseDatabase.getInstance().getReference().child("Chats");
         userList =new ArrayList<>();
@@ -91,9 +92,8 @@ readMessages(fuser.getUid(),s,photos);
                  messageET.setText("");
                 readMessages(fuser.getUid(),s,photos);
              }else{
-
-                 Toast.makeText(this, "لا يمكنك ان ترسل رسالة فارغة", Toast.LENGTH_SHORT).show();
-             }
+                  Toast.makeText(this, "لا يمكنك ان ترسل رسالة فارغة", Toast.LENGTH_SHORT).show();
+                 }
              break;
        case R.id.menu_chatId :
            BottomMenuChat bslF =new BottomMenuChat();
