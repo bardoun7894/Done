@@ -1,10 +1,11 @@
 package com.example.done.models;
 
+import java.io.Serializable;
 import java.util.List;
 
 
 
-public class User {
+public class User  implements Serializable {
     String username;
     String Certified;
     String balad_koliya;

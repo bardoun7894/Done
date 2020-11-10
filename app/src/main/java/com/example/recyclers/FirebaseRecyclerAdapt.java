@@ -1,9 +1,11 @@
 package com.example.recyclers;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,51 +13,61 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.done.R;
-import com.example.done.models.services;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.done.ServiceDetailsActivity;
+import com.example.done.models.Services;
 
-public class FirebaseRecyclerAdapt extends FirebaseRecyclerAdapter<services,FirebaseRecyclerAdapt.servicesViewHolder> {
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
- String rating ;
- String userN ;
-    public FirebaseRecyclerAdapt(@NonNull FirebaseRecyclerOptions<services> options,String rating,String userN) {
-        super(options);
-        this.rating=rating ;
-        this.userN = userN;
-    }
+public class FirebaseRecyclerAdapt extends RecyclerView.Adapter<FirebaseRecyclerAdapt.ViewHolder> {
+    List<Services> servicesList ;
 
-    @Override
-    protected void onBindViewHolder(@NonNull servicesViewHolder holder, int i, @NonNull services services) {
+public FirebaseRecyclerAdapt(List<Services> servicesList){
+    this.servicesList =  servicesList;
+}
 
-        Glide.with(holder.imageView.getContext()).load(services.getService_image()).into(holder.imageView);
-        userN =services.getService_price();
-        holder.rating_numberTv.setText(services.getService_username());
-
-        holder.descTv.setText(services.getService_desc());
-        holder.priceTv.setText(services.getService_price());
-
-    }
     @NonNull
     @Override
-    public servicesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_search_service,parent, false);
-        return new servicesViewHolder(view);
+        return new ViewHolder(view);
     }
 
-    public static class servicesViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public void onBindViewHolder(@NonNull FirebaseRecyclerAdapt.ViewHolder holder, final int position) {
+
+        Glide.with(holder.imageView.getContext()).load(servicesList.get(position).getService_image()).into(holder.imageView);
+        holder.rating_numberTv.setText(servicesList.get(position).getService_user().getRating());
+        holder.descTv.setText(servicesList.get(position).getService_desc());
+        holder.priceTv.setText(servicesList.get(position).getService_price());
+      holder.services_ln.setOnClickListener(new View.OnClickListener() {
+             @Override
+              public void onClick(View v) {
+              Intent intent =new Intent(v.getContext(), ServiceDetailsActivity.class);
+                  intent.putExtra("service",servicesList.get(position));
+                  v.getContext().startActivity(intent);
+                        }
+});
+    }
+    @Override
+    public int getItemCount() {
+        return servicesList.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageView ;
         public TextView rating_numberTv ,descTv,priceTv ;
+        LinearLayout services_ln;
 
-        public servicesViewHolder(@NonNull View itemView) {
-        super(itemView);
-        imageView =itemView.findViewById(R.id.image_service_searchId);
-        rating_numberTv =itemView.findViewById(R.id.rating_numberID);
-        descTv =itemView.findViewById(R.id.desc_serviceId);
-        priceTv =itemView.findViewById(R.id.price_service);
+        public ViewHolder(@NonNull final View itemView) {
+            super(itemView);
+            imageView =itemView.findViewById(R.id.image_service_searchId);
+            services_ln =itemView.findViewById(R.id.services_ln);
+            rating_numberTv =itemView.findViewById(R.id.rating_numberID);
+            descTv =itemView.findViewById(R.id.desc_serviceId);
+            priceTv =itemView.findViewById(R.id.price_service);
+
         }
     }
 }

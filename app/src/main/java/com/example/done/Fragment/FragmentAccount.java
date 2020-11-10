@@ -75,9 +75,12 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
             type_of_user = Paper.book().read( Prevalent.type_of_user);
             System.out.println(ls+"DSKDMLDM");
             Glide.with(v.getContext()).load(ls).into(imageAccount);
-            if(type_of_user.equals("بائع") && photoUrl!=null && !photoUrl.equals("")){
+       if(type_of_user.equals("بائع") && photoUrl!=null && !photoUrl.equals("")){
                joinAsLn.setVisibility(View.GONE);
              }
+       if(type_of_user.equals("مشتري")){
+           makeAServiceTv.setVisibility(View.GONE);
+       }
         }
 
         if( (emailPaper!="" && passwordPaper != "" )&& (emailPaper!= null && passwordPaper!= null))

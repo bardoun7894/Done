@@ -6,11 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,28 +18,28 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.done.models.ItemServices;
 import com.example.done.models.User;
-import com.example.done.models.services;
+import com.example.done.models.Services;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 import io.paperdb.Paper;
@@ -58,18 +55,16 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
     DatabaseReference serviceRef ;
     List<String> list ;
     private Uri ImageUri;
-    services s ;
+    Services s ;
     String usernamePaper = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_make_a_service);
-         Paper.init(this);
+        Paper.init(this);
         usernamePaper = Paper.book().read(Prevalent.UserNameKey);
         serviceImageStorage = FirebaseStorage.getInstance().getReference().child("ServiceImages");
-
         imageOfService = findViewById(R.id.imageOfServiceId);
         uploadImages = findViewById(R.id.uploadImagesId);
         saveButton = findViewById(R.id.saveServiceId);
@@ -77,7 +72,8 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
         descOfServiceE = findViewById(R.id.descOfServiceEt);
         priceOfServiceE = findViewById(R.id.priceOfServiceEt);
         timeOfServiceE = findViewById(R.id.timeOfServiceEt);
-       Paper.init(this);
+        Paper.init(this);
+        initData();
         uploadImages.setOnClickListener(this);
         saveButton.setOnClickListener(this);
 
@@ -97,15 +93,15 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
                 if (option.contentEquals(getString(R.string.tasmim_and_grahic))){
                     list = new ArrayList<>();
                     tasmimAndgrahicList(list);
-                }
+                        }
                 if (option.contentEquals( getString(R.string.video_animation))) {
                     list = new ArrayList<>();
                     videoAnimationList(list);
-                }
+                         }
                 if (option.contentEquals( getString(R.string.translateEditing))) {
                     list = new ArrayList<>();
                     translateList(list);
-                }
+                       }
 
                 if (option.contentEquals( getString(R.string.programmingandtech))) {
                     list = new ArrayList<>();
@@ -278,12 +274,11 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
                    }
                }
                private void saveServiceInfoToDatabase() {
+                   User user =Paper.book().read(Prevalent.userClass);
                    UUID idOne = UUID.randomUUID();
-
-                   if(usernamePaper!=""){
-             s = new services(idOne.toString(),saveCurrentDate,saveCurrentTime,type_service,desc_service,price_service,time_service,downloadImageUrl,usernamePaper);
-
-                   }
+               if(usernamePaper!=""){
+             s = new Services(idOne.toString(),saveCurrentDate,saveCurrentTime,type_service,desc_service,price_service,time_service,downloadImageUrl,user);
+                    }
                    serviceRef.child(idOne.toString()).setValue(s).addOnCompleteListener(new OnCompleteListener<Void>() {
                        @Override
                        public void onComplete(@NonNull Task<Void> task) {
@@ -293,6 +288,30 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
                    });
                }
            });
+    }
+    void initData() {
+        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    User user = snapshot.getValue(User.class);
+                    assert user != null;
+                    assert firebaseUser != null;
+                    if (user.getEmail().equals(firebaseUser.getEmail())) {
+                      Paper.book().write(Prevalent.userClass,user);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
     private void openGallery() {
         Intent intent = new Intent();

@@ -13,7 +13,7 @@
     android:layout_height="40dp"
     />
     <TextView
-        android:id="@+id/showMessage"
+        android:id="@+id/showMessageOther"
         android:gravity="center"
         android:text="mskmkldmkl"
         android:layout_marginLeft="5dp"

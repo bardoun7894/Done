@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ChatActivity">
+
   <com.google.android.material.appbar.AppBarLayout
       android:id="@+id/lnChat"
       android:layout_width="match_parent"
@@ -46,13 +48,23 @@
 
   </com.google.android.material.appbar.AppBarLayout>
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recycler_chat_one"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-  android:layout_below="@+id/lnChat"
-    android:layout_above="@+id/bar_chat_icon"
-    />
+
+    <LinearLayout
+        android:focusableInTouchMode="true"
+        android:layout_below="@+id/lnChat"
+        android:layout_above="@+id/bar_chat_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_chat_one"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+    </LinearLayout>
+
+
     <LinearLayout
         android:id="@+id/bar_chat_icon"
         android:gravity="center"

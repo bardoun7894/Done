@@ -38,12 +38,13 @@ String paper ="";
    View view =inflater.inflate(R.layout.fragment_messages,container,false);
       recyclerView = view.findViewById(R.id.recycler);
 
-        userList =new ArrayList<>();
+      userList =new ArrayList<>();
       recyclerView.setHasFixedSize(true);
       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         Paper.init(view.getContext());
         paper =Paper.book().read(Prevalent.UserNameKey);
+
         if(paper!="" && paper!=null){
          initData(userList);
         }
@@ -65,7 +66,7 @@ String paper ="";
                   assert user != null;
                   assert firebaseUser != null;
                  if (!user.getEmail().equals(firebaseUser.getEmail())) {
-                      userList.add(user);
+                     userList.add(user);
                    }
                   recyclerView.setAdapter(new RecyclerItemMessages(userList));
               }

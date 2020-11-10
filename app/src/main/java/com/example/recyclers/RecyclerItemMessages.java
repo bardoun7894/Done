@@ -14,9 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.done.ChatActivity;
 import com.example.done.R;
-import com.example.done.models.ItemChat;
 import com.example.done.models.User;
-import com.example.done.models.services;
 
 import java.util.List;
 

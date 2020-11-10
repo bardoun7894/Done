@@ -1,21 +1,31 @@
 package com.example.done.models;
 
-public class services {
+import java.io.Serializable;
+
+public class Services implements Serializable {
 
 
     private String sid ;
     private String date ;
-
     private String time ;
     private String service_type;
     private String service_desc;
     private String service_price;
     private String service_time;
     private String service_image;
-    private String service_username;
+    private User service_user;
 
-public services(){}
-    public services(String sid, String date, String time, String service_type, String service_desc, String service_price, String service_time, String service_image, String service_username) {
+    public User getService_user() {
+        return service_user;
+    }
+
+    public void setService_user(User service_user) {
+        this.service_user = service_user;
+    }
+
+    public Services(){}
+
+    public Services(String sid, String date, String time, String service_type, String service_desc, String service_price, String service_time, String service_image, User service_user) {
         this.sid = sid;
         this.date = date;
         this.time = time;
@@ -24,7 +34,7 @@ public services(){}
         this.service_price = service_price;
         this.service_time = service_time;
         this.service_image = service_image;
-        this.service_username = service_username;
+        this.service_user = service_user;
     }
 
     public String getSid() {
@@ -91,11 +101,5 @@ public services(){}
         this.service_image = service_image;
     }
 
-    public String getService_username() {
-        return service_username;
-    }
 
-    public void setService_username(String service_username) {
-        this.service_username = service_username;
-    }
 }

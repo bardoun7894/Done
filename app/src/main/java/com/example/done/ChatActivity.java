@@ -16,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.example.done.bottomsheets.BottomMenuChat;
 import com.example.done.models.Item_chat_one;
 import com.example.done.models.User;
-import com.example.recyclers.RecyclerItemMessages;
 import com.example.recyclers.recyclerChat;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -114,16 +113,18 @@ readMessages(fuser.getUid(),s,photos);
             Item_chat_one chat_one = snapshot.getValue(Item_chat_one.class);
 
             assert chat_one != null;
+            chatList.add(chat_one);
 
-            if(chat_one.getReciever().equals(myid) && chat_one.getSender().equals(userid)  ||
-                 chat_one.getReciever().equals(userid) && chat_one.getSender().equals(myid) ){
-             System.out.println("mohamed");
+//        if(chat_one.getReciever().equals(myid) && chat_one.getSender().equals(userid)  ||
+//                 chat_one.getReciever().equals(userid) && chat_one.getSender().equals(myid) ){
+//
+//             System.out.println("mohamed");
+//
+//             chatList.add(chat_one);
+//
+//                }
 
-             chatList.add(chat_one);
-
-                }
-
-            recyclerView.setAdapter(new recyclerChat(ChatActivity.this,chatList,imageUrl));
+            recyclerView.setAdapter(new recyclerChat(chatList,ChatActivity.this,imageUrl));
         }
 
     }

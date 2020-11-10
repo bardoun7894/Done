@@ -234,7 +234,6 @@ Button continueProbtn;
         tagList2.add(s);
         listWithoutDuplicates = new ArrayList<>(
                 new HashSet<>(tagList2));
-
         for (int index = 0; index < tagList.size(); index++) {
             final String tagName = tagList.get(index);
             final Chip chip = new Chip(this);
@@ -251,8 +250,8 @@ Button continueProbtn;
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    tagList.remove(tagName);
-                    pChipGroup.removeView(chip);
+               tagList.remove(tagName);
+               pChipGroup.removeView(chip);
                 }
             });
             pChipGroup.addView(chip);

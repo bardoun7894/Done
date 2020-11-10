@@ -21,7 +21,7 @@ import java.util.List;
 public class RecyclerItem extends RecyclerView.Adapter<RecyclerItem.ViewHolder> {
 Context mcontext ;
     List<ItemServices> itemServicesList ;
-   public String title ;
+     public String title ;
     public RecyclerItem(List<ItemServices> itemServicesList, Context mcontext,String title) {
         this.mcontext =mcontext;
         this.title = title;

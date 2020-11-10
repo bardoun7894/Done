@@ -63,7 +63,7 @@
                      android:background="@drawable/linear_background"
                      android:layout_width="match_parent"
                      android:layout_height="50dp">
-                     <TextView
+                 <TextView
                          android:id="@+id/joinAsId"
                          android:layout_marginRight="40dp"
                          android:textSize="20dp"
@@ -74,12 +74,11 @@
                          android:layout_height="wrap_content"/>
                  </LinearLayout>
                  <LinearLayout
-
-                     android:gravity="end|center"
+                     android:gravity="end|center_vertical"
                      android:background="@drawable/linear_background"
                      android:layout_width="match_parent"
                      android:layout_height="50dp">
-                     <TextView
+                <TextView
                          android:id="@+id/signِAccountTvId"
                          android:layout_marginRight="40dp"
                          android:textSize="20dp"

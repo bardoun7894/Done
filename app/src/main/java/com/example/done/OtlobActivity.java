@@ -46,7 +46,7 @@ public class OtlobActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otlob);
         Paper.init(this);
-      username =  Paper.book().read(Prevalent.UserNameKey);
+        username =  Paper.book().read(Prevalent.UserNameKey);
         list=new ArrayList<>();
         listServices=new ArrayList<>();
         mTextView = findViewById(R.id.categorySpinnerOtlob);
@@ -114,8 +114,8 @@ public class OtlobActivity extends AppCompatActivity {
                 getmTextView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        if (!getmTextView.getSelectedItem().toString().equals("غير محدد") && !mTextView.getSelectedItem().toString().equals("غير محدد")) {
-                              sss=mTextView.getSelectedItem().toString() + " : " + getmTextView.getSelectedItem().toString();
+        if (!getmTextView.getSelectedItem().toString().equals("غير محدد") && !mTextView.getSelectedItem().toString().equals("غير محدد")) {
+               sss=mTextView.getSelectedItem().toString() + " : " + getmTextView.getSelectedItem().toString();
 
                             System.out.println(listServices);
                             serviceRef = FirebaseDatabase.getInstance().getReference().child("otlob").child(mTextView.getSelectedItem().toString()).child(getmTextView.getSelectedItem().toString()).child(username);
