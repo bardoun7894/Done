@@ -94,7 +94,6 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
             }
         }
         return  v;
-
     }
 
     @Override
