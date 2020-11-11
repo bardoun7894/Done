@@ -1,5 +1,6 @@
 package com.example.done.bottomsheets;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,8 @@ public class BottomMenuChat extends BottomSheetDialogFragment {
              @Override
              public void onClick(View v) {
                  cancelDemande(v);
+                 Intent intent =new Intent(v.getContext(),ChatActivity.class);
+                 v.getContext().startActivity(intent);
              }
          });
             return  v ;

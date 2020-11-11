@@ -111,7 +111,6 @@ FirebaseUser fuser;
            bundle.putString("username",fuser.getDisplayName());
            bslF.setArguments(bundle);
            bslF.show(getSupportFragmentManager(),"BottomMenuChat");
-
            break;
      }
     }

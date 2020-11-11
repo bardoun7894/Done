@@ -73,22 +73,25 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
 
         if(usernamePaper!=null ) {
             type_of_user = Paper.book().read( Prevalent.type_of_user);
-
             Glide.with(v.getContext()).load(ls).into(imageAccount);
-       if(type_of_user!=  "بائع"&& photoUrl!=null && photoUrl!=""){
+       if(type_of_user!=  "بائع" && photoUrl!=null && photoUrl!=""){
                joinAsLn.setVisibility(View.GONE);
              }
-       if(type_of_user=="مشتري"){
-           makeAServiceTv.setVisibility(View.GONE);
-       }
+
+
         }
 
-        if( (emailPaper!="" && passwordPaper != "" )&& (emailPaper!= null && passwordPaper!= null))
+        if( (emailPaper!="" && passwordPaper != "" ) && (emailPaper!= null && passwordPaper!= null) )
         {
             usernameAccountTv.setText(usernamePaper);
             signِAccountTv.setText(R.string.sign_out);
-            makeAServiceLayout.setVisibility(View.VISIBLE);
-
+            if(type_of_user.equals("مشتري")){
+//           makeAServiceTv.setVisibility(View.GONE);
+                makeAServiceLayout.setVisibility(View.GONE);
+                System.out.println(type_of_user);
+            }else{
+                makeAServiceLayout.setVisibility(View.VISIBLE);
+            }
         }
         return  v;
 

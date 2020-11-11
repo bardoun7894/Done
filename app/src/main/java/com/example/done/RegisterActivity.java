@@ -52,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         emailEt =findViewById(R.id.emailRegisterId);
         passwordEt =findViewById(R.id.passwordRegisterId);
         registerBtn =findViewById(R.id.registerButtonId);
-
         radioGroup=findViewById(R.id.radio_group_id);
          rs=findViewById(R.id.sell_radio_id);
          rb=findViewById(R.id.buy_radio_id);
