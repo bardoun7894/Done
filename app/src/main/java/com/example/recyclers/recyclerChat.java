@@ -15,6 +15,8 @@ import com.example.done.R;
 import com.example.done.models.Item_chat_one;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class recyclerChat extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -31,10 +33,11 @@ public class recyclerChat extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         this.imageProfile=imageProfile;
     }
 
+    @NotNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        RecyclerView.ViewHolder viewHolder = null ;
+        RecyclerView.ViewHolder viewHolder = null;
         switch (viewType) {
             case VIEW_TYPE_ME:
                 View viewChatMine = layoutInflater.inflate(R.layout.chat_item_right, parent, false);
@@ -50,8 +53,7 @@ public class recyclerChat extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (TextUtils.equals(mChats.get(position).getSender(),
-                FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+        if (TextUtils.equals(mChats.get(position).getSender(),  FirebaseAuth.getInstance().getCurrentUser().getDisplayName())) {
             configureMyChatViewHolder((MyChatViewHolder) holder, position);
         } else {
             configureOtherChatViewHolder((OtherChatViewHolder) holder, position);
@@ -75,8 +77,10 @@ public class recyclerChat extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public int getItemCount() {
         return mChats.size();
     }
+
+    @Override
     public int getItemViewType(int position) {
-        if (TextUtils.equals(mChats.get(position).getSender(),FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+        if (TextUtils.equals(mChats.get(position).getSender(),FirebaseAuth.getInstance().getCurrentUser().getDisplayName())) {
             return VIEW_TYPE_ME;
         } else {
             return VIEW_TYPE_OTHER;
@@ -85,6 +89,7 @@ public class recyclerChat extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     private static class MyChatViewHolder extends RecyclerView.ViewHolder {
           TextView txtChatMessage;
+
 
         public MyChatViewHolder(View itemView) {
             super(itemView);

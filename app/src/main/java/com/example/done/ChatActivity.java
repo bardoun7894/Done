@@ -34,7 +34,7 @@ ImageView img ,backchatI,photosPerson,send_chat ;
 TextView textUsername;
 EditText messageET ;
 DatabaseReference databaseReference ;
-String s;
+String username;
 FirebaseUser fuser;
 
 
@@ -47,7 +47,7 @@ FirebaseUser fuser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        s =getIntent().getStringExtra("username");
+        username =getIntent().getStringExtra("username");
 
         photos =getIntent().getStringExtra("photoS");
 
@@ -61,22 +61,22 @@ FirebaseUser fuser;
         reference = FirebaseDatabase.getInstance().getReference().child("Chats");
         userList =new ArrayList<>();
         chatList =new ArrayList<>();
-        databaseReference =FirebaseDatabase.getInstance().getReference("Users").child(s);
+        databaseReference =FirebaseDatabase.getInstance().getReference("Users").child(username);
         img =findViewById(R.id.menu_chatId);
         photosPerson =findViewById(R.id.photoPerson);
         messageET =findViewById(R.id.messageET);
         send_chat =findViewById(R.id.send_chatId);
         backchatI=findViewById(R.id.backChatId);
         textUsername =findViewById(R.id.usernameChat);
-        textUsername.setText(s);
+        textUsername.setText(username);
         Glide.with(this.getBaseContext()).load(photos).into(photosPerson);
         img.setOnClickListener(this);
         backchatI.setOnClickListener(this);
         send_chat.setOnClickListener(this);
-fuser= FirebaseAuth.getInstance().getCurrentUser();
+       fuser= FirebaseAuth.getInstance().getCurrentUser();
 
 
-readMessages(fuser.getUid(),s,photos);
+readMessages(fuser.getDisplayName(), username,photos);
 
      }
     @Override
@@ -88,9 +88,9 @@ readMessages(fuser.getUid(),s,photos);
          case R.id.send_chatId :
              String msg =messageET.getText().toString();
              if(!msg.equals("")){
-                 sendMessage(fuser.getUid(),s,msg);
+                 sendMessage(fuser.getDisplayName(), username,msg);
                  messageET.setText("");
-                readMessages(fuser.getUid(),s,photos);
+                readMessages(fuser.getDisplayName(), username,photos);
              }else{
                   Toast.makeText(this, "لا يمكنك ان ترسل رسالة فارغة", Toast.LENGTH_SHORT).show();
                  }
@@ -103,7 +103,7 @@ readMessages(fuser.getUid(),s,photos);
      }
     }
 
-    private void readMessages(final String myid, final String userid, final String imageUrl){
+    private void readMessages(final String recieverUser, final String me, final String imageUrl){
       chatList = new ArrayList<>();
       reference.addListenerForSingleValueEvent(new ValueEventListener() {
     @Override
@@ -111,18 +111,17 @@ readMessages(fuser.getUid(),s,photos);
            chatList.clear();
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
             Item_chat_one chat_one = snapshot.getValue(Item_chat_one.class);
-
+          System.out.println(chat_one.getMessage());
             assert chat_one != null;
-            chatList.add(chat_one);
+//            chatList.add(chat_one);
 
-//        if(chat_one.getReciever().equals(myid) && chat_one.getSender().equals(userid)  ||
-//                 chat_one.getReciever().equals(userid) && chat_one.getSender().equals(myid) ){
-//
-//             System.out.println("mohamed");
-//
-//             chatList.add(chat_one);
-//
-//                }
+        if(chat_one.getReciever().equals(recieverUser) && chat_one.getSender().equals(me)  ||  chat_one.getReciever().equals(me) && chat_one.getSender().equals(recieverUser) ){
+
+             System.out.println("mohamed");
+
+             chatList.add(chat_one);
+
+                }
 
             recyclerView.setAdapter(new recyclerChat(chatList,ChatActivity.this,imageUrl));
         }

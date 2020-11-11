@@ -69,7 +69,6 @@ ArrayList<ItemNotification> notificationsList;
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-
                         ItemNotification itemNotification = snapshot.getValue(ItemNotification.class);
                         assert itemNotification != null;
                         assert firebaseUser != null;
@@ -78,7 +77,7 @@ ArrayList<ItemNotification> notificationsList;
                         notificationsList.add(itemNotification);
                       }
         if ( itemNotification.getDemandeTo().equals(firebaseUser.getDisplayName()) ) {
-            notificationsList.add(itemNotification);
+                 notificationsList.add(itemNotification);
               }
                         recyclerView.setAdapter(new recyclerNotification(notificationsList));
 
