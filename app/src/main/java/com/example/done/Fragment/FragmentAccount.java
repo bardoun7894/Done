@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.Glide;
 import com.example.done.MainActivity;
 import com.example.done.MakeAService;
+import com.example.done.PersonalProfile;
 import com.example.done.Prevalent;
 import com.example.done.joinDoc.JoinAsActivity;
 import com.example.done.R;
@@ -36,7 +37,7 @@ import io.paperdb.Paper;
 public class FragmentAccount extends androidx.fragment.app.Fragment implements View.OnClickListener  {
     TextView signِAccountTv,joinAsTv,usernameAccountTv ,makeAServiceTv;
     Intent intent ;
-    LinearLayout makeAServiceLayout ,joinAsLn;
+    LinearLayout makeAServiceLayout ,joinAsLn ,personalDataLnId;
     ImageView imageAccount ;
     String emailPaper   = "";
     String passwordPaper = "";
@@ -55,6 +56,7 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
         usernameAccountTv =v.findViewById(R.id.usernameAccountId);
         makeAServiceTv =v.findViewById(R.id.addAservice);
         imageAccount=v.findViewById(R.id.ImageAccountId);
+        personalDataLnId=v.findViewById(R.id.personalDataLnId);
         makeAServiceLayout =v.findViewById(R.id.makeAServiceLayoutId);
        joinAsLn=v.findViewById(R.id.joinAsLnId);
         signِAccountTv.setOnClickListener(this);
@@ -112,6 +114,10 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
                 break;
             case R.id.joinAsId:
                 intent = new Intent(getContext(), JoinAsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.personalDataLnId:
+                intent = new Intent(getContext(), PersonalProfile.class);
                 startActivity(intent);
                 break;
             case R.id.ImageAccountId:

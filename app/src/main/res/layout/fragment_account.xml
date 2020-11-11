@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
+
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -130,6 +131,7 @@
 
                  </LinearLayout>
                  <LinearLayout
+                     android:id="@+id/personalDataLnId"
                      android:paddingRight="10dp"
                      android:gravity="end|center"
                      android:background="@drawable/linear_background"
