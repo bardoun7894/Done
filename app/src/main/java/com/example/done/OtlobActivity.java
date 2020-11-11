@@ -119,7 +119,6 @@ public class OtlobActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if (!getmTextView.getSelectedItem().toString().equals("غير محدد") && !mTextView.getSelectedItem().toString().equals("غير محدد")) {
                sss=mTextView.getSelectedItem().toString() + " : " + getmTextView.getSelectedItem().toString();
-
                     System.out.println(listServices);
                    serviceRef = FirebaseDatabase.getInstance().getReference().child("otlob").child(mTextView.getSelectedItem().toString()).child(getmTextView.getSelectedItem().toString()).child(username);
                         }
@@ -164,17 +163,15 @@ public class OtlobActivity extends AppCompatActivity {
 //        hashMap.put("اسم المستخدم",username);
 //        hashMap.put("وقت التسليم",otlobTime);
 //        hashMap.put("وسيلة الدفع",payText);
-//        hashMap.put("التصنيف",sss) ;
+//        hashMap.put("التصنيف",sss);
 
         System.out.println("demande"+demandeTo);
-
              if(demandeTo ==null || demandeTo.equals("")){
-
-                itemNotification =new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,"");
+                itemNotification = new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,"");
               }else{
                itemNotification =new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,demandeTo);
-              }
-
+                  }
+             Paper.book().write(Prevalent.itemNotification,itemNotification);
         serviceRef.setValue(itemNotification).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

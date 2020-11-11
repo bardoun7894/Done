@@ -30,8 +30,8 @@ import javax.security.auth.callback.Callback;
 
 public class ServiceDetailsActivity extends AppCompatActivity {
 ImageView account_image_detail ;
-TextView username_detail,desc_detail,rating_details;
-LinearLayout image_of_service ;
+     TextView username_detail,desc_detail,rating_details;
+    LinearLayout image_of_service ;
     Services services ;
     Button btnOtlob;
     @Override
@@ -46,7 +46,6 @@ LinearLayout image_of_service ;
         btnOtlob=findViewById(R.id.btnOtlobId);
 
         Bundle extras = getIntent().getExtras();
-
 
         if (extras != null)
         {

@@ -62,10 +62,9 @@ ArrayList<ItemNotification> notificationsList;
         for (int i =0 ;i<classification.size(); i++){
             System.out.println(classification.get(i).split(" : ")[0]);
             final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
             DatabaseReference serviceRef = FirebaseDatabase.getInstance().getReference().child("otlob").child(classification.get(i).split(" : ")[0]).child(classification.get(i).split(" : ")[1]);
            System.out.println(classification.get(i).split(" : ")[0] +" ");
-            serviceRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            serviceRef.addListenerForSingleValueEvent(new ValueEventListener(){
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -78,6 +77,7 @@ ArrayList<ItemNotification> notificationsList;
                       }
         if ( itemNotification.getDemandeTo().equals(firebaseUser.getDisplayName()) ) {
                  notificationsList.add(itemNotification);
+                 System.out.println(itemNotification.getUsername()+"user");
               }
                         recyclerView.setAdapter(new recyclerNotification(notificationsList));
 

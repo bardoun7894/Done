@@ -1,6 +1,8 @@
 package com.example.done.models;
 
-public class ItemNotification {
+import java.io.Serializable;
+
+public class ItemNotification  implements Serializable {
 
     String description ;
     String deliveryTime ;

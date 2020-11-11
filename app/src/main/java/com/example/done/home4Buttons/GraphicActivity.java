@@ -74,7 +74,6 @@ ImageView backImg,searchGraphicIv,searchIconGraphicIv;
         searchIconGraphicIv.setOnClickListener(this);
         backImg.setOnClickListener(this);
 
-
         recyclerView =findViewById(R.id.recycler_graphic);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));

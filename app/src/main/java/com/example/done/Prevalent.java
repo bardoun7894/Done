@@ -11,6 +11,7 @@ public class Prevalent {
       public static String  type_of_user ="UserType";
       public static String photoProfile ="photoProfile";
       public  static String classification ="classification";
+      public  static String itemNotification ="itemNotification";
       public  static String userClass ="user_class";
 
 }

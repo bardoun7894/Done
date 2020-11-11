@@ -77,7 +77,6 @@ public class recyclerChat extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public int getItemCount() {
         return mChats.size();
     }
-
     @Override
     public int getItemViewType(int position) {
         if (TextUtils.equals(mChats.get(position).getSender(),FirebaseAuth.getInstance().getCurrentUser().getDisplayName())) {

@@ -14,9 +14,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.done.bottomsheets.BottomMenuChat;
+import com.example.done.models.ItemNotification;
 import com.example.done.models.Item_chat_one;
 import com.example.done.models.User;
 import com.example.recyclers.recyclerChat;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +31,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import io.paperdb.Paper;
 
 public class ChatActivity extends AppCompatActivity implements View.OnClickListener {
 ImageView img ,backchatI,photosPerson,send_chat ;
@@ -53,7 +58,9 @@ FirebaseUser fuser;
 
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.activity_chat);
+        Paper.init(this);
           recyclerView=findViewById(R.id.recycler_chat_one);
           recyclerView.setHasFixedSize(true);
           recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
@@ -76,12 +83,15 @@ FirebaseUser fuser;
        fuser= FirebaseAuth.getInstance().getCurrentUser();
 
 
-readMessages(fuser.getDisplayName(), username,photos);
+       readMessages(fuser.getDisplayName(), username,photos);
 
      }
     @Override
     public void onClick(View v) {
      switch (v.getId()){
+         case R.id.cancel_order_id :
+            finish();
+             break;
          case R.id.backChatId :
             finish();
              break;
@@ -97,11 +107,15 @@ readMessages(fuser.getDisplayName(), username,photos);
              break;
        case R.id.menu_chatId :
            BottomMenuChat bslF =new BottomMenuChat();
+           Bundle bundle = new Bundle();
+           bundle.putString("username",fuser.getDisplayName());
+           bslF.setArguments(bundle);
            bslF.show(getSupportFragmentManager(),"BottomMenuChat");
 
            break;
      }
     }
+
 
     private void readMessages(final String recieverUser, final String me, final String imageUrl){
       chatList = new ArrayList<>();

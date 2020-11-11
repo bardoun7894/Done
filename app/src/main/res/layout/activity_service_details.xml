@@ -53,11 +53,7 @@
           android:padding="5dp"
           android:layout_width="match_parent"
           android:layout_height="60dp">
-          <ImageView
-              android:layout_width="40dp"
-              android:layout_height="match_parent"
-              android:src="@drawable/ic_arrow_down_grey"
-              />
+
           <TextView
               android:id="@+id/username_detailId"
               android:textStyle="bold"

@@ -117,7 +117,7 @@
             android:padding="5dp"
             android:src="@drawable/ic_send"
             />
- <ImageView
+        <ImageView
             android:id="@+id/menu_chatId"
             android:layout_weight="1"
             android:layout_width="0dp"

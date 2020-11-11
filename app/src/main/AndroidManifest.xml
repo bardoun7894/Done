@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OtlobActivity"></activity>
+        <activity android:name=".NotificationDetail"></activity>
+        <activity android:name=".OtlobActivity" />
         <activity android:name=".MakeAService" />
         <activity android:name=".home4Buttons.ProgramingActivity" />
         <activity android:name=".home4Buttons.TranslateActivity" />
