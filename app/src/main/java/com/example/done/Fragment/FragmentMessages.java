@@ -57,28 +57,31 @@ String paper ="";
       final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
       final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
       final DatabaseReference referenceOtlob = FirebaseDatabase.getInstance().getReference("demandeFromUser");
+          reference.addListenerForSingleValueEvent(new ValueEventListener() {
+              @Override
+              public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
+                  userList.clear();
+                  for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                      final User user = snapshot.getValue(User.class);
+                      assert user != null;
+                      assert firebaseUser != null;
+                      System.out.println(user.getEmail());
 
-      reference.addListenerForSingleValueEvent(new ValueEventListener() {
-          @Override
-          public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
-              userList.clear();
-              for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                  final User user = snapshot.getValue(User.class);
-                  assert user != null;
-                  assert firebaseUser != null;
-                  System.out.println(user.getEmail());
-
-     referenceOtlob.child(user.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
+                      referenceOtlob.child(user.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
                           @Override
                           public void onDataChange(@NonNull DataSnapshot dataSnapshotOtlob) {
-                  if(dataSnapshotOtlob.exists()){
-                        String dem =dataSnapshotOtlob.child("username").getValue().toString();
-                        System.out.println(dem);
-                        System.out.println(firebaseUser.getDisplayName());
+                              if (dataSnapshotOtlob.exists()) {
+                                  String dem = dataSnapshotOtlob.child("username").getValue().toString();
+                                  String demandeTo = dataSnapshotOtlob.child("demandeTo").getValue().toString();
+                                  System.out.println(dem);
+                                  System.out.println(firebaseUser.getDisplayName());
 
-                        if(dem.equals(firebaseUser.getDisplayName())){
-                            userList.add(user);
-                            }
+
+                                      if (dem.equals(firebaseUser.getDisplayName()) || demandeTo.equals(firebaseUser.getDisplayName())) {
+                                          if (!user.getUsername().equals(firebaseUser.getDisplayName())) {
+                                              userList.add(user);
+                                          }
+                                      }
 
                               }
                               recyclerView.setAdapter(new RecyclerItemMessages(userList));
@@ -91,14 +94,14 @@ String paper ="";
                           }
                       });
 
+                  }
               }
-          }
 
-          @Override
-          public void onCancelled(@NonNull DatabaseError databaseError) {
+              @Override
+              public void onCancelled(@NonNull DatabaseError databaseError) {
 
-          }
-      });
+              }
+          });
 
 
   }
