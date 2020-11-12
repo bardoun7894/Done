@@ -41,7 +41,7 @@
             <EditText
                 android:paddingVertical="3dp"
                 android:paddingHorizontal="15dp"
-                android:id="@+id/last_name_id"
+                android:id="@+id/last_person_name_id"
                 android:layout_marginRight="10dp"
                 android:textColor="#7A7878"
                 android:background="@drawable/shape_input"
@@ -53,7 +53,7 @@
 
                 android:paddingVertical="3dp"
                 android:paddingHorizontal="15dp"
-                android:id="@+id/first_name_id"
+                android:id="@+id/first_name_person_id"
                 android:layout_marginRight="30dp"
                 android:textColor="#7A7878"
                 android:background="@drawable/shape_input"
@@ -80,7 +80,7 @@
             android:layout_height="wrap_content">
 
 
-            <TextView
+            <EditText
                 android:id="@+id/mobile_phonePersonId"
                 android:layout_marginRight="60dp"
                 android:gravity="center"
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content">
 
 
-            <TextView
+            <EditText
                 android:layout_marginRight="30dp"
                 android:gravity="center"
 android:id="@+id/emailPersonId"
@@ -128,13 +128,24 @@ android:id="@+id/emailPersonId"
                 android:text="البريد الالكتروني"
                 />
         </LinearLayout>
-        <LinearLayout
+        <TextView
             android:layout_marginTop="20dp"
+
+            android:layout_marginRight="20dp"
+            android:layout_gravity="end"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="الخدمات"
+            />
+        <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:gravity="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+     <EditText
                 android:id="@+id/servicePersonId"
                 android:layout_marginRight="30dp"
                 android:gravity="center"
@@ -145,14 +156,7 @@ android:id="@+id/emailPersonId"
                 android:text="تصميم"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp" />
-            <TextView
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="الخدمات"
-                />
+
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -160,7 +164,7 @@ android:id="@+id/emailPersonId"
             android:gravity="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <EditText
             android:id="@+id/certificatePersonId"
                 android:layout_marginRight="30dp"
                 android:gravity="center"
@@ -186,33 +190,90 @@ android:id="@+id/emailPersonId"
             android:gravity="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/languagesPersonId"
-                android:layout_marginRight="30dp"
+
+            <LinearLayout
+                android:id="@+id/addAPersonLanguageId"
+                android:visibility="invisible"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="20dp"
                 android:gravity="center"
-                android:textStyle="bold"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="العربية"
-                android:textColor="@color/colorPrimary"
-                android:textSize="16dp" />
+                android:layout_height="wrap_content">
+                <Spinner
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center"
+                    android:layoutDirection="rtl"
+                    android:id="@+id/levelLanguagePersonId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+
+                <Spinner
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layoutDirection="rtl"
+                    android:id="@+id/languagePersonId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+            </LinearLayout>
             <TextView
                 android:layout_gravity="center"
                 android:textStyle="bold"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="لغة "
+                android:text="اللغات"
                 />
         </LinearLayout>
         <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/pChipGroupPersonId"
+                android:layout_width="300dp"
+                app:chipSpacingHorizontal="2dp"
+                android:layout_height="wrap_content">
+            </com.google.android.material.chip.ChipGroup>
+
+            <TextView
+                android:id="@+id/addNewPersonId"
+                android:textSize="15dp"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/colorAccent"
+                android:layout_weight="2"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="+ اضافة جديد "
+                />
+
+
+
+        </LinearLayout>
+
+        <TextView
             android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="end"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مهارة"
+            />
+        <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:gravity="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <EditText
                 android:id="@+id/maharaPersonId"
                 android:layout_marginRight="30dp"
                 android:gravity="center"
@@ -223,14 +284,7 @@ android:id="@+id/emailPersonId"
                 android:text="الكتابة"
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp" />
-            <TextView
-                android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="مهارة"
-                />
+
         </LinearLayout>
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -238,7 +292,7 @@ android:id="@+id/emailPersonId"
             android:gravity="end"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <EditText
                 android:id="@+id/educationPersonId"
                 android:layout_marginRight="30dp"
                 android:gravity="center"

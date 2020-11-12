@@ -63,6 +63,7 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
         makeAServiceTv.setOnClickListener(this);
         joinAsTv.setOnClickListener(this);
         imageAccount.setOnClickListener(this);
+        personalDataLnId.setOnClickListener(this);
         Paper.init(v.getContext());
 
         emailPaper    = Paper.book().read( Prevalent.UserEmailKey);
@@ -100,14 +101,13 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()){
             case R.id.signِAccountTvId:
                 if(signِAccountTv.getText().toString().equals(getString(R.string.sign_out))){
                      Paper.book().destroy();
                     intent = new Intent(getContext(),MainActivity.class);
                     startActivity(intent);
-                }else{
+                }else {
                     intent = new Intent(getContext(),RegisterActivity.class);
                     startActivity(intent);
                 }
@@ -129,7 +129,5 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
                 startActivity(intent);
                 break;
         }
-
-
     }
 }

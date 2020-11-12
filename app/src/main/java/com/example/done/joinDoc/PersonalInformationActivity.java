@@ -49,7 +49,6 @@ public class PersonalInformationActivity extends AppCompatActivity {
     Button continuePersonalInfoBtn;
  public Spinner mLevelLanguage, mLanguage;
     ChipGroup pChipGroup;
-    Boolean tr = false;
     LinearLayout addALanguageLn;
     ImageView pickImageIV ;
     TextView addNewTv;
@@ -116,6 +115,11 @@ public class PersonalInformationActivity extends AppCompatActivity {
             }
         });
 
+        chooseLanguage();
+
+    }
+
+    private void chooseLanguage() {
         mLevelLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -131,7 +135,6 @@ public class PersonalInformationActivity extends AppCompatActivity {
 
             }
         });
-
     }
 
     private void openGallery() {
