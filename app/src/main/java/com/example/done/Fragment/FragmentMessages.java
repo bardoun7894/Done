@@ -37,36 +37,60 @@ String paper ="";
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
    View view =inflater.inflate(R.layout.fragment_messages,container,false);
       recyclerView = view.findViewById(R.id.recycler);
-
-      userList =new ArrayList<>();
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        userList =new ArrayList<>();
       recyclerView.setHasFixedSize(true);
       recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         Paper.init(view.getContext());
         paper =Paper.book().read(Prevalent.UserNameKey);
-
         if(paper!="" && paper!=null){
          initData(userList);
         }
-         return view;
+
+
+        return view;
     }
 
   void initData(final ArrayList<User> userList) {
       final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-      DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+      final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+      final DatabaseReference referenceOtlob = FirebaseDatabase.getInstance().getReference("demandeFromUser");
 
       reference.addListenerForSingleValueEvent(new ValueEventListener() {
           @Override
-          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+          public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
               userList.clear();
               for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                  User user = snapshot.getValue(User.class);
+                  final User user = snapshot.getValue(User.class);
                   assert user != null;
                   assert firebaseUser != null;
-                 if (!user.getEmail().equals(firebaseUser.getEmail())) {
-                     userList.add(user);
-                   }
-                  recyclerView.setAdapter(new RecyclerItemMessages(userList));
+                  System.out.println(user.getEmail());
+
+     referenceOtlob.child(user.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
+                          @Override
+                          public void onDataChange(@NonNull DataSnapshot dataSnapshotOtlob) {
+                  if(dataSnapshotOtlob.exists()){
+                        String dem =dataSnapshotOtlob.child("username").getValue().toString();
+                        System.out.println(dem);
+                        System.out.println(firebaseUser.getDisplayName());
+
+                        if(dem.equals(firebaseUser.getDisplayName())){
+                            userList.add(user);
+                            }
+
+                              }
+                              recyclerView.setAdapter(new RecyclerItemMessages(userList));
+
+                          }
+
+                          @Override
+                          public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                          }
+                      });
+
               }
           }
 

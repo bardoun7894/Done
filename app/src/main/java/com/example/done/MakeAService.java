@@ -271,6 +271,8 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
                    if(task.isSuccessful()){
                        Toast.makeText(getApplicationContext(),"تم جلب الصورة بنجاح ",Toast.LENGTH_SHORT).show();
                      saveServiceInfoToDatabase();
+                     Intent intent =new Intent(getApplicationContext(),MainActivity.class);
+                     startActivity(intent);
                    }
                }
                private void saveServiceInfoToDatabase() {

@@ -81,7 +81,6 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:layoutDirection="rtl" />
-
                 <Spinner
                     android:layout_marginTop="8dp"
                     android:id="@+id/mihnaId"
@@ -108,7 +107,6 @@
                 android:text="مهنتك"
                 />
         </LinearLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

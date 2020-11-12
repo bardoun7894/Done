@@ -16,10 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.done.models.ItemNotification;
+import com.example.done.models.User;
+import com.example.recyclers.RecyclerItemMessages;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,6 +47,7 @@ public class OtlobActivity extends AppCompatActivity {
     private String sss;
     String demandeTo ;
     private ItemNotification itemNotification;
+    private String photoOfDemandeTo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +126,11 @@ public class OtlobActivity extends AppCompatActivity {
         if (!getmTextView.getSelectedItem().toString().equals("غير محدد") && !mTextView.getSelectedItem().toString().equals("غير محدد")) {
                sss=mTextView.getSelectedItem().toString() + " : " + getmTextView.getSelectedItem().toString();
                     System.out.println(listServices);
-                   serviceRef = FirebaseDatabase.getInstance().getReference().child("otlob").child(mTextView.getSelectedItem().toString()).child(getmTextView.getSelectedItem().toString()).child(username);
+            if(demandeTo ==null || demandeTo.equals("")){
+                serviceRef = FirebaseDatabase.getInstance().getReference().child("otlob").child(mTextView.getSelectedItem().toString()).child(getmTextView.getSelectedItem().toString()).child(username);
+            }else{
+                serviceRef = FirebaseDatabase.getInstance().getReference().child("demandeFromUser").child(username);
+            }
                         }
                     }
 
@@ -165,19 +175,35 @@ public class OtlobActivity extends AppCompatActivity {
 //        hashMap.put("وسيلة الدفع",payText);
 //        hashMap.put("التصنيف",sss);
 
-        System.out.println("demande"+demandeTo);
              if(demandeTo ==null || demandeTo.equals("")){
                 itemNotification = new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,"");
               }else{
                itemNotification =new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,demandeTo);
+                 Toast.makeText(this, "تم ارسال الطلب", Toast.LENGTH_SHORT).show();
+                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(demandeTo);
+                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                     @Override
+                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                      if (dataSnapshot.exists()){
+                          photoOfDemandeTo =dataSnapshot.child("PhotoProfile").getValue().toString();
+                          Intent intent =new Intent(getApplicationContext(),ChatActivity.class);
+                          intent.putExtra("username",demandeTo);
+                          intent.putExtra("photoS",photoOfDemandeTo);
+                          startActivity(intent);
+                       }
+                     }
+                     @Override
+                     public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                     }
+                 });
                   }
              Paper.book().write(Prevalent.itemNotification,itemNotification);
         serviceRef.setValue(itemNotification).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(OtlobActivity.this, "تم رفع الطلب بنجاح", Toast.LENGTH_SHORT).show();
-                Intent intent =new Intent (getApplicationContext(),MainActivity.class);
-                startActivity(intent) ;
+
              }
         });
 

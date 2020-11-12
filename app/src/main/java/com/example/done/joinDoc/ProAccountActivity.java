@@ -222,7 +222,7 @@ Button continueProbtn;
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(getApplicationContext(),"تم اضافة المعلومات بنجاح ",Toast.LENGTH_SHORT).show();
                 Paper.book().write(Prevalent.classification, listWithoutDuplicates);
-                Intent intent =new Intent(getBaseContext(),AccountConnected.class);
+                Intent intent =new Intent( getBaseContext() , AccountConnected.class);
                 startActivity(intent);
                  }
         });
@@ -252,7 +252,7 @@ Button continueProbtn;
                 public void onClick(View v) {
                tagList.remove(tagName);
                pChipGroup.removeView(chip);
-                }
+                 }
             });
             pChipGroup.addView(chip);
         }

@@ -18,6 +18,7 @@ import com.example.done.Fragment.FragmentAccount;
 import com.example.done.joinDoc.JoinAsActivity;
 import com.example.done.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -109,20 +110,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                      if(dataSnapshot.exists()){
                             type_of_user = (String) dataSnapshot.child("type_of_user").getValue() ;
-                            String photoProfile = (String) dataSnapshot.child("PhotoProfile").getValue() ;
-                            Paper.book().write(Prevalent.type_of_user,type_of_user);
-                            if(type_of_user == "بائع") {
-                                List<String> classification  = (List<String>) dataSnapshot.child("classification").getValue();
-                                Paper.book().write(Prevalent.classification,classification);
-                                 }
+                            String numberphone = (String) dataSnapshot.child("mobile_phone").getValue() ;
+                         List<String> classification  = (List<String>) dataSnapshot.child("classification").getValue();
 
-                    if(type_of_user.equals("بائع" ) && photoProfile == null){
+                         Paper.book().write(Prevalent.type_of_user,type_of_user);
+                        if(classification!=null ) {
+                            Paper.book().write(Prevalent.classification,classification);
+                          }
+                    if(type_of_user.equals("بائع" ) && numberphone == null ) {
                         Intent intent =new Intent(getApplicationContext(),JoinAsActivity.class);
                         startActivity(intent);
-                              }{
+                              } else {
                         Intent intent =new Intent(getApplicationContext(),MainActivity.class);
                         startActivity(intent);
-                           }
+                             }
                         }
                     }
                     @Override
@@ -130,9 +131,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                 });
 
-
-
-
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 

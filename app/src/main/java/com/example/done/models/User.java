@@ -18,6 +18,7 @@ public class User  implements Serializable {
     List<String> classification;
     String rating;
     String email;
+    String phone_number ;
     String password;
     String PhotoProfile ;
     String desc_experience ;
@@ -27,6 +28,13 @@ public class User  implements Serializable {
     List<String> languageExperience ;
 
 
+    public String getPhone_number() {
+        return phone_number;
+    }
+
+    public void setPhone_number(String phone_number) {
+        this.phone_number = phone_number;
+    }
 
     public String getCertified() {
         return Certified;
@@ -102,7 +110,7 @@ public class User  implements Serializable {
 
 
 
-    public User(String username, String certified, String balad_koliya, String certified_year, String certificate, String degree_science, String degree_year, String koliya_name, String skills, List<String> classification, String rating, String email, String password, String photoProfile, String desc_experience, String first_name, String last_name, String type_of_user, List<String> languageExperience) {
+    public User(String username, String certified, String balad_koliya, String certified_year, String certificate, String degree_science, String degree_year, String koliya_name, String skills, List<String> classification, String rating, String email, String password, String photoProfile, String desc_experience, String first_name, String last_name, String type_of_user, List<String> languageExperience,String phone_number) {
         this.username = username;
         Certified = certified;
         this.balad_koliya = balad_koliya;
@@ -122,6 +130,7 @@ public class User  implements Serializable {
         this.last_name = last_name;
         this.type_of_user = type_of_user;
         this.languageExperience = languageExperience;
+        this.phone_number = phone_number;
     }
 
     public String getType_of_user() {

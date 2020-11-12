@@ -71,7 +71,6 @@ ArrayList<ItemNotification> notificationsList;
                         ItemNotification itemNotification = snapshot.getValue(ItemNotification.class);
                         assert itemNotification != null;
                         assert firebaseUser != null;
-           System.out.println(itemNotification.getDescription());
         if (!itemNotification.getUsername().equals(firebaseUser.getDisplayName()) ) {
                         notificationsList.add(itemNotification);
                       }
