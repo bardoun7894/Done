@@ -39,14 +39,14 @@ Button save ;
 LinearLayout addAPersonLanguageLn;
     private List<String> languageExperience;
     DatabaseReference reference ;
-    User user=new User() ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_profile);
         Paper.init(this);
-        user=Paper.book().read(Prevalent.userClass);
+
 
         reference =FirebaseDatabase.getInstance().getReference().child("Users");
         pChipGroup=findViewById(R.id.pChipGroupPersonId);
@@ -63,10 +63,7 @@ LinearLayout addAPersonLanguageLn;
         skills_et=findViewById(R.id.maharaPersonId);
         educate_et=findViewById(R.id.educationPersonId);
         addAPersonLanguageLn=findViewById(R.id.addAPersonLanguageId);
-        if(user!=null){
-            changeInfo();
 
-        }
         addNewPerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,6 +146,22 @@ LinearLayout addAPersonLanguageLn;
     }
 
     void changeInfo(){
+        String username= FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+        reference.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                  if (dataSnapshot.exists()){
+//                    List s =dataSnapshot.child("language").
+                         dataSnapshot.
+
+                                  }
+                            }
+                         @Override
+                                  public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                         }
+                                                                 }
+        );
 
 //        String numberPhone =numberphoneEt.getText().toString();
 //        numberphoneEt.setText(user.);
