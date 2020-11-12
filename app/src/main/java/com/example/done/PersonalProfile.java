@@ -152,7 +152,6 @@ LinearLayout addAPersonLanguageLn;
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                   if (dataSnapshot.exists()){
 //                    List s =dataSnapshot.child("language").
-                         dataSnapshot.
 
                                   }
                             }
@@ -167,15 +166,15 @@ LinearLayout addAPersonLanguageLn;
 //        numberphoneEt.setText(user.);
 
 //        String first_name =first_name_et.getText().toString();
-        first_name_et.setText(user.getFirst_name());
+//        first_name_et.setText(user.getFirst_name());
 //        String last_name =last_nameEt.getText().toString();
-        last_nameEt.setText(user.getLast_name());
-        email_Et.setText(user.getEmail());
-        certif_et.setText(user.getCertificate());
-        for (int i =0;i<user.getLanguageExperience().size();i++){
-            addChip(user.getLanguageExperience().get(i),languageExperience);
-        }
-        educate_et.setText(user.getDegree_science());
+//        last_nameEt.setText(user.getLast_name());
+//        email_Et.setText(user.getEmail());
+//        certif_et.setText(user.getCertificate());
+//        for (int i =0;i<user.getLanguageExperience().size();i++){
+//            addChip(user.getLanguageExperience().get(i),languageExperience);
+//        }
+//        educate_et.setText(user.getDegree_science());
 //        for (int i =0;i<user.getClassification().size();i++){
 //            service_et.setText(user.getClassification().get(0));
 //
