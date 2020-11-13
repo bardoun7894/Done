@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="05875488"
+
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp" />
             <TextView
@@ -115,7 +115,7 @@ android:id="@+id/emailPersonId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Mb89@gmail.com"
+
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp" />
             <TextView
@@ -210,7 +210,7 @@ android:id="@+id/emailPersonId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="ينتينيؤن"
+
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp" />
             <TextView
@@ -319,7 +319,7 @@ android:id="@+id/emailPersonId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="الكتابة"
+
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp" />
 
@@ -338,7 +338,7 @@ android:id="@+id/emailPersonId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="الباكلوريا"
+
                 android:textColor="@color/colorPrimary"
                 android:textSize="16dp" />
             <TextView
