@@ -1,5 +1,6 @@
 package com.example.done.Fragment;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ import io.paperdb.Paper;
 public class FragmentMessages extends androidx.fragment.app.Fragment {
 ArrayList<User> userList ;
 RecyclerView recyclerView;
+ProgressDialog progressDialog ;
 String paper ="";
     @Nullable
     @Override
@@ -66,8 +68,7 @@ String paper ="";
                       assert user != null;
                       assert firebaseUser != null;
                       System.out.println(user.getEmail());
-
-                      referenceOtlob.child(user.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
+         referenceOtlob.child(user.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
                           @Override
                           public void onDataChange(@NonNull DataSnapshot dataSnapshotOtlob) {
                               if (dataSnapshotOtlob.exists()) {
@@ -75,17 +76,13 @@ String paper ="";
                                   String demandeTo = dataSnapshotOtlob.child("demandeTo").getValue().toString();
                                   System.out.println(dem);
                                   System.out.println(firebaseUser.getDisplayName());
-
-
                                       if (dem.equals(firebaseUser.getDisplayName()) || demandeTo.equals(firebaseUser.getDisplayName())) {
                                           if (!user.getUsername().equals(firebaseUser.getDisplayName())) {
                                               userList.add(user);
                                           }
                                       }
-
                               }
                               recyclerView.setAdapter(new RecyclerItemMessages(userList));
-
                           }
 
                           @Override

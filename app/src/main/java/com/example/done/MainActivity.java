@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Paper.init(this);
         final String s =Paper.book().read(Prevalent.UserNameKey);
         f=findViewById(R.id.fab);
+
         f.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
             Fragment selectedFragment =null;
             switch (item.getItemId()){
                 case R.id.account:

@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +35,7 @@ import com.google.android.material.chip.ChipGroup;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -47,12 +50,13 @@ import io.paperdb.Paper;
 public class PersonalInformationActivity extends AppCompatActivity {
     private static final int SELECT_IMAGE = 1;
     Button continuePersonalInfoBtn;
- public Spinner mLevelLanguage, mLanguage;
+    public Spinner mLevelLanguage, mLanguage;
     ChipGroup pChipGroup;
     LinearLayout addALanguageLn;
     ImageView pickImageIV ;
     TextView addNewTv;
     private Uri ImageUri;
+    ProgressDialog progressDialog ;
     EditText first_name_et,last_name_et,desc_experience_et;
     private String saveCurrentDate;
     private String saveCurrentTime;
@@ -209,6 +213,14 @@ public class PersonalInformationActivity extends AppCompatActivity {
         saveCurrentTime =CurrentTime.format(calendar.getTime());
         randomServiceKey = saveCurrentDate+saveCurrentTime ;
         final StorageReference filePath = ExprienceImageStorage.child(ImageUri.getLastPathSegment()+randomServiceKey+".jpg");
+
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMax(100);
+        progressDialog.setMessage("تحميل ...");
+        progressDialog.setProgressStyle(progressDialog.STYLE_HORIZONTAL);
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+
         final UploadTask uploadTask =filePath.putFile(ImageUri) ;
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
@@ -250,6 +262,18 @@ public class PersonalInformationActivity extends AppCompatActivity {
                 }
             }
 
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+            double progress=(100.0 * snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
+            progressDialog.incrementProgressBy((int)progress);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(),"لم يتم التحميل",Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+            }
         });
     }
     private void saveServiceInfoToDatabase() {

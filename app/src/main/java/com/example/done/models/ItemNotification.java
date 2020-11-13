@@ -10,7 +10,9 @@ public class ItemNotification  implements Serializable {
     String username;
     String classification ;
     String demandeTo ;
-public ItemNotification(){};
+public ItemNotification(){
+
+};
     public ItemNotification(String description, String deliveryTime, String pay_type, String username, String classification,String demandeTo) {
         this.description = description;
         this.deliveryTime = deliveryTime;

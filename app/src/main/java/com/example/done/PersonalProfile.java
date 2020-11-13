@@ -16,13 +16,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.done.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import io.paperdb.Paper;
@@ -49,20 +48,31 @@ LinearLayout addAPersonLanguageLn,addAServiceLnId;
     private String email;
     private  List<String> listMihna;
     private String classification;
-    private List<String> tagList;
+    private List<String> certList;
+    private List<String> languageList;
     private String skill;
     private String degree_science;
     private String mobile_phone;
     private List<String> languages;
     private List<String> services;
+
     private String certif;
+
+    ArrayList<String> listLanguageWithoutDuplicates;
+    ArrayList<String> listlanguage2;
+
+    private     ArrayList<String>  listClass2;
+    private ArrayList<String> listclass2WithoutDuplicates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_personal_profile);
         Paper.init(this);
-        tagList=new ArrayList<>();
+        certList=new ArrayList<>();
+        languageList=new ArrayList<>();
+        listlanguage2=new ArrayList<>();
+        listClass2=new ArrayList<>();
 
         reference =FirebaseDatabase.getInstance().getReference().child("Users");
         pChipGroup=findViewById(R.id.pChipGroupPersonId);
@@ -107,9 +117,40 @@ LinearLayout addAPersonLanguageLn,addAServiceLnId;
          chooseLanguage();
         changeInfo();
     }
-    private void addChip(final ChipGroup pChipGroup, String s, final List<String> tagList) {
+    private void addClassChip(final ChipGroup pChipGroup, String s, final List<String> tagList) {
         tagList.clear();
         tagList.add(s);
+        listClass2.add(s);
+        listclass2WithoutDuplicates = new ArrayList<>(
+                new HashSet<>(listClass2));
+        for (int index = 0; index < tagList.size(); index++) {
+            final String tagName = tagList.get(index);
+            final Chip chip = new Chip(this);
+            int paddingDp = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP, 10,
+                    getResources().getDisplayMetrics()
+            );
+            chip.setPadding(paddingDp, paddingDp, paddingDp, paddingDp);
+            chip.setText(tagName);
+            chip.setTextColor(getResources().getColor(R.color.colorPrimary));
+            chip.setCloseIconResource(R.drawable.ic_close_24);
+            chip.setCloseIconEnabled(true);
+            //Added click listener on close icon to remove tag from ChipGroup
+            chip.setOnCloseIconClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    tagList.remove(tagName);
+                    pChipGroup.removeView(chip);
+                }
+            });
+            pChipGroup.addView(chip);
+        }
+    }
+    private void addLanguageChip(final ChipGroup pChipGroup, String s, final List<String> tagList) {
+        tagList.clear();
+        tagList.add(s);
+        listlanguage2.add(s);
+        listLanguageWithoutDuplicates = new ArrayList<>(  new HashSet<>(listlanguage2));
         for (int index = 0; index < tagList.size(); index++) {
             final String tagName = tagList.get(index);
             final Chip chip = new Chip(this);
@@ -176,7 +217,7 @@ LinearLayout addAPersonLanguageLn,addAServiceLnId;
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(!khidma.getSelectedItem().toString().equals("غير محدد") && !mihna.getSelectedItem().toString().equals("غير محدد") ) {
                     classification = mihna.getSelectedItem().toString() + " : " + khidma.getSelectedItem().toString();
-                    addChip(chipGroupServicePersonPro,classification, tagList);
+                    addClassChip(chipGroupServicePersonPro,classification, certList);
                     addAServiceLnId.setVisibility(View.GONE);
                 }
             }
@@ -204,7 +245,7 @@ LinearLayout addAPersonLanguageLn,addAServiceLnId;
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(!mLevelLanguage.getSelectedItem().toString().equals("غير محدد") &&!mLanguage.getSelectedItem().toString().equals("غير محدد") ){
                     addAPersonLanguageLn.setVisibility(View.GONE);
-                    addChip(pChipGroup,mLanguage.getSelectedItem().toString()+" "+ mLevelLanguage.getSelectedItem().toString() ,languageExperience);
+                    addLanguageChip(pChipGroup,mLanguage.getSelectedItem().toString()+" "+ mLevelLanguage.getSelectedItem().toString() ,languageExperience);
                 }
 
             }
@@ -287,14 +328,12 @@ LinearLayout addAPersonLanguageLn,addAServiceLnId;
                         }
                  if(languages!=null){
                      for (int i =0;i<languages.size();i++){
-                         addChip(pChipGroup,languages.get(i),languageExperience);
+                         addLanguageChip(pChipGroup,languages.get(i),languageExperience);
                      }
                  }
-
-
-                 if(languages!=null){
+                 if(services!=null){
                      for (int i =0;i<services.size();i++){
-                         addChip(chipGroupServicePersonPro,services.get(i),tagList);
+                         addClassChip(chipGroupServicePersonPro,services.get(i),certList);
                      }
                  }
 
@@ -321,8 +360,8 @@ LinearLayout addAPersonLanguageLn,addAServiceLnId;
           hashmap2.put("email",email_Et.getText().toString());
           hashmap2.put("mobile_phone",numberphoneEt.getText().toString());
           hashmap2.put("degree_science",educate_et.getText().toString());
-          hashmap2.put("languageExperience",languageExperience);
-          hashmap2.put("classification",tagList);
+          hashmap2.put("languageExperience",listLanguageWithoutDuplicates);
+          hashmap2.put("classification",listclass2WithoutDuplicates);
 
           reference.child(username).updateChildren(hashmap2).addOnCompleteListener(new OnCompleteListener<Void>() {
               @Override

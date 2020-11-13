@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
@@ -57,6 +59,7 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
     private Uri ImageUri;
     Services s ;
     String usernamePaper = "";
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -234,6 +237,14 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
         saveCurrentTime =CurrentTime.format(calendar.getTime());
         randomServiceKey = saveCurrentDate+saveCurrentTime ;
        final StorageReference filePath = serviceImageStorage.child(ImageUri.getLastPathSegment()+randomServiceKey+".jpg");
+
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMax(100);
+        progressDialog.setMessage("تحميل ...");
+        progressDialog.setProgressStyle(progressDialog.STYLE_HORIZONTAL);
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+
         final UploadTask uploadTask =filePath.putFile(ImageUri) ;
            uploadTask.addOnFailureListener(new OnFailureListener() {
                @Override
@@ -288,6 +299,18 @@ public class MakeAService extends AppCompatActivity implements View.OnClickListe
 
                          }
                    });
+               }
+           }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+               @Override
+               public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                   double progress=(100.0 * snapshot.getBytesTransferred())/snapshot.getTotalByteCount();
+                   progressDialog.incrementProgressBy((int)progress);
+               }
+           }).addOnFailureListener(new OnFailureListener() {
+               @Override
+               public void onFailure(@NonNull Exception e) {
+              Toast.makeText(getApplicationContext(),"لم يتم التحميل",Toast.LENGTH_SHORT).show();
+            progressDialog.dismiss();
                }
            });
     }

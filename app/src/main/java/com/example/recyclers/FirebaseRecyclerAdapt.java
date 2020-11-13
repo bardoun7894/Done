@@ -40,13 +40,14 @@ public FirebaseRecyclerAdapt(List<Services> servicesList){
         Glide.with(holder.imageView.getContext()).load(servicesList.get(position).getService_image()).into(holder.imageView);
         holder.rating_numberTv.setText(servicesList.get(position).getService_user().getRating());
         holder.descTv.setText(servicesList.get(position).getService_desc());
-        holder.priceTv.setText(servicesList.get(position).getService_price());
+        String price ="يبدأ من  "+servicesList.get(position).getService_price() + " ريال "  ;
+        holder.priceTv.setText(price);
       holder.services_ln.setOnClickListener(new View.OnClickListener() {
              @Override
               public void onClick(View v) {
               Intent intent =new Intent(v.getContext(), ServiceDetailsActivity.class);
-                  intent.putExtra("service",servicesList.get(position));
-                  v.getContext().startActivity(intent);
+              intent.putExtra("service",servicesList.get(position));
+              v.getContext().startActivity(intent);
                         }
 });
     }

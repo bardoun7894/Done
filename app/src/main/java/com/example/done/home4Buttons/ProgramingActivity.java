@@ -48,12 +48,12 @@ public class ProgramingActivity extends AppCompatActivity implements View.OnClic
 
 
 
-        database= new ItemServices(getString(R.string.database),R.drawable.tasmim_prochor);
-        programing_web= new ItemServices(getString(R.string.programing_web),R.drawable.tasmim_cv);
-        application_web= new ItemServices(getString(R.string.application_web),R.drawable.tasmim_kitab);
-        ui_ux_test= new ItemServices(getString(R.string.ui_ux_test),R.drawable.tasmim_ghilaf);
-        security_database= new ItemServices(getString(R.string.security_database),R.drawable.tasmim_flater);
-        data_analyses= new ItemServices(getString(R.string.data_analyses),R.drawable.kartasiyat);
+        database= new ItemServices(getString(R.string.database),R.drawable.database);
+        programing_web= new ItemServices(getString(R.string.programing_web),R.drawable.programming_web);
+        application_web= new ItemServices(getString(R.string.application_web),R.drawable.application_web);
+        ui_ux_test= new ItemServices(getString(R.string.ui_ux_test),R.drawable.ui_ux);
+        security_database= new ItemServices(getString(R.string.security_database),R.drawable.security);
+        data_analyses= new ItemServices(getString(R.string.data_analyses),R.drawable.data_analyses);
 
 
         l.add(getString(R.string.database));

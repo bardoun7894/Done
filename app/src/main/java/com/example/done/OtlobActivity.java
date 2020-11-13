@@ -175,29 +175,21 @@ public class OtlobActivity extends AppCompatActivity {
 //        hashMap.put("وسيلة الدفع",payText);
 //        hashMap.put("التصنيف",sss);
 
+
+        Intent intent = null;
+
              if(demandeTo ==null || demandeTo.equals("")){
-                itemNotification = new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,"");
+                 Toast.makeText(this, "تم رفع الطلب", Toast.LENGTH_SHORT).show();
+
+                 itemNotification = new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,"");
+            intent= new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
               }else{
                itemNotification =new  ItemNotification(desc_otlob,otlobTime,payText,username,sss,demandeTo);
-                 Toast.makeText(this, "تم ارسال الطلب", Toast.LENGTH_SHORT).show();
-                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users").child(demandeTo);
-                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
-                     @Override
-                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                      if (dataSnapshot.exists()){
-                          photoOfDemandeTo =dataSnapshot.child("PhotoProfile").getValue().toString();
-                          Intent intent =new Intent(getApplicationContext(),ChatActivity.class);
-                          intent.putExtra("username",demandeTo);
-                          intent.putExtra("photoS",photoOfDemandeTo);
-                          startActivity(intent);
-                       }
-                     }
-                     @Override
-                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                     }
-                 });
-                  }
+                  Toast.makeText(this, "تم ارسال الطلب", Toast.LENGTH_SHORT).show();
+                 intent= new Intent(getApplicationContext(),MainActivity.class);
+                 startActivity(intent);
+               }
              Paper.book().write(Prevalent.itemNotification,itemNotification);
         serviceRef.setValue(itemNotification).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

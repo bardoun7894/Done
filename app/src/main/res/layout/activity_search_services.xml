@@ -6,7 +6,6 @@
     android:background="@color/colorPrimary"
     android:layout_height="match_parent"
     tools:context=".SearchServicesActivity">
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -95,63 +94,69 @@
             </LinearLayout>
 
         </LinearLayout  >
-        <LinearLayout
-            android:padding="4dp"
-            android:orientation="horizontal"
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-           <TextView
-               android:textColor="@color/colorPrimary"
-                android:padding="5dp"
-                android:text="تصنيف تصميم"
-                android:background="@drawable/search_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="0dp"/>
-            <TextView
-                android:textColor="@color/colorPrimary"
-                android:padding="5dp"
-                android:text="تصنيف تصميم"
-                android:background="@drawable/search_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="0dp"/>
-            <TextView
-                android:textColor="@color/colorPrimary"
-                android:padding="5dp"
-                android:text="تصنيف تصميم"
-                android:background="@drawable/search_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="0dp"/>
-            <TextView
-                android:textColor="@color/colorPrimary"
-                android:padding="5dp"
-                android:text="تصنيف تصميم"
-                android:background="@drawable/search_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="0dp"/>
-            <TextView
-                android:textColor="@color/colorPrimary"
-                android:padding="5dp"
-                android:text=" جميع "
-                android:background="@drawable/search_background"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <Space
-                android:layout_width="5dp"
-                android:layout_height="0dp"/>
+            <LinearLayout
+                android:padding="4dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:padding="5dp"
+                    android:text="@string/translateEditing"
+                    android:background="@drawable/search_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:padding="5dp"
+                    android:text="@string/programmingandtech"
+                    android:background="@drawable/search_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:id="@+id/videoSearch"
+                    android:textColor="@color/colorPrimary"
+                    android:padding="5dp"
+                  android:text="@string/video_animation"
+                    android:background="@drawable/search_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:padding="5dp"
+                    android:text="@string/tasmim_and_grahic"
+                    android:background="@drawable/search_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:textColor="@color/colorPrimary"
+                    android:padding="5dp"
+                    android:text=" جميع "
+                    android:background="@drawable/search_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="0dp"/>
 
-        </LinearLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycler_search_services"
     android:layout_width="match_parent"

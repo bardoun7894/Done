@@ -42,19 +42,20 @@ DatabaseReference databaseReference ;
 String username;
 FirebaseUser fuser;
 
-
     List<Item_chat_one> chatList ;
     RecyclerView recyclerView;
     DatabaseReference reference;
     private List<User> userList;
     private String photos;
+    private String acceptSeller;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        username =getIntent().getStringExtra("username");
 
+        username =getIntent().getStringExtra("username");
         photos =getIntent().getStringExtra("photoS");
+        acceptSeller =getIntent().getStringExtra("acceptOrder");
 
         super.onCreate(savedInstanceState);
 
@@ -64,7 +65,6 @@ FirebaseUser fuser;
           recyclerView=findViewById(R.id.recycler_chat_one);
           recyclerView.setHasFixedSize(true);
           recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-
         reference = FirebaseDatabase.getInstance().getReference().child("Chats");
         userList =new ArrayList<>();
         chatList =new ArrayList<>();
@@ -81,10 +81,10 @@ FirebaseUser fuser;
         backchatI.setOnClickListener(this);
         send_chat.setOnClickListener(this);
        fuser= FirebaseAuth.getInstance().getCurrentUser();
-
-
-       readMessages(fuser.getDisplayName(), username,photos);
-
+        if(acceptSeller!=null){
+            sendMessage(fuser.getDisplayName(),username,acceptSeller);
+        }
+        readMessages(fuser.getDisplayName(), username,photos);
      }
     @Override
     public void onClick(View v) {

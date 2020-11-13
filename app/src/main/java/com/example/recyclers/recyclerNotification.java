@@ -35,14 +35,27 @@ public class recyclerNotification extends RecyclerView.Adapter<recyclerNotificat
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         //           holder.imageView.setImageResource(itemChatList.get(position).getImageUrl());
         holder.userTextView.setText(itemNotificationList.get(position).getUsername());
-        String de = "خدمة"+itemNotificationList.get(position).getUsername()+"طلب منك " ;
-        holder.fromUserTo.setText(de);
+        String de = " خدمة "+ itemNotificationList.get(position).getUsername()+"طلب منك " ;
+        if(!itemNotificationList.get(position).getDemandeTo().isEmpty() && itemNotificationList.get(position).getDemandeTo()!=null) {
+            System.out.println(itemNotificationList.get(position).getDemandeTo()+"jdjdjd");
+            holder.fromUserTo.setText(de);
+        }
         holder.desc_otlob_tv.setText(itemNotificationList.get(position).getDescription());
         holder.class_item_otlob_tv.setText(itemNotificationList.get(position).getClassification().split(" : ")[1]);
-        holder.itemNotification=itemNotificationList.get(position);
+
+        holder.linearCardNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!itemNotificationList.get(position).getDemandeTo().isEmpty() && itemNotificationList.get(position).getDemandeTo()!=null){
+                    Intent intent =new Intent(holder.itemView.getContext(), NotificationDetail.class);
+                    intent.putExtra("itemNotification",itemNotificationList.get(position));
+                    holder.itemView.getContext().startActivity(intent);
+                }
+            }
+        });
 
     }
     @Override
@@ -53,7 +66,7 @@ public class recyclerNotification extends RecyclerView.Adapter<recyclerNotificat
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView userTextView  ,desc_otlob_tv,class_item_otlob_tv,fromUserTo;
-         ItemNotification itemNotification ;
+
         LinearLayout linearCardNotification ;
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
@@ -63,16 +76,7 @@ public class recyclerNotification extends RecyclerView.Adapter<recyclerNotificat
             userTextView = itemView.findViewById(R.id.userNotificationItemID);
             fromUserTo = itemView.findViewById(R.id.fromUserTo);
             linearCardNotification=itemView.findViewById(R.id.linearCardNotification);
-            linearCardNotification.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(itemNotification.getDemandeTo()!=""){
-                        Intent intent =new Intent(itemView.getContext(), NotificationDetail.class);
-                        intent.putExtra("itemNotification",itemNotification);
-                        itemView.getContext().startActivity(intent);
-                     }
-                   }
-            });
+
             desc_otlob_tv = itemView.findViewById(R.id.desc_otlob_item_id);
             class_item_otlob_tv = itemView.findViewById(R.id.class_item_otlob);
 

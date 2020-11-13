@@ -65,6 +65,8 @@
     <string name="tasmim_chi3ar">تصميم شعار</string>
     <string name="tasmim_da3wa">تصميم دعوة</string>
     <string name="tasmim_web_mobile">تصميم واجهات الويب و الجوال</string>
+    <string name="dld">dld</string>
+    <string name="tad9i9_logha">تدقيق لغوي</string>
 
 
     <string-array name="categoriesSpinner">

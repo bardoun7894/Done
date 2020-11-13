@@ -76,9 +76,9 @@ ImageView account_image_detail ;
        Glide.with(getApplicationContext()).load(image_of_serv).into(new SimpleTarget<Drawable>() {
            @Override
            public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
-               if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                    image_of_service.setBackground(resource);
-               }
+          }
            }
        });
 

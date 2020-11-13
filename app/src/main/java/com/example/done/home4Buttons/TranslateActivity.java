@@ -37,20 +37,22 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
     ArrayList<ItemServices> ar =new ArrayList<>();
 
     private ArrayList<String> l=new ArrayList<>();
+    private ItemServices tad9i9_loghawi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
-        dirasat_lhala =new ItemServices(getString(R.string.dirasat_lhala),R.drawable.tasmim_prochor);
-        kitabat_sira =new ItemServices(getString(R.string.kitabat_sira),R.drawable.tasmim_cv);
-        ma9alat_post =new ItemServices(getString(R.string.ma9alat_post),R.drawable.kartasiyat);
-        tajribat_mostakhdim =new ItemServices(getString(R.string.tajribat_mostakhdim),R.drawable.tasmim_kitab);
-        sinario =new ItemServices(getString(R.string.sinario),R.drawable.tasmim_ghilaf);
-        tarjama =new ItemServices(getString(R.string.tarjama),R.drawable.tasmim_ghilaf);
-        wasf_montaj =new ItemServices(getString(R.string.wasf_montaj),R.drawable.kartasiyat);
-        mohtawa_ibda3i =new ItemServices(getString(R.string.mohtawa_ibda3i),R.drawable.kartasiyat);
-        mohtawa_tawasol =new ItemServices(getString(R.string.mohtawa_tawasol),R.drawable.kartasiyat);
+        dirasat_lhala =new ItemServices(getString(R.string.dirasat_lhala),R.drawable.study_cases);
+        kitabat_sira =new ItemServices(getString(R.string.kitabat_sira),R.drawable.cv);
+        ma9alat_post =new ItemServices(getString(R.string.ma9alat_post),R.drawable.posts);
+        tajribat_mostakhdim =new ItemServices(getString(R.string.tajribat_mostakhdim),R.drawable.kitabat_ux);
+        sinario =new ItemServices(getString(R.string.sinario),R.drawable.senario);
+        tarjama =new ItemServices(getString(R.string.tarjama),R.drawable.translate_);
+        wasf_montaj =new ItemServices(getString(R.string.wasf_montaj),R.drawable.wasf_montag);
+        mohtawa_ibda3i =new ItemServices(getString(R.string.mohtawa_ibda3i),R.drawable.content);
+        mohtawa_tawasol =new ItemServices(getString(R.string.mohtawa_tawasol),R.drawable.media);
+        tad9i9_loghawi =new ItemServices(getString(R.string.tad9i9_logha),R.drawable.tad9i9);
 
         l.add(getString(R.string.dirasat_lhala));
         l.add(getString(R.string.kitabat_sira));
@@ -61,6 +63,7 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
         l.add(getString(R.string.wasf_montaj));
         l.add(getString(R.string.mohtawa_ibda3i));
         l.add(getString(R.string.mohtawa_tawasol));
+        l.add(getString(R.string.tad9i9_logha));
 
         btnOtherTranslate =findViewById(R.id.otherTranslateId);
         backTranslateIv =findViewById(R.id.backTranslateId);
@@ -72,7 +75,6 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
         searchIconTranlsateIv=findViewById(R.id.searchIconTranslateId);
         searchBoxTranslateEt =findViewById(R.id.searchBoxTranslateId);
          addAllServices();
-
         recyclerView =findViewById(R.id.recycler_translate);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
@@ -94,6 +96,7 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
         ar.add(wasf_montaj);
         ar.add(mohtawa_ibda3i);
         ar.add(mohtawa_tawasol);
+        ar.add(tad9i9_loghawi);
     }
 
     @Override
