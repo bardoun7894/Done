@@ -67,6 +67,8 @@
     <string name="tasmim_web_mobile">تصميم واجهات الويب و الجوال</string>
     <string name="dld">dld</string>
     <string name="tad9i9_logha">تدقيق لغوي</string>
+    <string name="write_book">كتابة كتاب</string>
+    <string name="make_brand">الاسماء التجارية و الشعارات</string>
 
 
     <string-array name="categoriesSpinner">

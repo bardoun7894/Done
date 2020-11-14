@@ -37,7 +37,7 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
     ArrayList<ItemServices> ar =new ArrayList<>();
 
     private ArrayList<String> l=new ArrayList<>();
-    private ItemServices tad9i9_loghawi;
+    private ItemServices tad9i9_loghawi,writing_book,brand;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,8 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
         mohtawa_ibda3i =new ItemServices(getString(R.string.mohtawa_ibda3i),R.drawable.content);
         mohtawa_tawasol =new ItemServices(getString(R.string.mohtawa_tawasol),R.drawable.media);
         tad9i9_loghawi =new ItemServices(getString(R.string.tad9i9_logha),R.drawable.tad9i9);
+        writing_book =new ItemServices(getString(R.string.write_book),R.drawable.writting_book);
+        brand =new ItemServices(getString(R.string.make_brand),R.drawable.brand);
 
         l.add(getString(R.string.dirasat_lhala));
         l.add(getString(R.string.kitabat_sira));
@@ -64,6 +66,8 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
         l.add(getString(R.string.mohtawa_ibda3i));
         l.add(getString(R.string.mohtawa_tawasol));
         l.add(getString(R.string.tad9i9_logha));
+        l.add(getString(R.string.write_book));
+        l.add(getString(R.string.make_brand));
 
         btnOtherTranslate =findViewById(R.id.otherTranslateId);
         backTranslateIv =findViewById(R.id.backTranslateId);
@@ -97,6 +101,8 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
         ar.add(mohtawa_ibda3i);
         ar.add(mohtawa_tawasol);
         ar.add(tad9i9_loghawi);
+        ar.add(writing_book);
+        ar.add(brand);
     }
 
     @Override
@@ -184,6 +190,21 @@ public class TranslateActivity extends AppCompatActivity implements View.OnClick
          case "كتابة محتوى لوسائل التواصل الاجتماعي":
                 ar.clear();
                 ar.add(mohtawa_tawasol) ;
+                break;
+
+         case "تدقيق لغوي":
+                ar.clear();
+                ar.add(tad9i9_loghawi) ;
+                break;
+
+         case "كتابة كتاب":
+                ar.clear();
+                ar.add(writing_book) ;
+                break;
+
+         case "الاسماء التجارية و الشعارات":
+                ar.clear();
+                ar.add(brand) ;
                 break;
 
             case "":
