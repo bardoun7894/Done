@@ -43,12 +43,12 @@ public class VideoAnimationActivity extends AppCompatActivity implements View.On
         l.add("رسوم متحركة");
         l.add("عرض التطبيقات");
         l.add("شعار متحرك");
-        chi3ar_motahirik =new ItemServices(getString(R.string.logo_motaharika),R.drawable.kartasiyat);
-        ard_tatbi9at = new ItemServices( getString(R.string.ard_tatbi9at),R.drawable.tasmim_flater);
-        rosom_motaharika = new ItemServices(getString(R.string.rosom_motaharika),R.drawable.tasmim_ghilaf);
-        i3lanat =new ItemServices(getString(R.string.i3lanat_video_kasir),R.drawable.tasmim_prochor);
-        montag =new ItemServices(getString(R.string.montaj_video),R.drawable.tasmim_prochor);
-        sira_bayda_motaharika =    new ItemServices(getString(R.string.sira_bayda_motaharika),R.drawable.tasmim_kitab);
+        chi3ar_motahirik =new ItemServices(getString(R.string.logo_motaharika),R.drawable.logo_c);
+        ard_tatbi9at = new ItemServices( getString(R.string.ard_tatbi9at),R.drawable.application_showing);
+        rosom_motaharika = new ItemServices(getString(R.string.rosom_motaharika),R.drawable.animation_);
+        i3lanat =new ItemServices(getString(R.string.i3lanat_video_kasir),R.drawable.ads_);
+        montag =new ItemServices(getString(R.string.montaj_video),R.drawable.video_mon);
+        sira_bayda_motaharika =    new ItemServices(getString(R.string.sira_bayda_motaharika),R.drawable.white_b);
 
        recyclerView=findViewById(R.id.recycler_video);
         btnOtherVideoAnimation =findViewById(R.id.otherVideoAnimationId);
