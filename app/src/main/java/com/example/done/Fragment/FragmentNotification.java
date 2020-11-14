@@ -77,7 +77,9 @@ ArrayList<ItemNotification> notificationsList;
                         assert itemNotification != null;
                         assert firebaseUser != null;
                         if (!itemNotification.getUsername().equals(firebaseUser.getDisplayName()) ) {
-                            notificationsList.add(itemNotification);
+                             if(itemNotification.getDemandeTo().equals("")){
+                                notificationsList.add(itemNotification);
+                                    }
                         }
                         recyclerView.setAdapter(new recyclerNotification(notificationsList));
                     }
@@ -88,38 +90,40 @@ ArrayList<ItemNotification> notificationsList;
 
                 }
             });
-            serviceRefDemande.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dSnapshot) {
 
-                    for (DataSnapshot dataSnapshot : dSnapshot.getChildren()) {
-                        System.out.println(dataSnapshot+"dksdklskdkdkdkd");
-                        ItemNotification itemNotification2 = dataSnapshot.getValue(ItemNotification.class);
-                        assert itemNotification2 != null;
-                        System.out.println(itemNotification2.getClassification()+"dksdklskdkdkdkd");
-                        assert itemNotification2 != null;
-                        if(dataSnapshot.exists()){
-                              String dem = dataSnapshot.child("username").getValue().toString();
-                            String demandeTo = dataSnapshot.child("demandeTo").getValue().toString();
+
+    }
+        serviceRefDemande.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dSnapshot) {
+                final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                for (DataSnapshot dataSnapshot : dSnapshot.getChildren()) {
+                    System.out.println(dataSnapshot+"dksdklskdkdkdkd");
+                    ItemNotification itemNotification2 = dataSnapshot.getValue(ItemNotification.class);
+                    assert itemNotification2 != null;
+                    System.out.println(itemNotification2.getClassification()+"dksdklskdkdkdkd");
+
+                    if(dataSnapshot.exists()){
+//                              String dem = dataSnapshot.child("username").getValue().toString();
+                        String demandeTo = dataSnapshot.child("demandeTo").getValue().toString();
 
                         if ( demandeTo.equals(firebaseUser.getDisplayName())) {
                             notificationsList.add(itemNotification2);
-                              }
-                      recyclerView.setAdapter(new recyclerNotification(notificationsList));
-
-
                         }
+                        recyclerView.setAdapter(new recyclerNotification(notificationsList));
+
+
                     }
-
-
                 }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                }
-            });
-    }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
     }

@@ -7,12 +7,13 @@
     android:layout_width="match_parent"
     >
     <LinearLayout
+        android:id="@+id/cancelOrder_id"
         android:gravity="center"
         android:background="@drawable/linear_background"
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <TextView
-            android:id="@+id/cancel_order_id"
+
             android:textSize="20dp"
             android:textColor="#728081"
             android:text="الغاء الطلب"

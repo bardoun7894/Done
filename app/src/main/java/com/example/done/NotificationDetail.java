@@ -75,7 +75,7 @@ Button acceptBtn,refuseBtn ;
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
              Toast.makeText(v.getContext(), "تم رفض الطلب", Toast.LENGTH_SHORT).show();
-    getSupportFragmentManager().beginTransaction().add(android.R.id.content, new FragmentNotification()).commit();
+             getSupportFragmentManager().beginTransaction().add(android.R.id.content, new FragmentNotification()).commit();
 
           }
             });

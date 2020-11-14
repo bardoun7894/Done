@@ -70,15 +70,22 @@ public class FragmentAccount extends androidx.fragment.app.Fragment implements V
         passwordPaper = Paper.book().read( Prevalent.UserPasswordKey);
         usernamePaper = Paper.book().read( Prevalent.UserNameKey);
         String photoUrl = Paper.book().read( Prevalent.photoProfile);
+
       String   ls = Paper.book().read(Prevalent.photoProfile);
         String s =Paper.book().read( Prevalent.type_of_user);
        System.out.println(s);
 
-        if(usernamePaper!=null ) {
+        if(usernamePaper!=null) {
             type_of_user = Paper.book().read( Prevalent.type_of_user);
             Glide.with(v.getContext()).load(ls).into(imageAccount);
+            if(type_of_user.equals("مشتري")){
+                personalDataLnId.setVisibility(View.GONE);
+                }else{
+                personalDataLnId.setVisibility(View.VISIBLE);
+                }
        if(type_of_user!=  "بائع" && photoUrl!=null && photoUrl!=""){
                joinAsLn.setVisibility(View.GONE);
+
              }
 
 

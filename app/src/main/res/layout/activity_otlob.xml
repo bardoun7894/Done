@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,196 +7,202 @@
     android:orientation="vertical"
     tools:context=".OtlobActivity">
     <LinearLayout
-        android:visibility="visible"
-        android:id="@+id/homeGraphicBarID"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center_vertical"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:visibility="visible"
+            android:id="@+id/homeGraphicBarID"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
 
-        <ImageView
+            <ImageView
 
-            android:layout_marginLeft="10dp"
-            android:id="@+id/backGraphicId"
-            android:background="@drawable/ic_back_arrow"
-            android:layout_width="24dp"
-            android:layout_height="24dp"/>
+                android:layout_marginLeft="10dp"
+                android:id="@+id/backGraphicId"
+                android:background="@drawable/ic_back_arrow"
+                android:layout_width="24dp"
+                android:layout_height="24dp"/>
+            <TextView
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="center"
+                android:text="اطلب"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+            <ImageView
+                android:layout_marginLeft="100dp"
+                android:id="@+id/searchGraphicId"
+                android:background="@drawable/ic_white_search"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+        </LinearLayout>
         <TextView
-            android:textColor="@color/colorWhite"
-            android:layout_gravity="center"
-            android:text="اطلب"
-            android:textSize="24dp"
+            android:layout_marginTop="10dp"
             android:textStyle="bold"
-            android:layout_weight="1"
+            android:layout_gravity="right"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تفاصيل الطلب"
+            />
+        <EditText
+            android:textDirection="rtl"
+            android:id="@+id/desc_otlob_id"
+            android:ems="5"
+            android:hint="تفاصيل الطلب"
+            android:padding="15dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/shape_description"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            />
+        <LinearLayout
+            android:gravity="end"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <Spinner
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:layoutDirection="rtl"
+                android:id="@+id/categorySpinnerOtlob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="نوع المهنة"
+                />
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="الفئة"
+                android:textSize="20dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="end"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <Spinner
+                android:id="@+id/subcategorySpinnerOtlob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:hint="نوع المهنة"
+                android:layoutDirection="rtl" />
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:textColor="@color/colorPrimary"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="التصنيف"
+                android:textSize="20dp"
+                />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_gravity="right"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="مدة التسليم"
+            android:textSize="20dp"
+            android:layout_marginRight="20dp"
+            />
+        <EditText
+            android:textDirection="rtl"
+            android:paddingHorizontal="10dp"
+            android:id="@+id/otlobTimeId"
+            android:layout_marginTop="20dp"
+            android:inputType="number"
+            android:background="@drawable/shape_input"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginHorizontal="50dp"
+            />
+        <TextView
+            android:layout_marginTop="15dp"
+            android:layout_gravity="right"
+            android:textColor="@color/colorPrimary"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="طريقة الدفع"
+            android:textSize="20dp"
+            android:layout_marginRight="20dp"
+            />
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="40dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        </TextView>
-        <ImageView
-            android:layout_marginLeft="100dp"
-            android:id="@+id/searchGraphicId"
-            android:background="@drawable/ic_white_search"
-            android:layout_width="24dp"
-            android:layout_height="24dp" />
-    </LinearLayout>
-<TextView
-    android:layout_marginTop="10dp"
-    android:textStyle="bold"
-    android:layout_gravity="right"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="تفاصيل الطلب"
-    />
-    <EditText
-        android:textDirection="rtl"
-        android:id="@+id/desc_otlob_id"
-        android:ems="5"
-        android:hint="تفاصيل الطلب"
-        android:padding="15dp"
-        android:layout_margin="15dp"
-        android:background="@drawable/shape_description"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        />
-    <LinearLayout
-        android:gravity="end"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <Spinner
-            android:gravity="center"
-            android:layout_marginTop="5dp"
+            <TextView
+                android:textColor="@color/colorGrey"
+                android:id="@+id/apple_pay"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="5dp"
+                android:background="@drawable/shape_input"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apple Pay"
+                android:textSize="20dp"
+                android:layout_marginRight="20dp"
+                />
+            <TextView
+                android:textColor="@color/colorGrey"
+                android:id="@+id/creditID"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="5dp"
+                android:background="@drawable/shape_input"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="credit"
+                android:textSize="20dp"
+                android:layout_marginRight="20dp"
+                />
+        </LinearLayout>
+        <Button
+            android:textStyle="bold"
+            android:id="@+id/saveOtlobServiceId"
             android:layout_gravity="center"
-            android:layoutDirection="rtl"
-            android:id="@+id/categorySpinnerOtlob"
+            android:textColor="@color/colorWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="نوع المهنة"
-            />
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="match_parent"/>
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="الفئة"
-            android:textSize="20dp"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="end"
-        android:layout_gravity="center"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <Spinner
-            android:id="@+id/subcategorySpinnerOtlob"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:hint="نوع المهنة"
-            android:layoutDirection="rtl" />
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="match_parent"/>
-        <TextView
-            android:textColor="@color/colorPrimary"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="التصنيف"
-            android:textSize="20dp"
+            android:text="أرسل الطلب"
             />
 
 
     </LinearLayout>
-    <TextView
-        android:layout_marginTop="15dp"
-        android:layout_gravity="right"
-        android:textColor="@color/colorPrimary"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="مدة التسليم"
-        android:textSize="20dp"
-        android:layout_marginRight="20dp"
-        />
-    <EditText
-        android:textDirection="rtl"
-        android:paddingHorizontal="10dp"
-        android:id="@+id/otlobTimeId"
-        android:layout_marginTop="20dp"
-        android:inputType="number"
-        android:background="@drawable/shape_input"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginHorizontal="50dp"
-        />
-    <TextView
-        android:layout_marginTop="15dp"
-        android:layout_gravity="right"
-        android:textColor="@color/colorPrimary"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="طريقة الدفع"
-        android:textSize="20dp"
-        android:layout_marginRight="20dp"
-        />
-   <LinearLayout
-       android:layout_marginTop="10dp"
-       android:layout_marginHorizontal="40dp"
-       android:gravity="center"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-       <TextView
-           android:textColor="@color/colorGrey"
-           android:id="@+id/apple_pay"
-           android:paddingHorizontal="20dp"
-           android:paddingVertical="5dp"
-           android:background="@drawable/shape_input"
-           android:layout_marginTop="15dp"
-           android:layout_gravity="right"
-           android:gravity="center"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:text="Apple Pay"
-           android:textSize="20dp"
-           android:layout_marginRight="20dp"
-           />
-       <TextView
-       android:textColor="@color/colorGrey"
-       android:id="@+id/creditID"
-       android:paddingHorizontal="20dp"
-       android:paddingVertical="5dp"
-       android:background="@drawable/shape_input"
-       android:layout_marginTop="15dp"
-       android:layout_gravity="right"
-       android:gravity="center"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="credit"
-       android:textSize="20dp"
-       android:layout_marginRight="20dp"
-       />
-   </LinearLayout>
-    <Button
-        android:textStyle="bold"
-        android:id="@+id/saveOtlobServiceId"
-        android:layout_gravity="center"
-        android:textColor="@color/colorWhite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="أرسل الطلب"
-        />
 
-
-</LinearLayout>
+</ScrollView>

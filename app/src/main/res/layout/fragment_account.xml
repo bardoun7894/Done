@@ -131,6 +131,7 @@
 
                  </LinearLayout>
                  <LinearLayout
+                     android:visibility="gone"
                      android:id="@+id/personalDataLnId"
                      android:paddingRight="10dp"
                      android:gravity="end|center"

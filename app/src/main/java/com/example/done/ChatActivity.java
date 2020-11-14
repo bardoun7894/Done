@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -34,17 +35,16 @@ import java.util.List;
 
 import io.paperdb.Paper;
 
-public class ChatActivity extends AppCompatActivity implements View.OnClickListener {
+public class ChatActivity extends AppCompatActivity implements View.OnClickListener ,CancelOrder{
 ImageView img ,backchatI,photosPerson,send_chat ;
 TextView textUsername;
 EditText messageET ;
-DatabaseReference databaseReference ;
 String username;
 FirebaseUser fuser;
 
     List<Item_chat_one> chatList ;
     RecyclerView recyclerView;
-    DatabaseReference reference;
+    DatabaseReference reference,removeRef;
     private List<User> userList;
     private String photos;
     private String acceptSeller;
@@ -68,7 +68,7 @@ FirebaseUser fuser;
         reference = FirebaseDatabase.getInstance().getReference().child("Chats");
         userList =new ArrayList<>();
         chatList =new ArrayList<>();
-        databaseReference =FirebaseDatabase.getInstance().getReference("Users").child(username);
+        removeRef =FirebaseDatabase.getInstance().getReference().child("demandeFromUser");
         img =findViewById(R.id.menu_chatId);
         photosPerson =findViewById(R.id.photoPerson);
         messageET =findViewById(R.id.messageET);
@@ -81,17 +81,15 @@ FirebaseUser fuser;
         backchatI.setOnClickListener(this);
         send_chat.setOnClickListener(this);
        fuser= FirebaseAuth.getInstance().getCurrentUser();
-        if(acceptSeller!=null){
+        if(acceptSeller!=null)  {
             sendMessage(fuser.getDisplayName(),username,acceptSeller);
-        }
+                                }
         readMessages(fuser.getDisplayName(), username,photos);
-     }
+                       }
     @Override
     public void onClick(View v) {
      switch (v.getId()){
-         case R.id.cancel_order_id :
-            finish();
-             break;
+
          case R.id.backChatId :
             finish();
              break;
@@ -156,4 +154,24 @@ FirebaseUser fuser;
            hashMap.put("message",message);
            reference.push().setValue(hashMap);
     }
+
+    @Override
+    public void cancel(String comm) {
+if(comm!=null){
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference().child("demandeFromUser");
+        reference2.child(comm).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+               Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+               startActivity(intent);
+                Toast.makeText(getApplicationContext(), "تم الغاء الطلب", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+
+}
+
+
 }

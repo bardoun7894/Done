@@ -68,22 +68,20 @@ String paper ="";
                       final User user = snapshot.getValue(User.class);
                       assert user != null;
                       assert firebaseUser != null;
-                      System.out.println(user.getEmail());
          referenceOtlob.addListenerForSingleValueEvent(new ValueEventListener() {
-                          @Override
-                          public void onDataChange(@NonNull DataSnapshot dataSnapshotOtlob) {
-
+               @Override
+           public void onDataChange(@NonNull DataSnapshot dataSnapshotOtlob) {
                               for (DataSnapshot snapshot : dataSnapshotOtlob.getChildren()) {
                  ItemNotification itemNotification = snapshot.getValue(ItemNotification.class);
-                                  String dem =itemNotification.getUsername();
+                             String dem =itemNotification.getUsername();
                              String demandeTo = itemNotification.getDemandeTo() ;
-                                  System.out.println("Dem"+itemNotification.getUsername());
-                                  System.out.println(firebaseUser.getDisplayName()+"user");
-                               if (dem.equals(user.getUsername()) || demandeTo.equals(user.getUsername())) {
-                                   if (!user.getUsername().equals(firebaseUser.getDisplayName())) {
-                                       userList.add(user);
-                                   }
-                                      }
+
+          if ((user.getUsername().equals(dem) && firebaseUser.getDisplayName().equals(demandeTo))||
+                  user.getUsername().equals(demandeTo) && firebaseUser.getDisplayName().equals(dem)
+                    )
+                    {
+                userList.add(user);
+              }
 
                               }
 
