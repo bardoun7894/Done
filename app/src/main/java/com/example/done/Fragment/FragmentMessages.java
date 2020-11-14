@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.done.Prevalent;
 import com.example.done.models.ItemChat;
 import com.example.done.R;
+import com.example.done.models.ItemNotification;
 import com.example.done.models.User;
 import com.example.recyclers.RecyclerItemMessages;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,20 +69,24 @@ String paper ="";
                       assert user != null;
                       assert firebaseUser != null;
                       System.out.println(user.getEmail());
-         referenceOtlob.child(user.getUsername()).addListenerForSingleValueEvent(new ValueEventListener() {
+         referenceOtlob.addListenerForSingleValueEvent(new ValueEventListener() {
                           @Override
                           public void onDataChange(@NonNull DataSnapshot dataSnapshotOtlob) {
-                              if (dataSnapshotOtlob.exists()) {
-                                  String dem = dataSnapshotOtlob.child("username").getValue().toString();
-                                  String demandeTo = dataSnapshotOtlob.child("demandeTo").getValue().toString();
-                                  System.out.println(dem);
-                                  System.out.println(firebaseUser.getDisplayName());
-                                      if (dem.equals(firebaseUser.getDisplayName()) || demandeTo.equals(firebaseUser.getDisplayName())) {
-                                          if (!user.getUsername().equals(firebaseUser.getDisplayName())) {
-                                              userList.add(user);
-                                          }
+
+                              for (DataSnapshot snapshot : dataSnapshotOtlob.getChildren()) {
+                 ItemNotification itemNotification = snapshot.getValue(ItemNotification.class);
+                                  String dem =itemNotification.getUsername();
+                             String demandeTo = itemNotification.getDemandeTo() ;
+                                  System.out.println("Dem"+itemNotification.getUsername());
+                                  System.out.println(firebaseUser.getDisplayName()+"user");
+                               if (dem.equals(user.getUsername()) || demandeTo.equals(user.getUsername())) {
+                                   if (!user.getUsername().equals(firebaseUser.getDisplayName())) {
+                                       userList.add(user);
+                                   }
                                       }
+
                               }
+
                               recyclerView.setAdapter(new RecyclerItemMessages(userList));
                           }
 

@@ -10,6 +10,7 @@ public class ItemNotification  implements Serializable {
     String username;
     String classification ;
     String demandeTo ;
+
 public ItemNotification(){
 
 };
